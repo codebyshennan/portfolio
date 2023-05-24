@@ -13,6 +13,9 @@ export default async function BlogPage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">Blog</h1>
+      <p className="text-neutral-400 text-base -mt-1 mb-3">
+        Caffeinated thoughts on software development, design, and more.
+      </p>
 
       <div
         id="posts"

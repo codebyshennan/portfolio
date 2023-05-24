@@ -64,18 +64,17 @@ const Stats = (props: StatsType) => {
           //   animate="visible"
           //   variants={scrollAnimationVariants}
           //   className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald shadow sm:px-6 sm:pt-6"
-          // >
           <div className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald shadow sm:px-6 sm:pt-6">
             <dt>
               <div className="bg-white-600 absolute rounded-md p-3">
                 {item.icon}
               </div>
-              <p className="l ml-24 truncate font-oswald text-xl font-medium text-white">
+              <p className="l ml-24 truncate font-oswald text-xl font-medium dark:text-white">
                 {item.name}
               </p>
             </dt>
             <dd className="ml-24 flex items-baseline pb-6">
-              <p className="text-2xl font-semibold italic text-white">
+              <p className="text-2xl font-semibold italic dark:text-white">
                 {item.stat}
               </p>
             </dd>

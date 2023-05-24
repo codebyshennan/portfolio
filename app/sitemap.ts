@@ -11,9 +11,9 @@ export default async function sitemap() {
     "/about",
     "/blog",
     "/dashboard",
-    "/portfolio",
-    "guestbook",
-    "/uses",
+    "/projects",
+    "/guestbook",
+    "/tools",
   ];
 
   routes.map((route) => ({

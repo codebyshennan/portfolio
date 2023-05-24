@@ -7,6 +7,7 @@ import {
   TbBrandSupabase,
   TbBrandTypescript,
 } from "react-icons/tb";
+import { GiBattleTank } from "react-icons/gi";
 import {
   SiAnsible,
   SiApacheairflow,
@@ -144,6 +145,11 @@ const technologies = {
     icon: <SiConsul />,
     link: "https://www.consul.io/",
     color: "blue-500",
+  },
+  tank: {
+    icon: <GiBattleTank />,
+    link: null,
+    color: "gray-300",
   },
 };
 

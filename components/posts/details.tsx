@@ -1,25 +1,30 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ColorExtractor } from "react-color-extractor";
 import ViewCounter from "app/blog/view-counter";
+import copy from "copy-to-clipboard";
+import { toast } from "react-hot-toast";
 
 export default function PostDetail({ post, slug }) {
   const router = useRouter();
+  const pathName = usePathname();
+  const [baseColor, setBaseColor] = useState("currentColor");
 
   return (
     <article>
       <meta name="theme-color" />
 
-      <header className="py-2 md:py-8 lg:h-screen md:h-auto">
+      <header className="py-2 md:py-8 h-auto">
         <div className="flex flex-col gap-2">
           <div className="container max-w-2xl mx-auto px-6 flex justify-between items-center">
             <button
               id="back-btn"
               className="text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20"
+              // style={{ color: baseColor }}
               onClick={() =>
                 router.back == null ? router.push("/") : router.back()
               }
@@ -29,7 +34,7 @@ export default function PostDetail({ post, slug }) {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke="currentColor"
+                stroke={baseColor}
                 className="w-6 h-6"
               >
                 <path
@@ -39,14 +44,24 @@ export default function PostDetail({ post, slug }) {
                 />
               </svg>
             </button>
+
             <div className="flex flex-row gap-4">
-              <button className="text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20">
+              <button
+                className="dark:text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20"
+                onClick={() => {
+                  copy(`https://byshennan.com${pathName}`, {
+                    debug: true,
+                    message: "Press #{key} to copy",
+                  });
+                  toast.success("Copied to clipboard!");
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
-                  stroke="currentColor"
+                  stroke={baseColor}
                   className="w-6 h-6"
                 >
                   <path
@@ -56,13 +71,13 @@ export default function PostDetail({ post, slug }) {
                   />
                 </svg>
               </button>
-              <button className="text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20">
+              <button className="dark:text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
-                  stroke="currentColor"
+                  stroke={baseColor}
                   className="w-6 h-6"
                 >
                   <path
@@ -79,7 +94,10 @@ export default function PostDetail({ post, slug }) {
             <h1
               id="title"
               className="font-bold text-[32px] md:text-4xl dark:text-white brightness-150 leading-[36px] tracking-tight"
-              style={{ textShadow: "2px 3px 5px rgba(0,0,0,0.10)" }}
+              style={{
+                textShadow: "2px 3px 5px rgba(0,0,0,0.10)",
+                color: baseColor,
+              }}
             >
               {post.metadata.title}
             </h1>
@@ -113,7 +131,7 @@ export default function PostDetail({ post, slug }) {
               <p>
                 by{" "}
                 <span id="author" className="font-medium">
-                  Brian Ruiz
+                  Shen Nan
                 </span>
               </p>
               <p id="date">{post.metadata.date}</p>
@@ -131,12 +149,7 @@ export default function PostDetail({ post, slug }) {
               //   "header"
               // )!.style.backgroundColor = colors[1];
 
-              document.querySelector<HTMLElement>("#title")!.style.color =
-                colors[5];
-
-              document.querySelector<HTMLElement>(
-                "#back-btn"
-              )!.style.backgroundColor = colors[1];
+              setBaseColor(colors[5]);
 
               // [
               //   ...document.querySelector<HTMLElement>("#palette")!.children,

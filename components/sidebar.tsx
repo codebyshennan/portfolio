@@ -29,21 +29,21 @@ const navItems = {
     name: "blog",
     icon: faBlog,
   },
+  "/projects": {
+    name: "projects",
+    icon: faFolder,
+  },
   "/dashboard": {
     name: "dashboard",
     icon: faDashboard,
   },
-  "/portfolio": {
-    name: "portfolio",
-    icon: faFolder,
+  "/tools": {
+    name: "tools",
+    icon: faScrewdriverWrench,
   },
   "/guestbook": {
     name: "guestbook",
     icon: faBullhorn,
-  },
-  "/uses": {
-    name: "tools",
-    icon: faScrewdriverWrench,
   },
 };
 

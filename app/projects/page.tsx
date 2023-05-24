@@ -3,11 +3,11 @@ import { getAllPublished } from "lib/notion";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Read my thoughts on software development, design, and more.",
+  title: "Projects",
+  description: "See what I've been working on.",
 };
 
-export default async function PortfolioPage() {
+export default async function ProjectsPage() {
   const posts = await getAllPublished();
 
   return (
@@ -15,7 +15,7 @@ export default async function PortfolioPage() {
       <div className="container max-w-6xl mx-auto">
         <h1 className="font-bold text-3xl font-serif mb-5">Projects.</h1>
         <p className="text-neutral-400 text-base -mt-1 mb-3">
-          Readings with a deep dive
+          Hacks, experiments, and more.
         </p>
       </div>
       <div

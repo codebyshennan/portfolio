@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body {
-      @apply dark:bg-gray-800 bg-white
-  }
-}
-
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
