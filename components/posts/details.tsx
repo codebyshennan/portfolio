@@ -8,6 +8,7 @@ import { ColorExtractor } from "react-color-extractor";
 import ViewCounter from "app/blog/view-counter";
 import copy from "copy-to-clipboard";
 import { toast } from "react-hot-toast";
+import { ScrollToTop } from "components/scrollTop";
 
 export default function PostDetail({ post, slug }) {
   const router = useRouter();
@@ -17,6 +18,8 @@ export default function PostDetail({ post, slug }) {
   return (
     <article>
       <meta name="theme-color" />
+
+      <ScrollToTop />
 
       <header className="py-2 md:py-8 h-auto">
         <div className="flex flex-col gap-2">

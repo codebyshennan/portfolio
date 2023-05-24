@@ -9,7 +9,7 @@ import { Menu, Transition } from "@headlessui/react";
 export default function PostCardLg({ post, key }) {
   return (
     <Link
-      href={`portfolio/${post.slug}`}
+      href={`projects/${post.slug}`}
       key={key}
       className="snap-start flex flex-col shadow-lg bg-neutral-200 dark:bg-neutral-900 min-w-[80%] md:min-w-[100%] rounded-xl col-span-1 overflow-hidden will-change-transform "
     >

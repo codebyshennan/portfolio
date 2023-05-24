@@ -100,14 +100,14 @@ export default function Navbar() {
   const matchMd = useMediaQuery("(min-width: 768px)");
 
   return (
-    <aside className="md:w-[150px] bg-white dark:bg-[#111010] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif sticky top-0 z-50">
+    <aside className="md:w-[150px] bg-white dark:bg-[#111010] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif sticky top-0 z-50 backdrop-blur-md bg-opacity-50">
       <div className="lg:sticky lg:top-20">
-        <div className="mt-16 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 space-y-10 flex flex-col md:flex-row items-start ">
+        <div className="mt-8 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 space-y-10 flex flex-col md:flex-row items-start ">
           <Logo />
         </div>
         <LayoutGroup>
           <nav
-            className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 "
+            className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-4 fade md:overflow-auto scroll-pr-6"
             id="nav"
           >
             <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0">
