@@ -106,7 +106,7 @@ export default function AboutPage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">About Me</h1>
-      <p className="my-5 text-neutral-800 dark:text-neutral-200">
+      <div className="my-5 text-neutral-800 dark:text-neutral-200">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           {timeline.map((item, index) => (
             <li key={index} className="ml-4">
@@ -183,7 +183,7 @@ export default function AboutPage() {
             </li>
           ))}
         </ol>
-      </p>
+      </div>
     </section>
   );
 }

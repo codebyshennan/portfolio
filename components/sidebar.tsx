@@ -4,7 +4,6 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
-import { useMediaQuery } from "usehooks-ts";
 import {
   faHome,
   faUser,
@@ -15,6 +14,7 @@ import {
   faBlog,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useMediaQuery } from "usehooks-ts";
 
 const navItems = {
   "/": {
@@ -47,9 +47,11 @@ const navItems = {
   },
 };
 
+export const routes = Object.keys(navItems);
+
 function Logo() {
   return (
-    <Link aria-label="Lee Robinson" href="/">
+    <Link aria-label="Shen Nan, Wong" href="/">
       <motion.svg
         className="text-black dark:text-white h-[25px] md:h-[37px]"
         width="25"

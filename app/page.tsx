@@ -63,7 +63,7 @@ export default async function HomePage() {
           <a
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/leerob"
+            href="https://github.com/codebyshennan"
             className="flex items-center gap-2"
           >
             <GitHubIcon />
@@ -95,7 +95,7 @@ export default async function HomePage() {
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://leerob.substack.com"
+            href="https://byshennan.substack.com/"
           >
             <ArrowIcon />
             <p className="h-7">get email updates</p>
