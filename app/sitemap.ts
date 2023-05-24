@@ -1,4 +1,3 @@
-import { routes } from "components/sidebar";
 import { allBlogs } from "contentlayer/generated";
 
 export default async function sitemap() {
@@ -6,6 +5,16 @@ export default async function sitemap() {
     url: `https://byshennan.com/blog/${post.slug}`,
     lastModified: post.publishedAt,
   }));
+
+  const routes = [
+    "",
+    "/about",
+    "/blog",
+    "/dashboard",
+    "/portfolio",
+    "guestbook",
+    "/uses",
+  ];
 
   routes.map((route) => ({
     url: `https://byshennan.com${route}`,

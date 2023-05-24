@@ -47,8 +47,6 @@ const navItems = {
   },
 };
 
-export const routes = Object.keys(navItems);
-
 function Logo() {
   return (
     <Link aria-label="Shen Nan, Wong" href="/">
