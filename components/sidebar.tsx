@@ -103,7 +103,7 @@ export default function Navbar() {
     <aside className="md:w-[150px] bg-white dark:bg-[#111010] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif sticky top-0 z-50 backdrop-blur-md bg-opacity-50">
       <div className="lg:sticky lg:top-20">
         <div className="mt-8 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 space-y-10 flex flex-col md:flex-row items-start ">
-          <Logo />
+          {/* <Logo /> */}
         </div>
         <LayoutGroup>
           <nav
