@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Shen Nan, Wong",
     images: [
       {
-        url: "https://byshennan.com/og.jpg",
+        url: "https://byshennan.com/og.png",
         width: 1920,
         height: 1080,
       },
