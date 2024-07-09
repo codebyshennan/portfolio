@@ -12,9 +12,9 @@ export const about = () => {
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         {" "}
-        Partior
+        Iterative
       </Link>{" "}
-      as a Senior DevSecOps Engineer.
+      as a Software Engineer, focusing on investments, hyperautomation and AI.
     </>
   );
 };

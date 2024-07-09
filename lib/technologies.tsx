@@ -23,7 +23,7 @@ import {
   SiTerraform,
   SiVault,
 } from "react-icons/si";
-import { FaAws, FaReact } from "react-icons/fa";
+import { FaAws, FaPython, FaReact } from "react-icons/fa";
 
 const technologies = {
   mongodb: {
@@ -35,6 +35,11 @@ const technologies = {
     icon: <SiSnowflake />,
     link: "https://nodejs.org/en/",
     color: "green-500",
+  },
+  python: {
+    icon: <FaPython />,
+    link: "https://www.python.org/",
+    color: "blue-500",
   },
   react: {
     icon: <FaReact />,

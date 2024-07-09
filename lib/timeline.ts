@@ -16,6 +16,24 @@ interface Role {
 
 const timeline: Timeline[] = [
   {
+    date: "2024",
+    company: "Iterative Capital",
+    logo: "https://cdn.prod.website-files.com/60b1bd0542d31f178d12f8e5/60b1bf54d2a4d962883ac95d_logo-black-on-white.webp",
+    link: "https://iterative.vc/",
+    roles: [
+      {
+        position: "Software Engineer, Investments",
+        description: [
+          "Iterative Capital is an early stage, generalist venture capital firm, providing full investment amount upfront. Iterative supports startups with an investment of USD150k to USD500k, and provide close founder mentorship, guidance and support thoroughout their startup journey.",
+          "I help the investments team make better investment decisions faster, through hyperautomation, tech due diligence checks and R&D on latest innovations in different spaces.",
+        ],
+        technologies: ["python", "nextjs", "supabase"],
+        href: null,
+        hook: null,
+      },
+    ],
+  },
+  {
     date: "2023",
     logo: "https://media.licdn.com/dms/image/C4D0BAQHB7yhWovVDrw/company-logo_200_200/0/1653279952984?e=1692835200&v=beta&t=ORM9CWTDb6tSDses2RtROE2RMyyHOfLor7bFXk4DwSw",
     link: "https://www.partior.com/",

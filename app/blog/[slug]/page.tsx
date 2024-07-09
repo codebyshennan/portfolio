@@ -53,6 +53,8 @@ export async function generateMetadata({
   };
 }
 
+export const revalidate = 3600; // revalidate every hour
+
 export default async function Blog({ params }) {
   const post = await getSingleBlogPostBySlug(params.slug);
 
