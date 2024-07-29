@@ -18,7 +18,7 @@ const timeline: Timeline[] = [
   {
     date: "2024",
     company: "Iterative Capital",
-    logo: "https://cdn.prod.website-files.com/60b1bd0542d31f178d12f8e5/60b1bf54d2a4d962883ac95d_logo-black-on-white.webp",
+    logo: "https://media.licdn.com/dms/image/C510BAQE8kVcekG6NdA/company-logo_100_100/0/1630588508797/iterative_capital_logo?e=1730332800&v=beta&t=m6YSpnXh4njUDe6sXwqp0fzW0NI4SHR2NWrtyVXDWes",
     link: "https://iterative.vc/",
     roles: [
       {
@@ -35,7 +35,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2023",
-    logo: "https://media.licdn.com/dms/image/C4D0BAQHB7yhWovVDrw/company-logo_200_200/0/1653279952984?e=1692835200&v=beta&t=ORM9CWTDb6tSDses2RtROE2RMyyHOfLor7bFXk4DwSw",
+    logo: "https://media.licdn.com/dms/image/D560BAQHtFUwwHh4sjw/company-logo_200_200/0/1713257813025/partior_logo?e=1730332800&v=beta&t=RVDT8hsTJAnzuYZG1yw1PfBesr4JZFuEwen-swk_p8c",
     link: "https://www.partior.com/",
     company: "Partior",
     roles: [
@@ -61,7 +61,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2022",
-    logo: "https://media.licdn.com/dms/image/C510BAQE66pFvLAVb9g/company-logo_200_200/0/1562664339084?e=1692835200&v=beta&t=YLC-xJusUaLmv3lC8yuapqHyqNPm9dK4oXaHAW2l1Hs",
+    logo: "https://media.licdn.com/dms/image/D560BAQF-umRQNeNuyA/company-logo_200_200/0/1719257627163/circles1_logo?e=1730332800&v=beta&t=DrB-CJH1L2Y16K2hlGD_3y6FfN7RheGHumslWuZgZlQ",
     link: "https://www.circles.life/",
     company: "Circles.Life",
     roles: [
@@ -117,7 +117,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2021",
-    logo: "https://media.licdn.com/dms/image/C560BAQEuyCzPQOPMuQ/company-logo_200_200/0/1610947719563?e=1692835200&v=beta&t=4zkxs7SQ8YAiHOeGhJJ1nmoqBNbnGYASZW-9JCTljiQ",
+    logo: "https://media.licdn.com/dms/image/C560BAQEuyCzPQOPMuQ/company-logo_200_200/0/1630649652804/rocketacademyco_logo?e=1730332800&v=beta&t=uKeI_VVCqSdoK9R71TVX2bB3zl_Dr2rnurNDRdRK-zA",
     link: "https://www.rocketacademy.co/",
     company: "Rocket Academy",
     roles: [
@@ -136,7 +136,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2016 - 2021",
-    logo: "https://media.licdn.com/dms/image/C560BAQEqaycg6_-zMQ/company-logo_200_200/0/1679987387274?e=1692835200&v=beta&t=r-DuVn1LXbj6eGPOad6Y8gghI8eNzp80vj9mBAsirJM",
+    logo: "https://media.licdn.com/dms/image/C510BAQGDgtEeUUSbDg/company-logo_100_100/0/1630631104566/ministry_of_defence_singapore_logo?e=1730332800&v=beta&t=C6oJKrsTLQgNrbBH0b_n1Lm2dimjtc9ymRV-LyUaHXk",
     link: "https://www.mindef.gov.sg/oms/arc/",
     company: "MINDEF / SAF",
     roles: [
