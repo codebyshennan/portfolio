@@ -18,7 +18,7 @@ export function SignIn() {
   return (
     <button
       className="flex bg-black text-neutral-200 px-4 py-3 rounded-md font-semibold text-sm mb-4 hover:text-white transition-all border border-gray-800"
-      onClick={() => signIn('github')}
+      onClick={() => signIn('github', { redirect: true })}
     >
       <GitHubIcon />
       <div className="ml-3">Sign in with GitHub</div>

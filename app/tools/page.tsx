@@ -6,6 +6,8 @@ export const metadata: Metadata = {
     "Here's what tech I'm currently using for coding, work and surfing the web.",
 };
 
+export const revalidate = 86400; // Revalidate once per day (static page)
+
 export default function UsesPage() {
   return (
     <section>

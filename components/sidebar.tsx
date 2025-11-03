@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMediaQuery } from "usehooks-ts";
+import { useEffect, useState } from "react";
 
 const navItems = {
   "/": {
@@ -97,10 +98,17 @@ export default function Navbar() {
   if (pathname.includes("/blog/")) {
     pathname = "/blog";
   }
-  const matchMd = useMediaQuery("(min-width: 768px)");
+  const matchMdQuery = useMediaQuery("(min-width: 768px)");
+  const [matchMd, setMatchMd] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setMatchMd(matchMdQuery);
+  }, [matchMdQuery]);
 
   return (
-    <aside className="md:w-[150px] bg-white dark:bg-[#111010] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif sticky top-0 z-50 backdrop-blur-md bg-opacity-50">
+    <aside className="md:w-[180px] bg-white dark:bg-[#111010] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif sticky top-0 z-50 backdrop-blur-md bg-opacity-50 md:min-w-[180px]">
       <div className="lg:sticky lg:top-20">
         <div className="mt-8 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 space-y-10 flex flex-col md:flex-row items-start ">
           {/* <Logo /> */}
@@ -118,15 +126,30 @@ export default function Navbar() {
                     key={path}
                     href={path}
                     className={clsx(
-                      "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
+                      "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle md:w-full",
                       {
                         "text-neutral-500": !isActive,
-                        "font-bold": isActive,
                       }
                     )}
                   >
-                    <span className="relative py-[5px] px-[10px]">
-                      {matchMd ? name : <FontAwesomeIcon icon={icon} />}
+                    <span className="relative py-[5px] px-[10px] w-full md:w-[140px] inline-block text-left">
+                      {!mounted ? (
+                        <FontAwesomeIcon icon={icon} />
+                      ) : matchMd ? (
+                        <span className="inline-block w-full relative">
+                          {/* Always reserve space for bold version to prevent layout shift */}
+                          <span className="font-bold invisible pointer-events-none block">
+                            {name}
+                          </span>
+                          <span className={clsx("absolute inset-0 flex items-center", {
+                            "font-bold": isActive,
+                          })}>
+                            {name}
+                          </span>
+                        </span>
+                      ) : (
+                        <FontAwesomeIcon icon={icon} />
+                      )}
                       {path === pathname ? (
                         <motion.div
                           className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md z-[-1]"

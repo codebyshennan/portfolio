@@ -1,14 +1,21 @@
 import technologies from "lib/technologies";
 import timeline from "lib/timeline";
 import { Fragment } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About Shen Nan, Wong - Software engineer with a passion for building products.",
+};
+
+export const revalidate = 86400; // Revalidate once per day
 
 export default function AboutPage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
-        I'm a software engineer with a passion for building products and
-        learning new things.
+        Data & Automations Engineer at Iterative Capital, building systems that unify sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights & seamless internal tools.
       </p>
       <div className="my-5 text-neutral-800 dark:text-neutral-200">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
@@ -19,8 +26,14 @@ export default function AboutPage() {
                 {item.date}
               </time>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                <img src={item.logo} className="w-4 h-4 mr-2 inline-block" />
-                <a href={item.link}>{item.company}</a>
+                {item.logo && (
+                  <img src={item.logo} className="w-4 h-4 mr-2 inline-block" />
+                )}
+                {item.link ? (
+                  <a href={item.link}>{item.company}</a>
+                ) : (
+                  <span>{item.company}</span>
+                )}
                 {index === 0 && (
                   <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-3">
                     Current
@@ -42,6 +55,30 @@ export default function AboutPage() {
                           </li>
                         ))}
                       </ol>
+
+                      {role.clients && role.clients.length > 0 && (
+                        <div className="mt-4">
+                          <div className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500 mb-2">
+                            Clients & partners
+                          </div>
+                          <div className="flex flex-wrap items-center gap-3 mx-1">
+                            {role.clients.map((client, idx) => (
+                              <a
+                                key={`${client.name}-${idx}`}
+                                href={client.link}
+                                className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
+                              >
+                                <img
+                                  src={client.logo}
+                                  alt={client.name}
+                                  className="w-4 h-4"
+                                />
+                                <span>{client.name}</span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       <div className="my-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                         Tech Stack

@@ -1,8 +1,10 @@
 const { get } = require('@vercel/edge-config');
-const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     // Twitter Profile Picture
@@ -18,9 +20,6 @@ const nextConfig = {
         pathname: '/**',
       }
     ],
-  },
-  experimental: {
-    appDir: true,
   },
   redirects() {
     try {
@@ -88,4 +87,4 @@ const securityHeaders = [
   },
 ];
 
-module.exports = withContentlayer(nextConfig);
+module.exports = nextConfig;

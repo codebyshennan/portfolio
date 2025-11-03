@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function BlogPage() {
   const posts = await getAllPublished();
 

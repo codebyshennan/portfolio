@@ -1,10 +1,20 @@
-import { allBlogs } from "contentlayer/generated";
+import { getAllPublished } from "lib/notion";
 
 export default async function sitemap() {
-  const blogs = allBlogs.map((post) => ({
-    url: `https://byshennan.com/blog/${post.slug}`,
-    lastModified: post.publishedAt,
-  }));
+  const posts = await getAllPublished();
+  const blogs = posts
+    .filter((post) => post.category === "Blog")
+    .map((post) => ({
+      url: `https://byshennan.com/blog/${post.slug}`,
+      lastModified: post.publishedAt || new Date().toISOString(),
+    }));
+
+  const projects = posts
+    .filter((post) => post.category === "Project")
+    .map((post) => ({
+      url: `https://byshennan.com/projects/${post.slug}`,
+      lastModified: post.publishedAt || new Date().toISOString(),
+    }));
 
   const routes = [
     "",
@@ -14,12 +24,10 @@ export default async function sitemap() {
     "/projects",
     "/guestbook",
     "/tools",
-  ];
-
-  routes.map((route) => ({
+  ].map((route) => ({
     url: `https://byshennan.com${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
+    lastModified: new Date().toISOString(),
   }));
 
-  return [...routes, ...blogs];
+  return [...routes, ...blogs, ...projects];
 }

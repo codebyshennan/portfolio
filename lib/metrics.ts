@@ -42,14 +42,37 @@ export const getStarCount = cache(async () => {
     return 0;
   }
 
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-  });
+  try {
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+      request: {
+        // Cache responses for 1 hour
+        fetch: (url, options) => {
+          return fetch(url, {
+            ...options,
+            next: { revalidate: 3600 },
+          } as RequestInit);
+        },
+      },
+    });
 
-  const req = await octokit.request("GET /repos/{owner}/{repo}", {
-    owner: "codebyshennan",
-    repo: "portfolio",
-  });
+    const { data } = await octokit.rest.repos.get({
+      owner: "codebyshennan",
+      repo: "portfolio",
+    });
 
-  return req.data.subscribers_count;
+    // Use stargazers_count for star count, not subscribers_count
+    return data.stargazers_count || 0;
+  } catch (error: any) {
+    // Silently handle credential errors - these are expected in development
+    // Only log non-authentication errors for debugging
+    if (error?.status === 401 || error?.status === 403) {
+      // Bad credentials or forbidden - likely missing/invalid token
+      // This is expected in dev environments without GitHub token
+      return 0;
+    }
+    // Log other errors (network issues, etc.)
+    console.error("Failed to fetch GitHub star count:", error?.message || error);
+    return 0;
+  }
 });

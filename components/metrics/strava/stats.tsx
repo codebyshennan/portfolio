@@ -57,14 +57,14 @@ const Stats = (props: StatsType) => {
   return (
     <div className="max-w-8xl mx-auto mt-10 mb-10 px-3 sm:px-4 lg:px-8">
       <dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2">
-        {stats.map((item, index: number) => (
+        {stats.map((item) => (
           // <motion.div
           //   key={index}
           //   initial="hidden"
           //   animate="visible"
           //   variants={scrollAnimationVariants}
           //   className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald shadow sm:px-6 sm:pt-6"
-          <div className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald shadow sm:px-6 sm:pt-6">
+          <div key={item.id} className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald shadow sm:px-6 sm:pt-6">
             <dt>
               <div className="bg-white-600 absolute rounded-md p-3">
                 {item.icon}

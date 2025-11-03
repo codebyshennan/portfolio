@@ -11,9 +11,11 @@ export default async function handler(
       .select(['slug', 'count'])
       .execute();
 
-    return res.status(200).json(data);
+    // Always return an array, even if empty
+    return res.status(200).json(Array.isArray(data) ? data : []);
   } catch (e) {
-    console.log(e);
-    return res.status(500).json({ message: e.message });
+    console.error("Error fetching views:", e);
+    // Return empty array on error so client doesn't crash
+    return res.status(500).json([]);
   }
 }

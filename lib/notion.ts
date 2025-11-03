@@ -85,6 +85,7 @@ const getPageMetaData = (post) => {
     tags: getTags(post.properties.Tags.multi_select),
     description: post.properties.Description.rich_text[0].plain_text,
     date: relativeDate(post.properties.Date.date.start),
+    publishedAt: post.properties.Date.date.start,
     slug: post.properties.Slug.rich_text[0].plain_text,
     cover: coverImage,
   };
@@ -151,23 +152,39 @@ const { NotionToMarkdown } = require("notion-to-md");
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getSingleBlogPostBySlug = async (slug) => {
+  // Get all published posts and filter by slug to avoid Notion API filter issues
+  const allPosts = await getAllPublished();
+  const matchingPost = allPosts.find((post) => post.slug === slug);
+  
+  if (!matchingPost) {
+    return null;
+  }
+  
+  // Query the specific page by ID
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID as string,
     filter: {
-      property: "Slug",
-      formula: {
-        string: {
-          equals: slug,
-        },
+      property: "Publish",
+      checkbox: {
+        equals: true,
       },
     },
   });
-  const page = response.results[0];
+  
+  const page = response.results.find(
+    (result) => getPageMetaData(result).slug === slug
+  );
+  
+  if (!page) {
+    return null;
+  }
   const metadata = getPageMetaData(page);
   const mdblocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdblocks);
+  // toMarkdownString returns an object with a 'parent' property containing the markdown string
+  const markdownContent = typeof mdString === 'string' ? mdString : mdString.parent || '';
   return {
     metadata,
-    markdown: mdString,
+    markdown: markdownContent,
   };
 };

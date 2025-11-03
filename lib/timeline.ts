@@ -6,26 +6,34 @@ interface Timeline {
   roles: Role[];
 }
 
+interface ClientOrg {
+  name: string;
+  link: string;
+  logo: string; // favicon or small logo URL
+}
+
 interface Role {
   position: string;
   description: string[];
   technologies: string[];
   href: string | null;
   hook: string | null;
+  clients?: ClientOrg[];
 }
 
 const timeline: Timeline[] = [
   {
-    date: "2024",
+    date: "Jun 24 - Present",
     company: "Iterative Capital",
-    logo: "https://media.licdn.com/dms/image/C510BAQE8kVcekG6NdA/company-logo_100_100/0/1630588508797/iterative_capital_logo?e=1730332800&v=beta&t=m6YSpnXh4njUDe6sXwqp0fzW0NI4SHR2NWrtyVXDWes",
+    logo: "https://www.google.com/s2/favicons?domain=iterative.vc&sz=64",
     link: "https://iterative.vc/",
     roles: [
       {
-        position: "Software Engineer, Investments",
+        position: "Data & Automations Engineer",
         description: [
-          "Iterative Capital is an early stage, generalist venture capital firm, providing full investment amount upfront. Iterative supports startups with an investment of USD150k to USD500k, and provide close founder mentorship, guidance and support thoroughout their startup journey.",
-          "I help the investments team make better investment decisions faster, through hyperautomation, tech due diligence checks and R&D on latest innovations in different spaces.",
+          "Lead the design & implementation of firm-wide data & automation infrastructure that powers investment, accelerator & portfolio operations. Build systems that unify sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights & seamless internal tools.",
+          "Conduct technical due diligence on deep-tech & software startups, host technical panels, & advise portfolio CTOs on engineering & infrastructure strategy.",
+          "Key projects include: Custom MCP Server (connected data sources for dynamic data retrieval & summarisation), Internal Network Graph (visualised founder & expert relationships to support scouting), Dynamic Founder Bible (parse founder-shared Slack knowledge into a searchable database).",
         ],
         technologies: ["python", "nextjs", "supabase"],
         href: null,
@@ -34,8 +42,60 @@ const timeline: Timeline[] = [
     ],
   },
   {
+    date: "Part-time",
+    company: "Fracxional",
+    logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
+    link: "https://fracxional.com/",
+    roles: [
+      {
+        position: "Founder / Technical Consultant",
+        description: [
+          "Curriculum design and instruction for international clients:",
+          "Institutions: NTU PaCE under SkillsUnion, SIT under StagMatch (Cloud / DevOps / Software), SMU PGDP under CuriousCore (Applied AI)",
+          "Companies: Tamkeen under Localized / SkillsUnion (Data Science, AI/ML & Analytics)",
+          "Others: Sarah@Capua under Rocket Academy (Software Engineering), BSD Academy, Preface AI (Robotics / Software, Applied AI)",
+        ],
+        technologies: [],
+        clients: [
+          {
+            name: "CuriousCore",
+            link: "https://curiouscore.com/",
+            logo: "https://www.google.com/s2/favicons?domain=curiouscore.com&sz=64",
+          },
+          {
+            name: "SkillsUnion",
+            link: "https://skillsunion.com/",
+            logo: "https://www.google.com/s2/favicons?domain=skillsunion.com&sz=64",
+          },
+          {
+            name: "Preface",
+            link: "https://preface.ai/",
+            logo: "https://www.google.com/s2/favicons?domain=preface.ai&sz=64",
+          },
+          {
+            name: "BSD Education",
+            link: "https://bsd.education/",
+            logo: "https://www.google.com/s2/favicons?domain=bsd.education&sz=64",
+          },
+          {
+            name: "Stag Match (SMET)",
+            link: "https://smet.edu.sg/",
+            logo: "https://www.google.com/s2/favicons?domain=smet.edu.sg&sz=64",
+          },
+          {
+            name: "Sarah@Capua",
+            link: "https://sarah.capua.co/",
+            logo: "https://www.google.com/s2/favicons?domain=sarah.capua.co&sz=64",
+          },
+        ],
+        href: null,
+        hook: null,
+      },
+    ],
+  },
+  {
     date: "2023",
-    logo: "https://media.licdn.com/dms/image/D560BAQHtFUwwHh4sjw/company-logo_200_200/0/1713257813025/partior_logo?e=1730332800&v=beta&t=RVDT8hsTJAnzuYZG1yw1PfBesr4JZFuEwen-swk_p8c",
+    logo: "https://www.google.com/s2/favicons?domain=partior.com&sz=64",
     link: "https://www.partior.com/",
     company: "Partior",
     roles: [
@@ -61,7 +121,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2022",
-    logo: "https://media.licdn.com/dms/image/D560BAQF-umRQNeNuyA/company-logo_200_200/0/1719257627163/circles1_logo?e=1730332800&v=beta&t=DrB-CJH1L2Y16K2hlGD_3y6FfN7RheGHumslWuZgZlQ",
+    logo: "https://www.google.com/s2/favicons?domain=circles.life&sz=64",
     link: "https://www.circles.life/",
     company: "Circles.Life",
     roles: [
@@ -117,7 +177,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2021",
-    logo: "https://media.licdn.com/dms/image/C560BAQEuyCzPQOPMuQ/company-logo_200_200/0/1630649652804/rocketacademyco_logo?e=1730332800&v=beta&t=uKeI_VVCqSdoK9R71TVX2bB3zl_Dr2rnurNDRdRK-zA",
+    logo: "https://www.google.com/s2/favicons?domain=rocketacademy.co&sz=64",
     link: "https://www.rocketacademy.co/",
     company: "Rocket Academy",
     roles: [
@@ -136,7 +196,7 @@ const timeline: Timeline[] = [
   },
   {
     date: "2016 - 2021",
-    logo: "https://media.licdn.com/dms/image/C510BAQGDgtEeUUSbDg/company-logo_100_100/0/1630631104566/ministry_of_defence_singapore_logo?e=1730332800&v=beta&t=C6oJKrsTLQgNrbBH0b_n1Lm2dimjtc9ymRV-LyUaHXk",
+    logo: "https://www.google.com/s2/favicons?domain=mindef.gov.sg&sz=64",
     link: "https://www.mindef.gov.sg/oms/arc/",
     company: "MINDEF / SAF",
     roles: [

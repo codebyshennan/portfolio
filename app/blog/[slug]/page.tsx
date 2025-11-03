@@ -1,33 +1,35 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allBlogs } from "contentlayer/generated";
-import { getSingleBlogPostBySlug } from "lib/notion";
+import { getAllPublished, getSingleBlogPostBySlug } from "lib/notion";
 import PostDetail from "components/posts/details";
 
 export async function generateStaticParams() {
-  return allBlogs.map((post) => ({
-    slug: post.slug,
-  }));
+  const posts = await getAllPublished();
+  return posts
+    .filter((post) => post.category === "Blog")
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  const { slug } = await params;
+  const post = await getSingleBlogPostBySlug(slug);
   if (!post) {
     return;
   }
 
   const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug,
+    metadata: { title, description, cover },
   } = post;
-  const ogImage = image
-    ? `https://byshennan.com${image}`
+  const ogImage = cover
+    ? cover
     : `https://byshennan.com/api/og?title=${title}`;
+
+  // Get published date from metadata (ISO format)
+  const publishedTime = post.metadata.publishedAt;
 
   return {
     title,
@@ -56,7 +58,8 @@ export async function generateMetadata({
 export const revalidate = 3600; // revalidate every hour
 
 export default async function Blog({ params }) {
-  const post = await getSingleBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getSingleBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -66,7 +69,7 @@ export default async function Blog({ params }) {
 
   return (
     <section>
-      <PostDetail post={post} slug={params.slug} />
+      <PostDetail post={post} slug={slug} />
     </section>
   );
 }

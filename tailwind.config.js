@@ -1,12 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
-
 module.exports = {
-  mode: 'jit',
   content: [
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './content/**/*.mdx',
   ],
   theme: {
     extend: {
@@ -22,10 +18,6 @@ module.exports = {
         },
       },
     },
-    colors
-  },
-  future: {
-    hoverOnlyWhenSupported: true,
   },
   plugins: [require('@tailwindcss/typography')],
 };
