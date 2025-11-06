@@ -19,3 +19,5 @@ CREATE TABLE IF NOT EXISTS views (
 -- Create index on guestbook updated_at for faster sorting
 CREATE INDEX IF NOT EXISTS idx_guestbook_updated_at ON guestbook(updated_at DESC);
 
+
+

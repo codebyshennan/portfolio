@@ -21,7 +21,12 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function GuestbookPage() {
-  let entries;
+  let entries = [] as Array<{
+    id: number | string;
+    body: string;
+    created_by: string;
+    updated_at: string;
+  }>;
   let session;
 
   try {
@@ -30,8 +35,8 @@ export default async function GuestbookPage() {
       auth(),
     ]);
 
-    if (guestbookRes.status === "fulfilled" && guestbookRes.value[0]) {
-      entries = guestbookRes.value;
+    if (guestbookRes.status === "fulfilled") {
+      entries = guestbookRes.value ?? [];
     } else {
       console.error(guestbookRes);
     }
