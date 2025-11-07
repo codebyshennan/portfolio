@@ -1,11 +1,12 @@
-import technologies from "lib/technologies";
-import timeline from "lib/timeline";
 import { Fragment } from "react";
 import type { Metadata } from "next";
+import technologies from "lib/technologies";
+import timeline from "lib/timeline";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Shen Nan, Wong - Software engineer with a passion for building products.",
+  description:
+    "About Shen Nan, Wong - Software engineer with a passion for building products.",
 };
 
 export const revalidate = 86400; // Revalidate once per day
@@ -15,8 +16,32 @@ export default function AboutPage() {
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
-        Data & Automations Engineer at Iterative Capital, building systems that unify sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights & seamless internal tools.
+        Data & Automations Engineer at Iterative Capital, building systems that
+        unify sourcing, diligence, & decision-making through scalable data
+        pipelines, AI-driven insights & seamless internal tools.
       </p>
+      <a
+        href="https://www.papermark.com/view/cmholj83j0003l504yjnln5q0"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 mb-4"
+      >
+        View Resume
+        <svg
+          className="w-3 h-3 ml-2"
+          aria-label="View Resume"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+      </a>
       <div className="my-5 text-neutral-800 dark:text-neutral-200">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           {timeline.map((item, index) => (
