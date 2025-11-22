@@ -2,9 +2,6 @@ const { get } = require('@vercel/edge-config');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {
-    root: __dirname,
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
     // Twitter Profile Picture

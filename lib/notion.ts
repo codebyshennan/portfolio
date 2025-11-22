@@ -4,8 +4,27 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
+const notionConfigured =
+  Boolean(process.env.NOTION_API_KEY) &&
+  Boolean(process.env.NOTION_DATABASE_ID);
+
+async function queryNotionDatabase(options) {
+  if (!notionConfigured) {
+    console.warn("Notion environment variables missing, returning no posts.");
+    return [];
+  }
+
+  try {
+    const response = await notion.databases.query(options);
+    return response.results;
+  } catch (error) {
+    console.warn("Failed to fetch from Notion, returning no posts.", error);
+    return [];
+  }
+}
+
 export const getAllPublished = async () => {
-  const posts = await notion.databases.query({
+  const allPosts = await queryNotionDatabase({
     database_id: process.env.NOTION_DATABASE_ID as string,
     filter: {
       property: "Publish",
@@ -21,15 +40,13 @@ export const getAllPublished = async () => {
     ],
   });
 
-  const allPosts = posts.results;
-
   return allPosts.map((post) => {
     return getPageMetaData(post);
   });
 };
 
 export const getAllPublishedExcludeYouTube = async () => {
-  const posts = await notion.databases.query({
+  const allPosts = await queryNotionDatabase({
     database_id: process.env.NOTION_DATABASE_ID as string,
     filter: {
       and: [
@@ -54,8 +71,6 @@ export const getAllPublishedExcludeYouTube = async () => {
       },
     ],
   });
-
-  const allPosts = posts.results;
 
   return allPosts.map((post) => {
     return getPageMetaData(post);
@@ -155,13 +170,18 @@ export const getSingleBlogPostBySlug = async (slug) => {
   // Get all published posts and filter by slug to avoid Notion API filter issues
   const allPosts = await getAllPublished();
   const matchingPost = allPosts.find((post) => post.slug === slug);
-  
+
   if (!matchingPost) {
     return null;
   }
-  
+
+  if (!notionConfigured) {
+    console.warn("Notion is not configured, skipping page fetch.");
+    return null;
+  }
+
   // Query the specific page by ID
-  const response = await notion.databases.query({
+  const results = await queryNotionDatabase({
     database_id: process.env.NOTION_DATABASE_ID as string,
     filter: {
       property: "Publish",
@@ -170,21 +190,35 @@ export const getSingleBlogPostBySlug = async (slug) => {
       },
     },
   });
-  
-  const page = response.results.find(
+
+  const page = results.find(
     (result) => getPageMetaData(result).slug === slug
   );
-  
+
   if (!page) {
     return null;
   }
+
   const metadata = getPageMetaData(page);
-  const mdblocks = await n2m.pageToMarkdown(page.id);
-  const mdString = n2m.toMarkdownString(mdblocks);
-  // toMarkdownString returns an object with a 'parent' property containing the markdown string
-  const markdownContent = typeof mdString === 'string' ? mdString : mdString.parent || '';
-  return {
-    metadata,
-    markdown: markdownContent,
-  };
+
+  try {
+    const mdblocks = await n2m.pageToMarkdown(page.id);
+    const mdString = n2m.toMarkdownString(mdblocks);
+    // toMarkdownString returns an object with a 'parent' property containing the markdown string
+    const markdownContent =
+      typeof mdString === "string" ? mdString : mdString.parent || "";
+    return {
+      metadata,
+      markdown: markdownContent,
+    };
+  } catch (error) {
+    console.warn(
+      `Failed to convert Notion markdown for slug ${slug}, returning empty content.`,
+      error
+    );
+    return {
+      metadata,
+      markdown: "",
+    };
+  }
 };
