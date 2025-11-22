@@ -25,7 +25,7 @@ export default async function GuestbookPage() {
     id: number | string;
     body: string;
     created_by: string;
-    updated_at: string;
+    updated_at: string | undefined;
   }>;
   let session;
 
