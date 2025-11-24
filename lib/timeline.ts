@@ -103,8 +103,8 @@ const timeline: Timeline[] = [
 				position: "Co-founder, ex-CTO",
 				description: [
 					"Architected an AI-driven platform for food suppliers to cut errors, time and waste from manual order processing.",
-					"Piloted with Indoguna, FoodXervices and C.STAY, growing to ~USD 13k MRR within 3 months and pursuing expansion to Thailand and Dubai.",
-					"Raised ~USD 350k pre-seed from Antler, Garage Ventures, Protege Ventures and NTUitive.",
+					"Piloted with Indoguna, FoodXervices and CS Tay, growing to ~USD 13k MRR within 3 months and pursuing expansion to Thailand and Dubai.",
+					"Raised ~USD 350k pre-seed from Antler, Gharage Ventures, Protege Ventures and NTUitive.",
 					"Managed an offshore engineering team across Pakistan and India.",
 					"Moved to a tech advisory role to focus on work in Partior.",
 				],
