@@ -15,6 +15,7 @@ import {
   SiAwsamplify,
   SiConsul,
   SiDocker,
+  SiOpenai,
   SiExpress,
   SiJest,
   SiKubernetes,
@@ -45,6 +46,11 @@ const technologies = {
     icon: <FaReact />,
     link: "https://reactjs.org/",
     color: "blue-500",
+  },
+  openai: {
+    icon: <SiOpenai />,
+    link: "https://openai.com/",
+    color: "emerald-500",
   },
   nextjs: {
     icon: <TbBrandNextjs />,

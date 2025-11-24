@@ -94,6 +94,27 @@ const timeline: Timeline[] = [
     ],
   },
   {
+    date: "Apr 23 - Nov 23",
+    company: "ZOLO",
+    logo: "https://www.google.com/s2/favicons?domain=zolo.com&sz=64",
+    link: "",
+    roles: [
+      {
+        position: "Co-founder, ex-CTO",
+        description: [
+          "Architected an AI-driven platform for food suppliers to cut errors, time and waste from manual order processing.",
+          "Piloted with Indoguna, FoodXervices and C.STAY, growing to ~USD 13k MRR within 3 months and pursuing expansion to Thailand and Dubai.",
+          "Raised ~USD 350k pre-seed from Antler, Garage Ventures, Protege Ventures and NTUitive.",
+          "Managed an offshore engineering team across Pakistan and India.",
+          "Moved to a tech advisory role to focus on work in Partior.",
+        ],
+        technologies: ["nextjs", "openai"],
+        href: null,
+        hook: null,
+      },
+    ],
+  },
+  {
     date: "2023",
     logo: "https://www.google.com/s2/favicons?domain=partior.com&sz=64",
     link: "https://www.partior.com/",
