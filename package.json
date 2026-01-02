@@ -25,7 +25,7 @@
     "framer-motion": "^11.15.0",
     "kysely": "^0.28.8",
     "motion": "^11.16.0",
-    "next": "^16.0.1",
+    "next": "16.0.10",
     "next-auth": "^5.0.0-beta.25",
     "next-themes": "^0.4.4",
     "notion-to-md": "^3.0.0",
