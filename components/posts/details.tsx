@@ -5,16 +5,20 @@ import remarkGfm from "remark-gfm";
 
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
-import { ColorExtractor } from "react-color-extractor";
 import ViewCounter from "app/blog/view-counter";
-import copy from "copy-to-clipboard";
-import { toast } from "react-hot-toast";
 import { ScrollToTop } from "components/scrollTop";
 
 export default function PostDetail({ post, slug }) {
   const router = useRouter();
   const pathName = usePathname();
-  const [baseColor, setBaseColor] = useState("currentColor");
+  const baseColor = "currentColor";
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(`https://byshennan.com${pathName}`);
+    setShowCopied(true);
+    setTimeout(() => setShowCopied(false), 2000);
+  };
 
   return (
     <article>
@@ -91,15 +95,14 @@ export default function PostDetail({ post, slug }) {
                 </a>
               )}
               <button
-                className="dark:text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20"
-                onClick={() => {
-                  copy(`https://byshennan.com${pathName}`, {
-                    debug: true,
-                    message: "Press #{key} to copy",
-                  });
-                  toast.success("Copied to clipboard!");
-                }}
+                className="dark:text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20 relative"
+                onClick={handleCopy}
               >
+                {showCopied && (
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Copied!
+                  </span>
+                )}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -190,26 +193,6 @@ export default function PostDetail({ post, slug }) {
             </div>
           </div>
 
-          {post.metadata.cover && <ColorExtractor
-            src={post.metadata.cover}
-            getColors={(colors) => {
-              // document
-              //   .querySelector<HTMLElement>("meta[name=theme-color]")!
-              //   .setAttribute("content", colors[5]);
-
-              // document.querySelector<HTMLElement>(
-              //   "header"
-              // )!.style.backgroundColor = colors[1];
-
-              setBaseColor(colors[5]);
-
-              // [
-              //   ...document.querySelector<HTMLElement>("#palette")!.children,
-              // ].forEach((child: HTMLElement, index) => {
-              //   child.style.backgroundColor = colors[index];
-              // });
-            }}
-          />}
         </div>
       </header>
 

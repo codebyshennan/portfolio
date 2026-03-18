@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { BiArrowFromBottom } from "react-icons/bi";
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +37,11 @@ export const ScrollToTop = () => {
           "bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center rounded-full p-3 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2"
         )}
       >
-        <BiArrowFromBottom className="h-6 w-6" aria-hidden="true" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+          <path d="M12 19V5" />
+          <polyline points="5 12 12 5 19 12" />
+          <line x1="5" y1="21" x2="19" y2="21" />
+        </svg>
       </button>
     </div>
   );

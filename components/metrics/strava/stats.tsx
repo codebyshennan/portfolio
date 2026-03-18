@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import {
   distanceConverter,
   elevationConverter,
@@ -25,19 +23,6 @@ export interface StatsModel {
 interface StatsType {
   stats: StatsModel;
 }
-
-export const scrollAnimationVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 0.25,
-    },
-  },
-};
 
 const Stats = (props: StatsType) => {
   const runTotals = props.stats.all_run_totals;
