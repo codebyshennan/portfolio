@@ -24,7 +24,14 @@ export default function AboutPage() {
         I'm drawn to the intersection of deep technical product work and venture — building things that compound, and backing founders who do the same.
       </p>
       <p className="text-neutral-500 text-sm mb-4">
-        Currently in Ho Chi Minh City. Previously Hong Kong, Singapore, San Francisco, Beijing, and Germany.
+        Currently in{" "}
+        <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
+        {" "}Previously{" "}
+        <span title="Hong Kong" className="cursor-default">&#127469;&#127472;</span>{" "}
+        <span title="Singapore" className="cursor-default">&#127480;&#127468;</span>{" "}
+        <span title="San Francisco" className="cursor-default">&#127482;&#127480;</span>{" "}
+        <span title="Beijing" className="cursor-default">&#127464;&#127475;</span>{" "}
+        <span title="Germany" className="cursor-default">&#127465;&#127466;</span>
       </p>
       <a
         href="https://www.papermark.com/view/cmholj83j0003l504yjnln5q0"
@@ -51,7 +58,7 @@ export default function AboutPage() {
       <div className="my-5 text-neutral-800 dark:text-neutral-200">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           {timeline.map((item, index) => (
-            <li key={index} className="ml-4">
+            <li key={index} className="ml-4 mb-10">
               <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
               <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 {item.date}

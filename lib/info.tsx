@@ -6,7 +6,9 @@ export const avatar = me;
 export const about = () => {
   return (
     <>
-      Builder-investor based in Southeast Asia. Sole engineer at{" "}
+      Builder-investor based in Southeast Asia.
+      <br /><br />
+      Sole engineer at{" "}
       <Link
         href="/about"
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
@@ -14,14 +16,16 @@ export const about = () => {
         Iterative
       </Link>
       , where I build the data infrastructure, internal tooling, and AI systems
-      that power our investment operations. Also running{" "}
+      that power our investment operations.
+      <br /><br />
+      Also running{" "}
       <Link
         href="/about"
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         Fracxional
       </Link>
-      . Currently in Ho Chi Minh City.
+      . Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
     </>
   );
 };
