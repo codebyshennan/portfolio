@@ -124,11 +124,12 @@ export default function AboutPage() {
                             Tech Stack
                           </div>
 
-                          <div className="flex flex-wrap items-center my-2 mx-6">
+                          <div className="flex flex-wrap items-center my-2 mx-6 text-xl">
                             {role.technologies.map((tech, index) => (
                               <div
                                 key={index}
-                                className={`mr-4 mb-2 hover:cursor-pointer hover:text-${technologies[tech].color} dark:hover:text-${technologies[tech].color}`}
+                                className={`mr-4 mb-2 text-gray-500 dark:text-gray-400 hover:cursor-pointer hover:text-${technologies[tech].color} dark:hover:text-${technologies[tech].color}`}
+                                title={tech}
                               >
                                 <a href={technologies[tech].link}>
                                   {technologies[tech].icon}
