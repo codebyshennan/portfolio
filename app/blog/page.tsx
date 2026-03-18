@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllPublished } from "lib/content";
-import PostCardMd from "components/posts/card-md";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -12,17 +12,28 @@ export default function BlogPage() {
 
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-5">Blog</h1>
-      <p className="text-neutral-400 text-base -mt-1 mb-3">
-        Caffeinated thoughts on software development, design, and more.
+      <h1 className="font-bold text-3xl font-serif mb-2">Posts</h1>
+      <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-8">
+        subscribe{" "}
+        <a href="/rss.xml" className="text-blue-500 hover:text-blue-600 underline">
+          via RSS
+        </a>
       </p>
 
-      <div
-        id="posts"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
-      >
+      <div className="flex flex-col">
         {posts.map((post) => (
-          <PostCardMd post={post} key={post.slug} />
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="group py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+          >
+            <p className="text-neutral-400 dark:text-neutral-500 text-sm">
+              {post.publishedAt}
+            </p>
+            <h2 className="text-lg text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors">
+              {post.title}
+            </h2>
+          </Link>
         ))}
       </div>
     </section>

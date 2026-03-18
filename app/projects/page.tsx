@@ -1,6 +1,6 @@
-import PostCardLg from "components/posts/card-lg";
 import { getAllPublished } from "lib/content";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -12,18 +12,25 @@ export default function ProjectsPage() {
 
   return (
     <section>
-      <div className="container max-w-6xl mx-auto">
-        <h1 className="font-bold text-3xl font-serif mb-5">Projects.</h1>
-        <p className="text-neutral-400 text-base -mt-1 mb-3">
-          Hacks, experiments, and more.
-        </p>
-      </div>
-      <div
-        id="posts"
-        className="md:container md:max-w-6xl md:mx-auto px-4 relative flex flex-nowrap overflow-x-scroll snap-x snap-mandatory scroll-pl-4 md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-3"
-      >
+      <h1 className="font-bold text-3xl font-serif mb-2">Projects</h1>
+      <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-8">
+        Hacks, experiments, and more.
+      </p>
+
+      <div className="flex flex-col">
         {posts.map((post) => (
-          <PostCardLg post={post} key={post.slug} />
+          <Link
+            key={post.slug}
+            href={`/projects/${post.slug}`}
+            className="group py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+          >
+            <p className="text-neutral-400 dark:text-neutral-500 text-sm">
+              {post.publishedAt}
+            </p>
+            <h2 className="text-lg text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors">
+              {post.title}
+            </h2>
+          </Link>
         ))}
       </div>
     </section>
