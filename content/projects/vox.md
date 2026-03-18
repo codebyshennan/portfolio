@@ -4,7 +4,13 @@ description: AI voice agent that autonomously conducts founder interviews — fe
 date: 2025-01-15
 tags: ai, voice, elevenlabs, agents
 cover: /images/projects/vox.png
+github:
+website:
 ---
+
+## Why I built this
+
+Our investment team was spending hours on introductory calls with founders — calls that mostly followed the same script. The high-value work was in the follow-up conversations, not the initial screen. I built Vox to handle the first call autonomously: pull the founder's application data, ask contextual questions, and log a structured evaluation. This freed the team to focus on the founders who made it past the initial filter.
 
 ## What it does
 

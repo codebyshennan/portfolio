@@ -4,7 +4,13 @@ description: Multi-agent planning system for large-scale event logistics — tra
 date: 2024-12-01
 tags: ai, maps, agents, hackathon
 cover: /images/projects/eventops.png
+github:
+website:
 ---
+
+## Why I built this
+
+Event logistics for large-scale public events — marathons, parades, national day celebrations — is still coordinated through spreadsheets, radio calls, and physical maps. Planners spend weeks manually plotting resource positions and road closures. I wanted to see if an AI agent could collapse that into a conversational interface on top of a 3D map, letting a planner describe what they need in plain English and get an executable deployment plan back.
 
 ## What it does
 

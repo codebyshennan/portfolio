@@ -4,7 +4,13 @@ description: Slack workspace archiver with an AI pipeline that classifies conver
 date: 2025-02-01
 tags: ai, slack, knowledge-base, search
 cover: /images/projects/hive.png
+github:
+website:
 ---
+
+## Why I built this
+
+Years of investment discussions, market takes, and founder evaluations were buried across hundreds of Slack channels. When someone asked "what did we think about X sector last year?" the answer existed somewhere in the archive — but finding it meant scrolling through months of threads. I wanted to turn that messy conversational history into a structured, searchable knowledge base that the team could actually use.
 
 ## What it does
 

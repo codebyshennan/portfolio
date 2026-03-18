@@ -11,6 +11,8 @@ interface PostMeta {
   publishedAt: string;
   slug: string;
   cover: string | null;
+  github: string | null;
+  website: string | null;
 }
 
 interface PostDetail {
@@ -94,6 +96,8 @@ function getPostsFromDir(
         publishedAt: data.date || "",
         slug,
         cover: data.cover || null,
+        github: data.github || null,
+        website: data.website || null,
       };
     })
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1));
@@ -131,6 +135,8 @@ export function getSinglePostBySlug(slug: string): PostDetail | null {
             publishedAt: data.date || "",
             slug,
             cover: data.cover || null,
+            github: data.github || null,
+            website: data.website || null,
           },
           markdown: content,
         };

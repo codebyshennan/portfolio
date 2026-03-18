@@ -4,7 +4,13 @@ description: Turns raw deal data and call notes into IC-ready investment memos t
 date: 2025-03-01
 tags: ai, research, langgraph, agents
 cover: /images/projects/dossier.png
+github:
+website:
 ---
+
+## Why I built this
+
+Writing investment memos is slow. Each one requires founder background research, competitive landscape analysis, market sizing, and synthesizing it all into a structured document — easily a full day's work per deal. With hundreds of inbound deals, the team couldn't write memos for every promising one. I built Dossier to run the research pipeline in parallel and produce a first-draft memo automatically, so the team could spend their time refining analysis instead of gathering it.
 
 ## What it does
 

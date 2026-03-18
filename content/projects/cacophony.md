@@ -4,7 +4,15 @@ description: Multiplayer music battle game — match wild genre cards with ridic
 date: 2024-11-01
 tags: games, ai, multiplayer, hackathon
 cover: /images/projects/cacophony.png
+github:
+website:
 ---
+
+**2nd Place — Cursor Hackathon, Ho Chi Minh City**
+
+## Why I built this
+
+AI music generation got good enough that you can prompt a style and lyrics and get a listenable track back in seconds. That felt like an untapped game mechanic — what if the fun wasn't in making good music, but in making the funniest, most absurd music possible? Cards Against Humanity's format (fill in the blank with something ridiculous) mapped perfectly onto genre + lyrics prompts. The hackathon gave us a weekend to prove the concept.
 
 ## What it does
 
