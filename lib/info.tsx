@@ -6,45 +6,42 @@ export const avatar = me;
 export const about = () => {
   return (
     <>
-      Software engineer + systems builder. I'm the sole engineer at{" "}
+      Builder-investor based in Southeast Asia. Sole engineer at{" "}
       <Link
         href="/about"
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
-        {" "}
-        Iterative VC
+        Iterative
       </Link>
-      , working on investment infrastructure, automation, and AI. Also building{" "}
+      , where I build the data infrastructure, internal tooling, and AI systems
+      that power our investment operations. Also running{" "}
       <Link
         href="/about"
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
-        {" "}
         Fracxional
       </Link>
-      . Based in HCMC, nomadic across SEA.
+      . Currently in Ho Chi Minh City.
     </>
   );
 };
 export const bio = () => {
   return (
     <>
-      I build systems for scale—infrastructure, APIs, automation, data pipelines, and bots.
-      Comfortable with{" "}
+      I'm drawn to the intersection of deep technical product work and
+      venture — building things that compound, and backing founders who do the
+      same. Previously{" "}
       <Link
         href="/about"
         className="font-normal leading-none text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
-        {" "}
-        code, systems design, and shipping fast.{" "}
+        co-founded ZOLO
       </Link>
-      <br />Currently focused on: investment tech, AI-powered workflows, and data engineering.
-      Always interested in
+      , an AI food supply chain startup (Antler-backed). Always interested in
       <Link
         href="/projects"
         className="font-normal leading-none text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
-        {" "}
         {" "}side projects{" "}
       </Link>
       and building in public.

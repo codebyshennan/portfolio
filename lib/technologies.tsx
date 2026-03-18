@@ -29,7 +29,7 @@ import {
   SiMongodb,
   SiGit,
   SiGithub,
-  SiBigquery,
+  SiGooglebigquery,
   SiSqlite,
 } from "react-icons/si";
 import { FaAws, FaPython, FaReact } from "react-icons/fa";
@@ -46,7 +46,7 @@ const technologies = {
     color: "blue-600",
   },
   bigquery: {
-    icon: <SiBigquery />,
+    icon: <SiGooglebigquery />,
     link: "https://cloud.google.com/bigquery",
     color: "blue-500",
   },

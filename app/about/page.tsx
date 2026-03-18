@@ -6,7 +6,7 @@ import timeline from "lib/timeline";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Shen Nan, Wong - Sole engineer at Iterative VC, building investment infrastructure, automation & AI systems. Also founder of Fracxional.",
+    "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure & AI systems for venture. Founder of Fracxional.",
 };
 
 export const revalidate = 86400; // Revalidate once per day
@@ -16,7 +16,15 @@ export default function AboutPage() {
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
-        Sole engineer at Iterative VC, building investment infrastructure that unifies sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights, and seamless internal tools. Also the founder of Fracxional, working on curriculum design and technical consulting for institutions and enterprises across APAC.
+        Hey, I'm Shen Nan — a builder-investor based in Southeast Asia.
+        I'm the sole engineer at <strong className="text-neutral-300">Iterative</strong>, an early-stage fund investing across SEA and South Asia, where I build the data infrastructure, internal tooling, and AI systems that power our investment operations.
+        In parallel, I run <strong className="text-neutral-300">Fracxional</strong>, where I teach AI and data engineering courses and consult on automation strategy.
+      </p>
+      <p className="text-neutral-400 text-base mb-3">
+        I'm drawn to the intersection of deep technical product work and venture — building things that compound, and backing founders who do the same.
+      </p>
+      <p className="text-neutral-500 text-sm mb-4">
+        Currently in Ho Chi Minh City. Previously Hong Kong, Singapore, San Francisco, Beijing, and Germany.
       </p>
       <a
         href="https://www.papermark.com/view/cmholj83j0003l504yjnln5q0"
@@ -147,6 +155,14 @@ export default function AboutPage() {
             </li>
           ))}
         </ol>
+      </div>
+      <div className="mt-12 mb-8">
+        <h2 className="font-bold text-xl font-serif mb-3">Outside Work</h2>
+        <p className="text-neutral-400 text-base">
+          I stay moving — running, MMA, Hyrox, yoga, tennis, pickleball, and house dance.
+          Currently learning Vietnamese through Street Vietnamese classes in HCMC.
+          Living nomadically across Southeast Asia and always down to meet over coffee.
+        </p>
       </div>
     </section>
   );

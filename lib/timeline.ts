@@ -23,17 +23,22 @@ interface Role {
 
 const timeline: Timeline[] = [
 	{
-		date: "Jun 24 - Present",
-		company: "Iterative VC",
+		date: "2022 - Present",
+		company: "Iterative",
 		logo: "https://www.google.com/s2/favicons?domain=iterative.vc&sz=64",
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Sole Engineer",
+				position: "Data & Automations Engineer (Sole Engineer)",
 				description: [
-					"Design & implement firm-wide infrastructure that powers sourcing, diligence, and decision-making. Build scalable systems with data pipelines, AI-driven insights, and internal tools that unify investment and portfolio operations.",
-					"Conduct technical due diligence on deep-tech & software startups, host technical panels, & advise portfolio CTOs on engineering & infrastructure strategy.",
-					"Key projects: Custom MCP Server (multi-source data retrieval & AI summaries), Internal Network Graph (founder & expert relationship mapping for scouting), Dynamic Founder Bible (searchable Slack-sourced knowledge base), Query bot for real-time deal analytics.",
+					"Sole engineer at a Singapore-headquartered early-stage VC fund. I own the full data and tooling stack — from deal flow infrastructure to portfolio operations.",
+					"Built a custom MCP Server (v2+) with token caching, automated testing, dashboard visibility, and NPS tracking via a Notion-based Queries Register.",
+					"Developed a Voice AI pipeline using ElevenLabs voice cloning for automating founder first calls, with professional voice clones for 18 team members.",
+					"Architected internal tooling suite under a cartography naming theme (Meridian, Atlas, Compass, Bearing, Waypoint, Pilot, Terrain, Survey, Horizon).",
+					"Built an Airtable extensions monorepo: weekly metrics snapshot, SLA dashboard, deal flow funnel analytics, mass email sender, cross-field comparator.",
+					"Ran SLA breach analysis across 37 weeks of data (1,181 applications), identifying that ~70% of inbox breaches correlated with company events.",
+					"Co-led Technical Office Hours for 70+ portfolio founders and developed a CTO Office Hours proposal with a Portfolio Technical Founders database.",
+					"Evaluating Airtable → Airbyte → Postgres → BI/MCP for analytical decoupling.",
 				],
 				technologies: ["python", "nextjs", "supabase", "openai", "postgresql", "bigquery"],
 				href: null,
@@ -42,25 +47,43 @@ const timeline: Timeline[] = [
 		],
 	},
 	{
-		date: "Part-time",
+		date: "2023 - Present",
 		company: "Fracxional",
 		logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
 		link: "https://fracxional.com/",
 		roles: [
 			{
-				position: "Founder / Technical Consultant",
+				position: "Founder & Technical Consultant",
 				description: [
-					"Curriculum design and instruction for international clients:",
-					"Institutions: NTU PaCE under SkillsUnion, SIT under StagMatch (Cloud / DevOps / Software), SMU PGDP under CuriousCore (Applied AI)",
-					"Companies: Tamkeen under Localized / SkillsUnion (Data Science, AI/ML & Analytics)",
-					"Others: Sarah@Capua under Rocket Academy (Software Engineering), BSD Academy, Preface AI (Robotics / Software, Applied AI)",
+					"Teaching AI, data engineering, and automation courses across universities and corporate programs in Asia.",
+					"Course design and delivery spanning prompt engineering, AI agents, data pipelines, and applied ML.",
 				],
 				technologies: [],
 				clients: [
 					{
-						name: "CuriousCore",
+						name: "NTU PaCE",
+						link: "https://www.ntu.edu.sg/pace",
+						logo: "https://www.google.com/s2/favicons?domain=ntu.edu.sg&sz=64",
+					},
+					{
+						name: "SIT (via StagMatch)",
+						link: "https://smet.edu.sg/",
+						logo: "https://www.google.com/s2/favicons?domain=smet.edu.sg&sz=64",
+					},
+					{
+						name: "SMU PGDP (via CuriousCore)",
 						link: "https://curiouscore.com/",
 						logo: "https://www.google.com/s2/favicons?domain=curiouscore.com&sz=64",
+					},
+					{
+						name: "BCG RISE",
+						link: "https://www.bcg.com/",
+						logo: "https://www.google.com/s2/favicons?domain=bcg.com&sz=64",
+					},
+					{
+						name: "JERA GM",
+						link: "https://www.jera.co.jp/en/",
+						logo: "https://www.google.com/s2/favicons?domain=jera.co.jp&sz=64",
 					},
 					{
 						name: "SkillsUnion",
@@ -68,7 +91,7 @@ const timeline: Timeline[] = [
 						logo: "https://www.google.com/s2/favicons?domain=skillsunion.com&sz=64",
 					},
 					{
-						name: "Preface",
+						name: "Preface AI",
 						link: "https://preface.ai/",
 						logo: "https://www.google.com/s2/favicons?domain=preface.ai&sz=64",
 					},
@@ -76,11 +99,6 @@ const timeline: Timeline[] = [
 						name: "BSD Education",
 						link: "https://bsd.education/",
 						logo: "https://www.google.com/s2/favicons?domain=bsd.education&sz=64",
-					},
-					{
-						name: "Stag Match (SMET)",
-						link: "https://smet.edu.sg/",
-						logo: "https://www.google.com/s2/favicons?domain=smet.edu.sg&sz=64",
 					},
 					{
 						name: "Sarah@Capua",
@@ -94,19 +112,17 @@ const timeline: Timeline[] = [
 		],
 	},
 	{
-		date: "Apr 23 - Nov 23",
+		date: "2021 - 2022",
 		company: "ZOLO",
 		logo: "https://www.google.com/s2/favicons?domain=sayzolo.com&sz=64",
 		link: "",
 		roles: [
 			{
-				position: "Co-founder, ex-CTO",
+				position: "Co-founder & CTO",
 				description: [
-					"Architected an AI-driven platform for food suppliers to cut errors, time and waste from manual order processing.",
-					"Piloted with Indoguna, FoodXervices and CS Tay, growing to ~USD 13k MRR within 3 months and pursuing expansion to Thailand and Dubai.",
-					"Raised ~USD 350k pre-seed from Antler, Gharage Ventures, Protege Ventures and NTUitive.",
+					"AI-powered food supply chain startup. Raised ~$350K pre-seed from Antler, Gharage Ventures, Protege Ventures, and NTUitive.",
+					"Led engineering, product architecture, and technical strategy. Piloted with Indoguna, FoodXervices and CS Tay, growing to ~USD 13k MRR within 3 months.",
 					"Managed an offshore engineering team across Pakistan and India.",
-					"Moved to a tech advisory role to focus on work in Partior.",
 				],
 				technologies: ["nextjs", "openai"],
 				href: null,
@@ -121,10 +137,10 @@ const timeline: Timeline[] = [
 		company: "Partior",
 		roles: [
 			{
-				position: "Snr DevSecOps Engineer",
+				position: "Senior DevSecOps Engineer",
 				description: [
-					"Partior is an open-industry, blockchain-powered exchange that enables banks to access real-time, cross-border, multi-currency payments, such as DVP and PVP, tokenized asset borrowing and lending, and support for CBDC initiatives.",
-					"I implement the DevSecOps & CI/CD platform to provide cross-border payments through Quorum blockchain. I maintain a security testing cadence (SAST, DAST, SCA and pentests) and integrate compliance and security pipelines.",
+					"Built the DevSecOps and CI/CD platform for cross-border payments on Quorum blockchain.",
+					"Maintained security testing cadence (SAST, DAST, SCA, pentests) and integrated compliance and security pipelines.",
 				],
 				technologies: [
 					"kubernetes",
@@ -134,7 +150,6 @@ const timeline: Timeline[] = [
 					"ansible",
 					"consul",
 				],
-
 				href: null,
 				hook: null,
 			},
@@ -147,13 +162,12 @@ const timeline: Timeline[] = [
 		company: "Circles.Life",
 		roles: [
 			{
-				position: "Snr Software Engineer",
+				position: "Senior Software Engineer",
 				description: [
-					"Managed a portfolio of three software products and implemented formalized engineering practices. Led a team of five engineers and focused on their training and development.",
-					"Fostered close collaboration between engineering, product, and design teams to ensure seamless coordination and efficient project execution.",
-					"Implemented an in-house Customer Data Platform that facilitated real-time, hyper-personalized customer experiences through segmented omni-channel communication.",
-					"Developed an API Sandbox, providing engineers with a testing environment for mock APIs. Included customizable responses and a proxy gateway for accelerated prototyping and RPC testing via Diameter Protocol with a partner telco.",
-					"Created a Telco Demo Platform, featuring a module-federated Circles-X launch platform. Incorporated role-based access control to streamline onboarding for potential customers and pre-sales consultants, reducing the process from days to minutes.",
+					"Managed a portfolio of three software products with a team of five engineers. Implemented formalized engineering practices.",
+					"Built an in-house Customer Data Platform for real-time, hyper-personalized customer experiences through segmented omni-channel communication.",
+					"Developed an API Sandbox for accelerated prototyping and RPC testing via Diameter Protocol with a partner telco.",
+					"Created a Telco Demo Platform with module-federated Circles-X launch platform and role-based access control.",
 				],
 				technologies: [
 					"golang",
@@ -163,8 +177,6 @@ const timeline: Timeline[] = [
 					"reactNative",
 					"auth0",
 					"pwa",
-					// "DDD",
-					// "Diameter Protocol (Gx, Gy)",
 				],
 				href: "https://circles-x.com/products",
 				hook: "About Circles-X",
@@ -172,10 +184,9 @@ const timeline: Timeline[] = [
 			{
 				position: "Software Engineer",
 				description: [
-					"Circles.Life is a mobile virtual network operator disrupting the global telecommunications industry.",
 					"Built a full-stack web application for Jetpac's Roaming ESim and Pokemon Campaign, focusing on frontend development and mobile integration.",
-					"Led engineering efforts for a B2B2C E-commerce Platform, simplifying corporate telco plan management and handling multiple corporate accounts.",
-					"Developed automation tools for improving CI workflow, testing, type coverage, and observability. Also worked on DevSecOps pipeline and MLOps workflows for credit scoring and customer segmentation models.",
+					"Led engineering efforts for a B2B2C E-commerce Platform for corporate telco plan management.",
+					"Developed automation tools for CI workflow, testing, type coverage, and observability. Also worked on MLOps workflows for credit scoring and customer segmentation.",
 				],
 				technologies: [
 					"react",
@@ -205,11 +216,9 @@ const timeline: Timeline[] = [
 			{
 				position: "Software Engineering Instructor",
 				description: [
-					"Rocket Academy is the premier software engineering bootcamp in Singapore.",
-					"After honing my chops at their bootcamp, I transferred my knowledge to over 100 students in areas of programmatic thinking, data structures and algorithms. Even a few students landed jobs after the six-week course!",
+					"Taught programmatic thinking, data structures, and algorithms to 100+ students at Singapore's premier software engineering bootcamp.",
 				],
 				technologies: ["mongodb", "express", "react", "nodejs", "typescript"],
-
 				href: "https://www.rocketacademy.co/courses/coding-course",
 				hook: "Learn more",
 			},
@@ -219,11 +228,13 @@ const timeline: Timeline[] = [
 		date: "2016 - 2021",
 		logo: "https://www.google.com/s2/favicons?domain=mindef.gov.sg&sz=64",
 		link: "https://www.mindef.gov.sg/oms/arc/",
-		company: "MINDEF / SAF",
+		company: "Singapore Armed Forces",
 		roles: [
 			{
 				position: "Military Officer",
-				description: ["I blew things up and then had to clean up the mess."],
+				description: [
+					"A decade of service. Led teams, managed operations, and built resilience. Also blew things up and cleaned up the mess.",
+				],
 				technologies: ["tank"],
 				href: null,
 				hook: null,
