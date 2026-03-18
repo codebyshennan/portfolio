@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
-import { Toaster } from "react-hot-toast";
 
 const kaisei = localFont({
   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
@@ -18,10 +17,10 @@ export const metadata: Metadata = {
     default: "Shen Nan, Wong",
     template: "%s | Shen Nan, Wong",
   },
-  description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
+  description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
   openGraph: {
     title: "Shen Nan, Wong",
-    description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
+    description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
     url: "https://byshennan.com",
     siteName: "Shen Nan, Wong",
     images: [
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Shen Nan, Wong",
-    description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
+    description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
     card: "summary_large_image",
   },
   icons: {
@@ -69,9 +68,6 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto">
-        <div>
-          <Toaster />
-        </div>
         <Sidebar />
         <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
           {children}

@@ -31,7 +31,7 @@ async function withTimeout<T>(
 const user = "wongsn";
 
 export const getBlogViews = cache(async () => {
-  if (!process.env.TWITTER_API_TOKEN) {
+  if (!process.env.DATABASE_URL) {
     return 0;
   }
 

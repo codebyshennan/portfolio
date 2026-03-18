@@ -9,7 +9,7 @@ interface Timeline {
 interface ClientOrg {
 	name: string;
 	link: string;
-	logo: string; // favicon or small logo URL
+	logo: string;
 }
 
 interface Role {
@@ -29,16 +29,14 @@ const timeline: Timeline[] = [
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Data & Automations Engineer (Sole Engineer)",
+				position: "Investments & Engineering (Sole Engineer)",
 				description: [
-					"Sole engineer at a Singapore-headquartered early-stage VC fund. I own the full data and tooling stack — from deal flow infrastructure to portfolio operations.",
-					"Built a custom MCP Server (v2+) with token caching, automated testing, dashboard visibility, and NPS tracking via a Notion-based Queries Register.",
-					"Developed a Voice AI pipeline using ElevenLabs voice cloning for automating founder first calls, with professional voice clones for 18 team members.",
-					"Architected internal tooling suite under a cartography naming theme (Meridian, Atlas, Compass, Bearing, Waypoint, Pilot, Terrain, Survey, Horizon).",
-					"Built an Airtable extensions monorepo: weekly metrics snapshot, SLA dashboard, deal flow funnel analytics, mass email sender, cross-field comparator.",
-					"Ran SLA breach analysis across 37 weeks of data (1,181 applications), identifying that ~70% of inbox breaches correlated with company events.",
-					"Co-led Technical Office Hours for 70+ portfolio founders and developed a CTO Office Hours proposal with a Portfolio Technical Founders database.",
-					"Evaluating Airtable → Airbyte → Postgres → BI/MCP for analytical decoupling.",
+					"Own the full data and tooling stack at a Singapore-headquartered early-stage VC fund \u2014 reduced deal screening time by automating sourcing, diligence, and portfolio operations end-to-end.",
+					"Shipped an AI-powered MCP Server that unified multi-source deal data into a single query interface, becoming the team's default research tool with tracked NPS.",
+					"Automated founder first-call scheduling and outreach using a Voice AI pipeline, freeing the investment team to focus on high-signal conversations.",
+					"Built a 9-product internal tooling suite that replaced manual workflows across deal flow, SLA monitoring, and portfolio analytics \u2014 used daily by the entire team.",
+					"Surfaced that ~70% of SLA breaches correlated with company events through a 37-week, 1,181-application analysis, directly informing ops resourcing decisions.",
+					"Co-led Technical Office Hours for 70+ portfolio founders, bridging engineering expertise into founder support and CTO advisory.",
 				],
 				technologies: ["python", "nextjs", "supabase", "openai", "postgresql", "bigquery"],
 				href: null,

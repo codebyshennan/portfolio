@@ -111,22 +111,26 @@ export default function AboutPage() {
                         </div>
                       )}
 
-                      <div className="my-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Tech Stack
-                      </div>
-
-                      <div className="flex flex-wrap items-center my-2 mx-6">
-                        {role.technologies.map((tech, index) => (
-                          <div
-                            key={index}
-                            className={`mr-4 mb-2 hover:cursor-pointer hover:text-${technologies[tech].color} dark:hover:text-${technologies[tech].color}`}
-                          >
-                            <a href={technologies[tech].link}>
-                              {technologies[tech].icon}
-                            </a>
+                      {role.technologies.length > 0 && (
+                        <>
+                          <div className="my-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                            Tech Stack
                           </div>
-                        ))}
-                      </div>
+
+                          <div className="flex flex-wrap items-center my-2 mx-6">
+                            {role.technologies.map((tech, index) => (
+                              <div
+                                key={index}
+                                className={`mr-4 mb-2 hover:cursor-pointer hover:text-${technologies[tech].color} dark:hover:text-${technologies[tech].color}`}
+                              >
+                                <a href={technologies[tech].link}>
+                                  {technologies[tech].icon}
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
 
                       {role.href && role.hook && (
                         <a
