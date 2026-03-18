@@ -24,18 +24,18 @@ interface Role {
 const timeline: Timeline[] = [
 	{
 		date: "Jun 24 - Present",
-		company: "Iterative Capital",
+		company: "Iterative VC",
 		logo: "https://www.google.com/s2/favicons?domain=iterative.vc&sz=64",
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Data & Automations Engineer",
+				position: "Sole Engineer",
 				description: [
-					"Lead the design & implementation of firm-wide data & automation infrastructure that powers investment, accelerator & portfolio operations. Build systems that unify sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights & seamless internal tools.",
+					"Design & implement firm-wide infrastructure that powers sourcing, diligence, and decision-making. Build scalable systems with data pipelines, AI-driven insights, and internal tools that unify investment and portfolio operations.",
 					"Conduct technical due diligence on deep-tech & software startups, host technical panels, & advise portfolio CTOs on engineering & infrastructure strategy.",
-					"Key projects include: Custom MCP Server (connected data sources for dynamic data retrieval & summarisation), Internal Network Graph (visualised founder & expert relationships to support scouting), Dynamic Founder Bible (parse founder-shared Slack knowledge into a searchable database).",
+					"Key projects: Custom MCP Server (multi-source data retrieval & AI summaries), Internal Network Graph (founder & expert relationship mapping for scouting), Dynamic Founder Bible (searchable Slack-sourced knowledge base), Query bot for real-time deal analytics.",
 				],
-				technologies: ["python", "nextjs", "supabase"],
+				technologies: ["python", "nextjs", "supabase", "openai", "postgresql", "bigquery"],
 				href: null,
 				hook: null,
 			},

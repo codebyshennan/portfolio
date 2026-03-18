@@ -6,6 +6,7 @@ import {
   TbBrandStorybook,
   TbBrandSupabase,
   TbBrandTypescript,
+  TbBrandVscode,
 } from "react-icons/tb";
 import { GiBattleTank } from "react-icons/gi";
 import {
@@ -23,17 +24,34 @@ import {
   SiSnowflake,
   SiTerraform,
   SiVault,
+  SiNotion,
+  SiPostgresql,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiBigquery,
+  SiSqlite,
 } from "react-icons/si";
 import { FaAws, FaPython, FaReact } from "react-icons/fa";
 
 const technologies = {
   mongodb: {
-    icon: <SiSnowflake />,
+    icon: <SiMongodb />,
     link: "https://www.mongodb.com/",
     color: "green-500",
   },
+  postgresql: {
+    icon: <SiPostgresql />,
+    link: "https://www.postgresql.org/",
+    color: "blue-600",
+  },
+  bigquery: {
+    icon: <SiBigquery />,
+    link: "https://cloud.google.com/bigquery",
+    color: "blue-500",
+  },
   nodejs: {
-    icon: <SiSnowflake />,
+    icon: <TbBrandStorybook />,
     link: "https://nodejs.org/en/",
     color: "green-500",
   },
@@ -161,6 +179,26 @@ const technologies = {
     icon: <GiBattleTank />,
     link: null,
     color: "gray-300",
+  },
+  notion: {
+    icon: <SiNotion />,
+    link: "https://notion.so/",
+    color: "gray-300",
+  },
+  git: {
+    icon: <SiGit />,
+    link: "https://git-scm.com/",
+    color: "orange-500",
+  },
+  github: {
+    icon: <SiGithub />,
+    link: "https://github.com/",
+    color: "gray-300",
+  },
+  sqlite: {
+    icon: <SiSqlite />,
+    link: "https://www.sqlite.org/",
+    color: "blue-400",
   },
 };
 

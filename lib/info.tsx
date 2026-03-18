@@ -6,38 +6,48 @@ export const avatar = me;
 export const about = () => {
   return (
     <>
-      Hey, I'm a software engineer based in 🇸🇬. I currently work at{" "}
+      Software engineer + systems builder. I'm the sole engineer at{" "}
       <Link
         href="/about"
         className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         {" "}
-        Iterative
-      </Link>{" "}
-      as a Software Engineer, focusing on investments, hyperautomation and AI.
+        Iterative VC
+      </Link>
+      , working on investment infrastructure, automation, and AI. Also building{" "}
+      <Link
+        href="/about"
+        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+      >
+        {" "}
+        Fracxional
+      </Link>
+      . Based in HCMC, nomadic across SEA.
     </>
   );
 };
 export const bio = () => {
   return (
     <>
-      When I'm not coding, I'm probably chilling at a cafe, or
+      I build systems for scale—infrastructure, APIs, automation, data pipelines, and bots.
+      Comfortable with{" "}
       <Link
-        href="/dashboard"
+        href="/about"
         className="font-normal leading-none text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         {" "}
-        working out.{" "}
+        code, systems design, and shipping fast.{" "}
       </Link>
-      <br />I love to meet new people and exchange ideas. Working on
+      <br />Currently focused on: investment tech, AI-powered workflows, and data engineering.
+      Always interested in
       <Link
         href="/projects"
         className="font-normal leading-none text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         {" "}
-        a few of them{" "}
+        {" "}side projects{" "}
       </Link>
-      now.
+      and building in public.
     </>
   );
 };

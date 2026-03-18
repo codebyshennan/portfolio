@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     default: "Shen Nan, Wong",
     template: "%s | Shen Nan, Wong",
   },
-  description: "DevSecOps, AIML, and DX.",
+  description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
   openGraph: {
     title: "Shen Nan, Wong",
-    description: "DevSecOps, AIML, and DX.",
+    description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
     url: "https://byshennan.com",
     siteName: "Shen Nan, Wong",
     images: [
@@ -47,6 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Shen Nan, Wong",
+    description: "Sole engineer at Iterative VC. Systems, infrastructure, AI, and automation.",
     card: "summary_large_image",
   },
   icons: {

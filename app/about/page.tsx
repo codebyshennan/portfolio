@@ -6,7 +6,7 @@ import timeline from "lib/timeline";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Shen Nan, Wong - Software engineer with a passion for building products.",
+    "About Shen Nan, Wong - Sole engineer at Iterative VC, building investment infrastructure, automation & AI systems. Also founder of Fracxional.",
 };
 
 export const revalidate = 86400; // Revalidate once per day
@@ -16,9 +16,7 @@ export default function AboutPage() {
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
-        Data & Automations Engineer at Iterative Capital, building systems that
-        unify sourcing, diligence, & decision-making through scalable data
-        pipelines, AI-driven insights & seamless internal tools.
+        Sole engineer at Iterative VC, building investment infrastructure that unifies sourcing, diligence, & decision-making through scalable data pipelines, AI-driven insights, and seamless internal tools. Also the founder of Fracxional, working on curriculum design and technical consulting for institutions and enterprises across APAC.
       </p>
       <a
         href="https://www.papermark.com/view/cmholj83j0003l504yjnln5q0"
