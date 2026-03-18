@@ -1,35 +1,23 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPublished, getSingleBlogPostBySlug } from "lib/notion";
+import { getAllPublished, getSinglePostBySlug } from "lib/content";
 import PostDetail from "components/posts/details";
 
-export async function generateStaticParams() {
-  const posts = await getAllPublished();
-  return posts
+export function generateStaticParams() {
+  return getAllPublished()
     .filter((post) => post.category === "Project")
-    .map((post) => ({
-      slug: post.slug,
-    }));
+    .map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  const post = await getSingleBlogPostBySlug(slug);
-  if (!post) {
-    return;
-  }
+  const post = getSinglePostBySlug(slug);
+  if (!post) return;
 
-  const {
-    metadata: { title, description, cover },
-  } = post;
-  const ogImage = cover
-    ? cover
-    : `https://byshennan.com/api/og?title=${title}`;
-
-  // Get published date from metadata (ISO format)
-  const publishedTime = post.metadata.publishedAt;
+  const { title, description, cover } = post.metadata;
+  const ogImage = cover || `https://byshennan.com/api/og?title=${title}`;
 
   return {
     title,
@@ -38,13 +26,9 @@ export async function generateMetadata({
       title,
       description,
       type: "article",
-      publishedTime,
+      publishedTime: post.metadata.publishedAt,
       url: `https://byshennan.com/projects/${slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
@@ -55,15 +39,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({ params }) {
+export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const post = await getSingleBlogPostBySlug(slug);
+  const post = getSinglePostBySlug(slug);
 
   if (!post) {
     notFound();
   }
-
-  // const tweets = await getTweets(post.tweetIds);
 
   return (
     <section>

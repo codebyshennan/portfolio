@@ -110,7 +110,7 @@ export default function PostDetail({ post, slug }) {
           <div className="container max-w-3xl px-6 mx-auto">
             <div
               id="picture"
-              className="relative w-[100%] overflow-hidden aspect-video rounded-lg md:rounded-xl shadow-2xl"
+              className="relative w-[100%] overflow-hidden aspect-video rounded-lg md:rounded-xl "
             >
               <Image
                 fill

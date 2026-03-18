@@ -11,7 +11,7 @@ export default function PostCardLg({ post, key }) {
     <Link
       href={`projects/${post.slug}`}
       key={key}
-      className="snap-start flex flex-col shadow-lg bg-neutral-200 dark:bg-neutral-900 min-w-[80%] md:min-w-[100%] rounded-xl col-span-1 overflow-hidden will-change-transform "
+      className="snap-start flex flex-col bg-neutral-200 dark:bg-neutral-900 min-w-[80%] md:min-w-[100%] rounded-xl col-span-1 overflow-hidden will-change-transform"
     >
       <div className="relative overflow-hidden aspect-square">
         <Image
@@ -56,7 +56,7 @@ export default function PostCardLg({ post, key }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute -right-4 z-50 mt-4 w-56 origin-top-right rounded-lg bg-white/75 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800/75">
+            <Menu.Items className="absolute -right-4 z-50 mt-4 w-56 origin-top-right rounded-lg bg-white/75 backdrop-blur-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800/75">
               <div className="py-1 divide-y divide-neutral-200 dark:divide-neutral-700">
                 <Menu.Item>
                   <a

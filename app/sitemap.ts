@@ -1,7 +1,8 @@
-import { getAllPublished } from "lib/notion";
+import { getAllPublished } from "lib/content";
 
-export default async function sitemap() {
-  const posts = await getAllPublished();
+export default function sitemap() {
+  const posts = getAllPublished();
+
   const blogs = posts
     .filter((post) => post.category === "Blog")
     .map((post) => ({
@@ -16,12 +17,7 @@ export default async function sitemap() {
       lastModified: post.publishedAt || new Date().toISOString(),
     }));
 
-  const routes = [
-    "",
-    "/about",
-    "/blog",
-    "/projects",
-  ].map((route) => ({
+  const routes = ["", "/about", "/blog", "/projects"].map((route) => ({
     url: `https://byshennan.com${route}`,
     lastModified: new Date().toISOString(),
   }));

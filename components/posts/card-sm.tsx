@@ -8,7 +8,7 @@ export default function PostCardSm({ post, index }) {
   return (
     <div
       key={index}
-      className="shadow-lg bg-white dark:bg-neutral-900 divide-neutral-200 dark:divide-neutral-800 divide-y rounded-xl flex flex-col justify-between col-span-2 md:col-span-1"
+      className="bg-white dark:bg-neutral-900 divide-neutral-200 dark:divide-neutral-800 divide-y rounded-xl flex flex-col justify-between col-span-2 md:col-span-1"
     >
       <Link
         href={post.slug}
@@ -65,7 +65,7 @@ export default function PostCardSm({ post, index }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute -right-4 z-50 mt-4 w-56 origin-top-right rounded-lg bg-white/75 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800/75">
+            <Menu.Items className="absolute -right-4 z-50 mt-4 w-56 origin-top-right rounded-lg bg-white/75 backdrop-blur-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800/75">
               <div className="py-1 divide-y divide-neutral-200 dark:divide-neutral-700">
                 <Menu.Item>
                   <a

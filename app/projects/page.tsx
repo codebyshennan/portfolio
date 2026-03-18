@@ -1,5 +1,5 @@
 import PostCardLg from "components/posts/card-lg";
-import { getAllPublished } from "lib/notion";
+import { getAllPublished } from "lib/content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,10 +7,8 @@ export const metadata: Metadata = {
   description: "See what I've been working on.",
 };
 
-export const revalidate = 3600; // Revalidate every hour
-
-export default async function ProjectsPage() {
-  const posts = await getAllPublished();
+export default function ProjectsPage() {
+  const posts = getAllPublished().filter((p) => p.category === "Project");
 
   return (
     <section>
@@ -23,24 +21,10 @@ export default async function ProjectsPage() {
       <div
         id="posts"
         className="md:container md:max-w-6xl md:mx-auto px-4 relative flex flex-nowrap overflow-x-scroll snap-x snap-mandatory scroll-pl-4 md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-3"
-        style={{
-          // to maintain shadow on scrollbar
-          paddingBottom: "2rem",
-          marginBottom: "-2rem",
-        }}
       >
-        {posts
-          .sort((a, b) => {
-            if (new Date(a.date) > new Date(b.date)) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) =>
-            post.category === "Case Study" ? (
-              <PostCardLg post={post} key={post.slug} />
-            ) : null
-          )}
+        {posts.map((post) => (
+          <PostCardLg post={post} key={post.slug} />
+        ))}
       </div>
     </section>
   );

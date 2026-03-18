@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllPublished } from "../../lib/notion";
+import { getAllPublished } from "lib/content";
 import PostCardMd from "components/posts/card-md";
 
 export const metadata: Metadata = {
@@ -7,10 +7,8 @@ export const metadata: Metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export const revalidate = 3600; // Revalidate every hour
-
-export default async function BlogPage() {
-  const posts = await getAllPublished();
+export default function BlogPage() {
+  const posts = getAllPublished().filter((p) => p.category === "Blog");
 
   return (
     <section>
@@ -23,18 +21,9 @@ export default async function BlogPage() {
         id="posts"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
       >
-        {posts
-          .sort((a, b) => {
-            if (new Date(a.date) > new Date(b.date)) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) =>
-            post.category === "Blog" ? (
-              <PostCardMd post={post} key={post.slug} />
-            ) : null
-          )}
+        {posts.map((post) => (
+          <PostCardMd post={post} key={post.slug} />
+        ))}
       </div>
     </section>
   );
