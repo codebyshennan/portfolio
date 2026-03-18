@@ -7,9 +7,6 @@ import { LayoutGroup, motion } from "framer-motion";
 import {
   faHome,
   faUser,
-  faDashboard,
-  faBullhorn,
-  faScrewdriverWrench,
   faFolder,
   faBlog,
 } from "@fortawesome/free-solid-svg-icons";
@@ -33,18 +30,6 @@ const navItems = {
   "/projects": {
     name: "projects",
     icon: faFolder,
-  },
-  "/dashboard": {
-    name: "dashboard",
-    icon: faDashboard,
-  },
-  "/tools": {
-    name: "tools",
-    icon: faScrewdriverWrench,
-  },
-  "/guestbook": {
-    name: "guestbook",
-    icon: faBullhorn,
   },
 };
 

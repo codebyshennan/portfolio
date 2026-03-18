@@ -20,10 +20,7 @@ export default async function sitemap() {
     "",
     "/about",
     "/blog",
-    "/dashboard",
     "/projects",
-    "/guestbook",
-    "/tools",
   ].map((route) => ({
     url: `https://byshennan.com${route}`,
     lastModified: new Date().toISOString(),
