@@ -3,10 +3,22 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
+function ImagePlaceholder() {
+  return (
+    <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-12 h-12 text-neutral-400 dark:text-neutral-600">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
+      </svg>
+    </div>
+  );
+}
+
 export default function PostCardLg({ post, key }) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Link
       href={`projects/${post.slug}`}
@@ -14,20 +26,17 @@ export default function PostCardLg({ post, key }) {
       className="snap-start flex flex-col bg-neutral-200 dark:bg-neutral-900 min-w-[80%] md:min-w-[100%] rounded-xl col-span-1 overflow-hidden will-change-transform"
     >
       <div className="relative overflow-hidden aspect-square">
-        {post.cover ? (
+        {post.cover && !imgError ? (
           <Image
             fill
             src={post.cover}
             alt={post.title}
             priority={true}
+            onError={() => setImgError(true)}
             className="z-0 object-cover object-center absolute w-full h-full hover:scale-105 transition-all duration-1000 ease-in-out"
           />
         ) : (
-          <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-12 h-12 text-neutral-400 dark:text-neutral-600">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
-            </svg>
-          </div>
+          <ImagePlaceholder />
         )}
         <Menu as="div" className="relative flex justify-between p-4">
           <p

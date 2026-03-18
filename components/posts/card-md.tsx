@@ -3,11 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import ViewCounter from "app/blog/view-counter";
 
 export default function PostCardMd({ post, key }) {
+  const [imgError, setImgError] = useState(false);
   return (
     <div
       key={key}
@@ -38,12 +39,13 @@ export default function PostCardMd({ post, key }) {
           </p>
         </div>
         <div className="relative overflow-hidden aspect-video rounded-lg">
-          {post.cover ? (
+          {post.cover && !imgError ? (
             <Image
               fill
               className="object-cover"
               src={post.cover}
               alt={post.title}
+              onError={() => setImgError(true)}
             />
           ) : (
             <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">

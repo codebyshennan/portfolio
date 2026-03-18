@@ -1,10 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 export default function PostCardSm({ post, index }) {
+  const [imgError, setImgError] = useState(false);
   return (
     <div
       key={index}
@@ -24,12 +27,13 @@ export default function PostCardSm({ post, index }) {
           </p>
         </div>
         <div className="relative overflow-hidden min-w-[8rem] w-32 h-32 aspect-square rounded-lg">
-          {post.cover ? (
+          {post.cover && !imgError ? (
             <Image
               fill
               className="object-cover"
               src={post.cover}
               alt={post.title}
+              onError={() => setImgError(true)}
             />
           ) : (
             <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">

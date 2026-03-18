@@ -13,6 +13,7 @@ export default function PostDetail({ post, slug }) {
   const pathName = usePathname();
   const baseColor = "currentColor";
   const [showCopied, setShowCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(`https://byshennan.com${pathName}`);
@@ -156,13 +157,14 @@ export default function PostDetail({ post, slug }) {
               id="picture"
               className="relative w-[100%] overflow-hidden aspect-video rounded-lg md:rounded-xl "
             >
-              {post.metadata.cover ? (
+              {post.metadata.cover && !imgError ? (
                 <Image
                   fill
                   className="object-cover"
                   src={post.metadata.cover}
                   alt={post.metadata.title}
                   priority={true}
+                  onError={() => setImgError(true)}
                 />
               ) : (
                 <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">
