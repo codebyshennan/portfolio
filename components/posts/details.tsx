@@ -32,7 +32,7 @@ export default function PostDetail({ post, slug }) {
           <div className="container max-w-2xl mx-auto px-6 flex justify-between items-center">
             <button
               id="back-btn"
-              className="text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20"
+              className="dark:text-white/75 hover:opacity-75 transition duration-200 ease-in-out md:p-2 md:rounded-full md:bg-white/20"
               // style={{ color: baseColor }}
               onClick={() =>
                 router.back == null ? router.push("/") : router.back()
