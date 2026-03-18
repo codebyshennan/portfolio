@@ -112,7 +112,7 @@ const timeline: Timeline[] = [
 		date: "2021 - 2022",
 		company: "ZOLO",
 		logo: "https://www.google.com/s2/favicons?domain=sayzolo.com&sz=64",
-		link: "",
+		link: "https://www.sayzolo.com/",
 		roles: [
 			{
 				position: "Co-founder & CTO",
