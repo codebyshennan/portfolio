@@ -1,6 +1,6 @@
 import { getAllPublished } from "lib/content";
 import { Metadata } from "next";
-import Link from "next/link";
+import PostList from "../../components/post-list";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,22 +17,7 @@ export default function ProjectsPage() {
         Hacks, experiments, and more.
       </p>
 
-      <div className="flex flex-col">
-        {posts.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/projects/${post.slug}`}
-            className="group py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
-          >
-            <p className="text-neutral-400 dark:text-neutral-500 text-sm">
-              {post.publishedAt}
-            </p>
-            <h2 className="text-lg text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors">
-              {post.title}
-            </h2>
-          </Link>
-        ))}
-      </div>
+      <PostList posts={posts} basePath="/projects" />
     </section>
   );
 }
