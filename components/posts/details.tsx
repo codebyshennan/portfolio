@@ -138,6 +138,26 @@ export default function PostDetail({ post, slug }) {
       >
         {post.markdown}
       </ReactMarkdown>
+
+      {/* Author bio */}
+      <div className="container max-w-2xl mx-auto px-6 mt-12 pt-6 border-t border-neutral-200 dark:border-neutral-700">
+        <div className="flex items-start gap-3">
+          <div>
+            <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="https://byshennan.com" className="hover:underline">Shen Nan Wong</a>
+            </p>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+              Sole engineer at{" "}
+              <a href="https://iterative.vc" target="_blank" rel="noopener noreferrer" className="hover:underline">Iterative</a>
+              {" "}(early-stage VC fund, SEA & South Asia), building data infrastructure and AI systems for investment operations.
+              Founder of{" "}
+              <a href="https://fracxional.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Fracxional</a>
+              {" "}— AI and data engineering education for enterprises and universities across Asia.
+              Based in Ho Chi Minh City, Southeast Asia.
+            </p>
+          </div>
+        </div>
+      </div>
     </article>
   );
 }
