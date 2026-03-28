@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPublished, getSinglePostBySlug } from "lib/content";
+import { getAllPublished, getSinglePostBySlug, extractFaq } from "lib/content";
 import PostDetail from "components/posts/details";
+import JsonLd from "components/json-ld";
 
 export function generateStaticParams() {
   return getAllPublished()
@@ -16,12 +17,16 @@ export async function generateMetadata({
   const post = getSinglePostBySlug(slug);
   if (!post) return;
 
-  const { title, description, cover } = post.metadata;
+  const { title, description, cover, keywords } = post.metadata;
   const ogImage = cover || `https://byshennan.com/api/og?title=${title}`;
 
   return {
     title,
     description,
+    keywords: keywords.length > 0 ? keywords : undefined,
+    alternates: {
+      canonical: `https://byshennan.com/blog/${slug}`,
+    },
     openGraph: {
       title,
       description,
@@ -47,8 +52,40 @@ export default async function Blog({ params }) {
     notFound();
   }
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.metadata.title,
+    description: post.metadata.description,
+    datePublished: post.metadata.publishedAt,
+    author: {
+      "@type": "Person",
+      name: post.metadata.author || "Shen Nan Wong",
+      url: "https://byshennan.com",
+    },
+    url: `https://byshennan.com/blog/${slug}`,
+  };
+
+  const faqPairs = extractFaq(post.markdown);
+  const faqSchema = faqPairs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqPairs.map(({ question, answer }) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <section>
+      <JsonLd data={blogPostingSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
       <PostDetail post={post} slug={slug} />
     </section>
   );
