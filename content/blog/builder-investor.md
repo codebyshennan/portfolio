@@ -3,6 +3,8 @@ title: "The Builder-Investor: Why I Write, Build, and Back Startups Across South
 description: On combining engineering and investing, building internal tools at a VC fund, and teaching AI across Asia.
 date: 2025-03-18
 tags: essay, investing, building, southeast-asia
+author: Shen Nan Wong
+keywords: builder-investor, data engineering, Southeast Asia, Iterative, Fracxional, AI education, venture capital
 cover:
 ---
 
@@ -31,3 +33,17 @@ This is where I write about the things I'm working through — data engineering 
 If you're a founder building in the region, an engineer thinking about the builder-investor path, or just someone curious about what it looks like to run a one-person engineering team inside a venture fund — this is for you.
 
 You can find me at [byshennan.com](https://www.byshennan.com) or reach out directly. I'm always happy to talk shop.
+
+## FAQ
+
+### Who is Shen Nan Wong?
+Shen Nan Wong is a builder-investor based in Ho Chi Minh City, Southeast Asia. He is the sole engineer at Iterative, an early-stage VC fund investing across Southeast Asia and South Asia, and the founder of Fracxional, an AI and data engineering education consultancy.
+
+### What is Fracxional?
+Fracxional is an AI and data engineering education consultancy founded by Shen Nan Wong that delivers courses and workshops to enterprises and universities across Asia, including NTU, SIT, and SMU in Singapore.
+
+### What does a builder-investor do?
+A builder-investor combines active software engineering with investment thesis development. Rather than evaluating startups from spreadsheets, a builder-investor uses hands-on technical experience to assess architecture decisions, evaluate technical moats, and support founders with real implementation expertise.
+
+### What is Iterative?
+Iterative is an early-stage venture capital fund headquartered in Singapore that invests across Southeast Asia and South Asia. Shen Nan Wong serves as the sole engineer, building the data infrastructure, internal tooling, and AI systems that power the fund's investment operations.
