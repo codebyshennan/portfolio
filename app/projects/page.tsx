@@ -4,7 +4,11 @@ import PostList from "../../components/post-list";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "See what I've been working on.",
+  description:
+    "Side projects, tools, and experiments by Shen Nan Wong — data engineering, AI, and automation.",
+  alternates: {
+    canonical: "https://byshennan.com/projects",
+  },
 };
 
 export default function ProjectsPage() {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure & AI systems for venture. Founder of Fracxional.",
+  alternates: {
+    canonical: "https://byshennan.com/about",
+  },
 };
 
 export const revalidate = 86400; // Revalidate once per day
