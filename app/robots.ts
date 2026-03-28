@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    // sitemap: "https://byshennan.com/sitemap.xml",
+    sitemap: "https://byshennan.com/sitemap.xml",
     host: "https://byshennan.com",
   };
 }
