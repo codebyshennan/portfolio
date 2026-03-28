@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "../components/theme-provider";
+import JsonLd from "../components/json-ld";
 
 const kaisei = localFont({
   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
@@ -19,6 +20,20 @@ export const metadata: Metadata = {
     template: "%s | Shen Nan, Wong",
   },
   description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
+  keywords: [
+    "data engineering",
+    "AI systems",
+    "Southeast Asia",
+    "venture capital",
+    "Fracxional",
+    "Iterative",
+    "builder-investor",
+    "AI education",
+    "automation",
+  ],
+  alternates: {
+    canonical: "https://byshennan.com",
+  },
   openGraph: {
     title: "Shen Nan, Wong",
     description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
@@ -55,6 +70,21 @@ export const metadata: Metadata = {
   },
 };
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Shen Nan Wong",
+  url: "https://byshennan.com",
+  jobTitle: "Software Engineer, AI/Data",
+  worksFor: { "@type": "Organization", name: "Iterative", url: "https://iterative.vc" },
+  sameAs: [
+    "https://www.linkedin.com/in/wongshennan/",
+    "https://github.com/codebyshennan",
+    "https://twitter.com/wongsn",
+    "https://byshennan.substack.com/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -66,6 +96,9 @@ export default function RootLayout({
       className={clsx(kaisei.variable)}
       suppressHydrationWarning
     >
+      <head>
+        <JsonLd data={personSchema} />
+      </head>
       <body className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto text-black bg-white dark:text-white dark:bg-[#111010]">
         <ThemeProvider>
           <Sidebar />
