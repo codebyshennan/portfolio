@@ -8,7 +8,7 @@ keywords: builder-investor, data engineering, Southeast Asia, Iterative, Fracxio
 cover:
 ---
 
-I'm Shen Nan — a data and automations engineer at [Iterative](https://iterative.vc), a Singapore-headquartered early-stage fund investing across Southeast Asia and South Asia, and the founder of [Fracxional](https://www.byshennan.com), where I teach AI and data courses at institutions across Asia.
+I'm Shen Nan — a data and automations engineer at [Iterative](https://iterative.vc), a Singapore-headquartered early-stage fund investing across Southeast Asia and South Asia, and the founder of [Fracxional](https://fracxional.com), where I teach AI and data courses at institutions across Asia.
 
 My path here wasn't linear. I spent five years as a military officer in the Singapore Armed Forces, left in 2021 to go all-in on tech, and haven't looked back. Since then I've been a senior engineer at Circles.Life, worked in DevSecOps at Partior, co-founded an AI food supply chain startup called ZOLO through Antler, taught full-stack development at Rocket Academy, and now operate as the sole engineer at a venture fund — building the internal tooling and data infrastructure that powers our investment operations.
 
