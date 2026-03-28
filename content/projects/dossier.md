@@ -6,6 +6,8 @@ tags: ai, research, langgraph, agents
 cover: /images/projects/dossier.png
 github:
 website:
+author: Shen Nan Wong
+keywords: investment memo, deal research, LangGraph, AI agents, venture capital, deep research, Iterative
 ---
 
 ## Why I built this

@@ -6,6 +6,8 @@ tags: ai, slack, knowledge-base, search
 cover: /images/projects/hive.png
 github:
 website:
+author: Shen Nan Wong
+keywords: Slack archiver, AI pipeline, knowledge base, search, venture capital, investment research
 ---
 
 ## Why I built this

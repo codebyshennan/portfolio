@@ -6,6 +6,8 @@ tags: ai, maps, agents, hackathon
 cover: /images/projects/eventops.png
 github:
 website:
+author: Shen Nan Wong
+keywords: multi-agent AI, event logistics, road closures, natural language planning, maps, hackathon, Southeast Asia
 ---
 
 ## Why I built this

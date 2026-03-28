@@ -6,6 +6,8 @@ tags: games, ai, multiplayer, hackathon
 cover: /images/projects/cacophony.png
 github:
 website:
+author: Shen Nan Wong
+keywords: multiplayer music game, AI music generation, Suno AI, hackathon, Ho Chi Minh City, Cursor hackathon
 ---
 
 **2nd Place — Cursor Hackathon, Ho Chi Minh City**
