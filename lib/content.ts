@@ -13,6 +13,8 @@ interface PostMeta {
   cover: string | null;
   github: string | null;
   website: string | null;
+  author: string | null;
+  keywords: string[];
 }
 
 interface PostDetail {
@@ -98,6 +100,8 @@ function getPostsFromDir(
         cover: data.cover || null,
         github: data.github || null,
         website: data.website || null,
+        author: data.author || null,
+        keywords: data.keywords ? data.keywords.split(",").map((k) => k.trim()) : [],
       };
     })
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1));
@@ -137,6 +141,8 @@ export function getSinglePostBySlug(slug: string): PostDetail | null {
             cover: data.cover || null,
             github: data.github || null,
             website: data.website || null,
+            author: data.author || null,
+            keywords: data.keywords ? data.keywords.split(",").map((k) => k.trim()) : [],
           },
           markdown: content,
         };
@@ -145,4 +151,43 @@ export function getSinglePostBySlug(slug: string): PostDetail | null {
   }
 
   return null;
+}
+
+export function extractFaq(
+  markdown: string
+): Array<{ question: string; answer: string }> | null {
+  // Find the ## FAQ section (everything after it)
+  const faqMatch = markdown.match(/^## FAQ\s*\n([\s\S]*)$/m);
+  if (!faqMatch) return null;
+
+  const faqSection = faqMatch[1];
+  const pairs: Array<{ question: string; answer: string }> = [];
+  const lines = faqSection.split("\n");
+
+  let currentQuestion: string | null = null;
+  let currentAnswerLines: string[] = [];
+
+  for (const line of lines) {
+    if (line.startsWith("### ")) {
+      if (currentQuestion && currentAnswerLines.length > 0) {
+        pairs.push({
+          question: currentQuestion,
+          answer: currentAnswerLines.join(" ").trim(),
+        });
+      }
+      currentQuestion = line.slice(4).trim();
+      currentAnswerLines = [];
+    } else if (currentQuestion && line.trim()) {
+      currentAnswerLines.push(line.trim());
+    }
+  }
+
+  if (currentQuestion && currentAnswerLines.length > 0) {
+    pairs.push({
+      question: currentQuestion,
+      answer: currentAnswerLines.join(" ").trim(),
+    });
+  }
+
+  return pairs.length > 0 ? pairs : null;
 }
