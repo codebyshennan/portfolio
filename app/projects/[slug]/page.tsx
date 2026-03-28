@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPublished, getSinglePostBySlug } from "lib/content";
 import PostDetail from "components/posts/details";
+import JsonLd from "components/json-ld";
 
 export function generateStaticParams() {
   return getAllPublished()
@@ -16,12 +17,16 @@ export async function generateMetadata({
   const post = getSinglePostBySlug(slug);
   if (!post) return;
 
-  const { title, description, cover } = post.metadata;
+  const { title, description, cover, keywords } = post.metadata;
   const ogImage = cover || `https://byshennan.com/api/og?title=${title}`;
 
   return {
     title,
     description,
+    keywords: keywords.length > 0 ? keywords : undefined,
+    alternates: {
+      canonical: `https://byshennan.com/projects/${slug}`,
+    },
     openGraph: {
       title,
       description,
@@ -47,8 +52,26 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
+  const softwareSchema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: post.metadata.title,
+    description: post.metadata.description,
+    author: {
+      "@type": "Person",
+      name: "Shen Nan Wong",
+      url: "https://byshennan.com",
+    },
+  };
+
+  const projectUrl = post.metadata.website || post.metadata.github;
+  if (projectUrl) {
+    softwareSchema.url = projectUrl;
+  }
+
   return (
     <section>
+      <JsonLd data={softwareSchema} />
       <PostDetail post={post} slug={slug} />
     </section>
   );
