@@ -29,29 +29,44 @@ export default function PostList({
       </div>
 
       {view === "list" ? (
-        <div className="flex flex-col">
+        <div className="flex flex-col divide-y divide-neutral-100 dark:divide-neutral-800/60">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`${basePath}/${post.slug}`}
-              className="group py-3 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+              className="group py-5 first:pt-0 flex flex-col gap-1.5 hover:opacity-80 transition-opacity"
             >
-              <p className="text-neutral-400 dark:text-neutral-500 text-sm">
-                {post.publishedAt}
-              </p>
-              <h2 className="text-lg text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs text-neutral-400 dark:text-neutral-500 tabular-nums">
+                  {post.publishedAt}
+                </span>
+                {post.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 leading-snug">
                 {post.title}
               </h2>
+              {post.description && (
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed line-clamp-2">
+                  {post.description}
+                </p>
+              )}
             </Link>
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`${basePath}/${post.slug}`}
-              className="group border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
+              className="group border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm transition-all duration-200 cursor-pointer"
             >
               {post.cover ? (
                 <div className="aspect-[16/9] overflow-hidden bg-neutral-100 dark:bg-neutral-900">
@@ -65,21 +80,31 @@ export default function PostList({
                   />
                 </div>
               ) : (
-                <div className="aspect-[16/9] bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center">
-                  <span className="text-neutral-300 dark:text-neutral-700 text-3xl font-serif">
+                <div className="aspect-[16/9] bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 flex items-center justify-center">
+                  <span className="text-4xl font-serif font-bold text-neutral-300 dark:text-neutral-700">
                     {post.title.charAt(0)}
                   </span>
                 </div>
               )}
-              <div className="p-3">
-                <p className="text-neutral-400 dark:text-neutral-500 text-xs">
-                  {post.publishedAt}
-                </p>
-                <h2 className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mt-0.5">
+              <div className="p-4 flex flex-col gap-1.5">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs text-neutral-400 dark:text-neutral-500 tabular-nums">
+                    {post.publishedAt}
+                  </span>
+                  {post.tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 leading-snug">
                   {post.title}
                 </h2>
                 {post.description && (
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 line-clamp-2">
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed line-clamp-2">
                     {post.description}
                   </p>
                 )}

@@ -38,17 +38,10 @@ html {
   @apply visible;
 }
 
-.prose pre {
-  @apply border border-neutral-800 bg-neutral-900;
-}
-
-.prose code {
-  @apply text-neutral-800 dark:text-neutral-200 px-1 py-0.5 border border-neutral-100 dark:border-neutral-800 rounded-lg bg-neutral-100 dark:bg-neutral-900;
-}
-
 .prose pre code {
-  @apply text-neutral-800 dark:text-neutral-200 p-0;
+  @apply p-0;
   border: initial;
+  background: initial;
 }
 
 .prose img {
@@ -65,6 +58,19 @@ html {
 code[class*='language-'],
 pre[class*='language-'] {
   @apply text-neutral-50;
+}
+
+/* Shiki dual-theme support */
+html .shiki,
+html .shiki span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
 }
 
 pre::-webkit-scrollbar {
@@ -93,7 +99,24 @@ table {
   display: block;
   max-width: fit-content;
   overflow-x: auto;
-  white-space: nowrap;
+}
+
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.prose thead th {
+  @apply bg-neutral-50 dark:bg-neutral-900;
+}
+
+.prose tbody tr:nth-child(even) {
+  @apply bg-neutral-50/50 dark:bg-neutral-900/30;
+}
+
+.prose td,
+.prose th {
+  @apply border border-neutral-200 dark:border-neutral-800 px-4 py-2;
 }
 
 .prose .callout > p {

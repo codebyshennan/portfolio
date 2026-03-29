@@ -6,6 +6,7 @@ tags: ai, voice, elevenlabs, agents
 cover: /images/projects/vox.png
 github:
 website:
+draft: false
 author: Shen Nan Wong
 keywords: AI voice agent, founder interviews, ElevenLabs, venture capital, autonomous agents, Iterative
 ---

@@ -15,6 +15,7 @@ interface PostMeta {
   website: string | null;
   author: string | null;
   keywords: string[];
+  draft: boolean;
 }
 
 interface PostDetail {
@@ -102,6 +103,7 @@ function getPostsFromDir(
         website: data.website || null,
         author: data.author || null,
         keywords: data.keywords ? data.keywords.split(",").map((k) => k.trim()) : [],
+          draft: data.draft === "true",
       };
     })
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1));
@@ -110,7 +112,8 @@ function getPostsFromDir(
 export function getAllPublished(): PostMeta[] {
   const blogs = getPostsFromDir("blog", "Blog");
   const projects = getPostsFromDir("projects", "Project");
-  return [...blogs, ...projects];
+  const all = [...blogs, ...projects];
+  return process.env.NODE_ENV === "development" ? all : all.filter((p) => !p.draft);
 }
 
 export function getSinglePostBySlug(slug: string): PostDetail | null {
@@ -143,6 +146,7 @@ export function getSinglePostBySlug(slug: string): PostDetail | null {
             website: data.website || null,
             author: data.author || null,
             keywords: data.keywords ? data.keywords.split(",").map((k) => k.trim()) : [],
+            draft: data.draft === "true",
           },
           markdown: content,
         };
