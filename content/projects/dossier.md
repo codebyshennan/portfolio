@@ -8,7 +8,7 @@ github:
 website:
 draft: false
 author: Shen Nan Wong
-keywords: investment memo, deal research, LangGraph, AI agents, venture capital, deep research, Iterative
+keywords: investment memo, deal research, LangGraph, AI agents, venture capital, deep research
 ---
 
 ## Why I built this
