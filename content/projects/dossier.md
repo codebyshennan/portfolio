@@ -5,7 +5,7 @@ date: 2025-03-01
 tags: ai, research, langgraph, agents
 cover: /images/projects/dossier.png
 github: https://github.com/codebyshennan/memo-generation
-website:
+website: https://iterative-bearing.vercel.app/
 draft: false
 author: Shen Nan Wong
 keywords: investment memo, deal research, LangGraph, AI agents, venture capital, deep research
