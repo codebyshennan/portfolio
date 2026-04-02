@@ -8,7 +8,7 @@ github:
 website:
 draft: false
 author: Shen Nan Wong
-keywords: AI voice agent, founder interviews, ElevenLabs, venture capital, autonomous agents, Iterative
+keywords: AI voice agent, founder interviews, ElevenLabs, venture capital, autonomous agents
 ---
 
 ## Why I built this
