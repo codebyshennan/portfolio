@@ -5,7 +5,7 @@ date: 2024-12-01
 tags: ai, scoring, pipeline, llm
 cover: /images/projects/fathom.png
 github: https://github.com/codebyshennan/fathom
-website:
+website: https://iterative-fathom.vercel.app/
 draft: false
 author: Shen Nan Wong
 keywords: founder scoring, LLM evaluation, deal flow triage, AI pipeline, venture capital
