@@ -11,7 +11,6 @@ author: Shen Nan Wong
 keywords: multi-agent AI, event logistics, road closures, natural language planning, maps, 3D visualization
 ---
 
-<!-- TODO: Add screenshot/video of Cordon — show the 3D map with road closures, the agent command bar processing a natural language request, and the timeline scrubber -->
 
 ## Why I built this
 
