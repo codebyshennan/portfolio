@@ -23,6 +23,8 @@ I built Meridian to make all of that queryable from Slack. Rather than building 
 
 Meridian is a TypeScript service that sits between Slack and multiple MCP (Model Context Protocol) servers. When someone sends a message, it parses intent, routes the request to the right server(s), executes multi-step tool chains, and streams results back into the originating thread. Adding a new capability is a single MCP server registration — no changes to the core router.
 
+![Meridian architecture](/images/projects/meridian-arch.svg)
+
 ## Architecture
 
 The system is built around three layers:
