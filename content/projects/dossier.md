@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: investment memo, deal research, LangGraph, AI agents, venture capital, deep research
 ---
 
-<!-- TODO: Add screenshot/video of Dossier — show the research pipeline running and a generated memo in Notion -->
+![Dossier memo generation](/images/projects/dossier.png)
 
 ## Why I built this
 
