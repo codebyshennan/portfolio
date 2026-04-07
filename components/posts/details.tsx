@@ -100,8 +100,15 @@ export default function PostDetail({ post, slug }) {
             {post.metadata.title}
           </h1>
 
+          {/* Description lead */}
+          {post.metadata.description && (
+            <p className="mt-3 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              {post.metadata.description}
+            </p>
+          )}
+
           {/* Author + Date + Reading time */}
-          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500 dark:text-neutral-400">
             <span className="font-medium text-neutral-700 dark:text-neutral-300">
               Shen Nan
             </span>
