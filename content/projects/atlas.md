@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: network mapping, graph database, LinkedIn, RAG, relationship intelligence, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Atlas — show the network graph visualization and a natural-language query returning warm intro paths -->
+![Atlas network search](/images/projects/atlas.png)
 
 ## Why I built this
 
