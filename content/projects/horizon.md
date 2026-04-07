@@ -11,7 +11,6 @@ author: Shen Nan Wong
 keywords: ops health, synthetic monitoring, infrastructure dashboard, Slack alerting, uptime, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Horizon — show the health dashboard with service status cards, a Slack alert firing, and the historical uptime chart -->
 
 ## Why I built this
 
