@@ -5,7 +5,7 @@ date: 2024-12-15
 tags: monitoring, devops, dashboard, alerting
 cover: /images/projects/horizon.png
 github: https://github.com/codebyshennan/metric-dashboard
-website: https://dashboard-wongsns-projects.vercel.app/
+website: https://dashboard-kappa-three-55.vercel.app/
 draft: false
 author: Shen Nan Wong
 keywords: ops health, synthetic monitoring, infrastructure dashboard, Slack alerting, uptime, venture capital
