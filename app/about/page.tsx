@@ -29,7 +29,8 @@ export default function AboutPage() {
       <p className="text-neutral-500 text-sm mb-4">
         Currently in{" "}
         <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
-        {" "}Previously{" "}
+        <br />
+        Previously{" "}
         <span title="Hong Kong" className="cursor-default">&#127469;&#127472;</span>{" "}
         <span title="Singapore" className="cursor-default">&#127480;&#127468;</span>{" "}
         <span title="San Francisco" className="cursor-default">&#127482;&#127480;</span>{" "}
