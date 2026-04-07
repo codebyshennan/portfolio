@@ -304,6 +304,23 @@ export default function PostDetail({ post, slug }) {
               </h3>
             );
           },
+          img({ src, alt }) {
+            return (
+              <span className="not-prose block my-8">
+                <img
+                  src={src}
+                  alt={alt || ""}
+                  className="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900"
+                  loading="lazy"
+                />
+                {alt && (
+                  <span className="block text-center text-xs text-neutral-400 dark:text-neutral-500 mt-2">
+                    {alt}
+                  </span>
+                )}
+              </span>
+            );
+          },
           hr() {
             return (
               <div className="my-10 flex items-center justify-center gap-3 not-prose" aria-hidden>
