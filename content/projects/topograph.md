@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: portfolio tracker, Carta, AngelList, cap table, MOIC, dilution, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Topograph — show the multi-fund portfolio view, MOIC chart, and ownership waterfall for a single company -->
+![Topograph portfolio view](/images/projects/topograph.png)
 
 ## Why I built this
 
