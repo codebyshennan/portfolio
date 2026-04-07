@@ -15,7 +15,9 @@ keywords: MCP server, Model Context Protocol, Slack integration, multi-agent orc
 
 ## Why I built this
 
-The investment team had a growing collection of AI tools — memo generation, network mapping, deal research, Slack search — but each lived in a separate app. Using them meant context-switching, copying data between windows, and manually stitching results together. I wanted a single surface where any Slack message could trigger any tool (or chain of tools) without leaving the conversation.
+The investment team's data was split across Airtable, StandardMetrics, Tracxn, Gmail, and Slack — with no unified view. Answering questions like "has this company applied before?" or "which companies in this batch are comparable to Acme?" meant manually cross-referencing multiple platforms. Reconciling the data cost roughly 1–3 person-days per quarter for a 40-company cohort.
+
+I built Meridian to make all of that queryable from Slack. Rather than building custom integrations per tool, I structured it around MCP (Model Context Protocol) — a standardized interface where any data source can be registered as a server, and the agent figures out which servers to call and in what order based on the natural language query.
 
 ## What it does
 
