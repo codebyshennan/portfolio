@@ -21,6 +21,8 @@ VC relationship capital is locked in LinkedIn profiles, scattered email threads,
 
 Atlas models the founder and investor network as a graph, with edges weighted by interaction strength. A natural-language query layer sits on top: ask "who has a connection to this founder?" and it traverses the graph, finds the shortest warm path, and summarises the relationship context.
 
+![Atlas architecture](/images/projects/atlas-arch.svg)
+
 ## Data pipeline
 
 ### LinkedIn ingestion
