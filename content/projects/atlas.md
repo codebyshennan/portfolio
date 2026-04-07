@@ -25,34 +25,43 @@ Atlas models the founder and investor network as a graph, with edges weighted by
 
 ### LinkedIn ingestion
 
-Proxycurl API pulls structured profile data — work history, education, connections, shared groups. Each profile becomes a node; shared experiences (same company, same university, co-investors) become edges. The pipeline runs nightly against a watchlist of ~2,000 profiles, with incremental updates for new connections.
+LinkedIn profile data is batch-imported as structured JSON — work history, education, connections, shared groups. Each profile becomes a node; shared experiences (same company, same university, co-investors) become edges. The pipeline runs nightly against a watchlist of ~2,000 profiles, with incremental updates for new connections.
 
-### Graph construction
+### Data model
 
-The graph uses an adjacency list stored in Supabase PostgreSQL with recursive CTE queries for path traversal. Each edge carries:
+The graph is stored in Supabase PostgreSQL with two normalized tables built on top of the raw `profiles` data:
+
+- **`expert_companies`** — normalized from `profiles.experiences` JSONB into an indexed relational table, enabling fast company-based lookups without scanning unstructured JSON
+- **`expert_connections`** — materialized relationship graph between experts, making multi-hop path queries feasible without repeated JOIN chains
+
+Each edge in the connection graph carries:
 
 - **Weight** — interaction strength (co-invested > same company > same university > shared connection)
 - **Recency** — exponential decay based on last interaction date
 - **Context** — free-text description of the relationship ("co-invested in Series A of Company X")
 
-### Query layer
+Indexes: IVFFlat for pgvector similarity search, B-tree on company/name columns for point lookups. An in-memory schema cache (1-hour TTL) eliminates 200–500ms of repeated DB introspection on every search.
 
-Natural-language queries are converted to graph operations via an LLM:
+### Query pipeline
 
-1. **Entity resolution** — "the founder of Acme" → resolve to a specific node via fuzzy name matching + company association
-2. **Path search** — BFS/Dijkstra on weighted edges to find the shortest warm path from any team member to the target
-3. **Context synthesis** — the LLM summarises the path in natural language: "You → Sarah (co-invested in Fund II deal) → Mark (Stanford MBA '18) → Target Founder"
+Natural-language queries run through a multi-step pipeline:
 
-### Hybrid search
+1. **Query classification** — extracts `locationTerms` alongside a semantic weight (0–50%) using gpt-4.1-nano or Groq llama-3.3-70b interchangeably via OpenRouter. SQL generation and classification run in parallel to cut latency.
+2. **Hybrid search** — SQL filters with hard geographic constraints narrow the candidate set, then pgvector similarity search ranks by semantic relevance
+3. **LLM reranker** — a final LLM pass re-ranks hybrid results with geographic hard constraints applied, improving precision on location-qualified queries like "find fintech founders based in Singapore"
+4. **Context synthesis** — summarises the relationship path in natural language: "You → Sarah (co-invested in Fund II deal) → Mark (Stanford MBA '18) → Target Founder"
 
-Not every query is a graph traversal. "Find all founders in fintech who previously worked at Stripe" is a filter query. Atlas uses a hybrid approach: SQL filters narrow the candidate set, then vector similarity (pgvector) ranks by semantic relevance. The query planner decides which path to take based on the query structure.
+### Network visualization
+
+Expert profiles have a Connections tab showing known connections grouped by relationship type, alongside an interactive force-directed network graph (react-force-graph-2d). The graph renders live on click — useful for visually tracing multi-hop paths before committing to an outreach sequence.
 
 ## Technical decisions
 
 - **PostgreSQL over Neo4j** — the graph fits in ~50K nodes. Recursive CTEs handle path queries well enough, and keeping everything in one database (Supabase) avoids the operational overhead of a dedicated graph DB.
-- **Proxycurl over direct scraping** — LinkedIn rate-limits aggressively. Proxycurl provides a clean API with structured output and handles the scraping infrastructure. The cost (~$0.01/profile) is negligible at our scale.
+- **OpenRouter for model flexibility** — query classification and reranking switch between gpt-4.1-nano (OpenAI) and llama-3.3-70b (Groq) depending on load and latency. OpenRouter's unified API makes this a config change, not a code change.
 - **Nightly batch over real-time sync** — network relationships don't change by the hour. A nightly job keeps data fresh enough for deal-time lookups without the complexity of real-time event processing.
+- **Materialized connection table over runtime joins** — computing the relationship graph at query time across thousands of profiles is too slow for interactive search. Pre-materializing the `expert_connections` table trades storage for sub-100ms path lookups.
 
 ## Stack
 
-Next.js 15, React 19, Supabase (PostgreSQL + pgvector), Proxycurl API, OpenAI (embeddings + chat), Tailwind CSS, Vercel
+Next.js 15, React 19, Supabase (PostgreSQL + pgvector), OpenRouter (gpt-4.1-nano, Groq llama-3.3-70b), OpenAI (embeddings), react-force-graph-2d, Tailwind CSS, Vercel
