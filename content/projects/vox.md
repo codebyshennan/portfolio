@@ -23,6 +23,8 @@ The investment team needed something that could handle first calls at scale, ada
 
 Vox is an autonomous voice call system for conducting founder interviews at scale. An ElevenLabs voice agent calls founders via a shareable link, pulls their application data from Airtable mid-conversation to ask contextual follow-up questions, then logs the full transcript and structured feedback.
 
+![Vox call pipeline](/images/projects/vox-arch.svg)
+
 ## Voice pipeline
 
 ### Call initiation
