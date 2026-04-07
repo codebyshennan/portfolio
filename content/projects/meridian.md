@@ -50,21 +50,6 @@ MCP tool definitions bring large chunks of schema context into the prompt. A sin
 
 Meridian resolves this with a `TransientDataStore` approach: after each tool call, useful outputs are cached in a short-lived "memory box" keyed to the Slack thread. Subsequent steps read from the cache rather than re-fetching, keeping the active context window lean. The cache TTL is matched to the thread activity window.
 
-```
-Slack message
-    │
-    ▼
-MessageRouter
-    │
-    ├── ContextManager (adds business context, checks cache)
-    │
-    └── WorkflowRunner (plans + executes)
-           │
-           ├── MCP clients (Airtable, StandardMetrics, Tracxn, Gmail)
-           │
-           └── TransientDataStore (cache tool outputs per thread)
-```
-
 ### Multi-step chains
 
 A message like "research this founder and draft a memo" triggers Atlas (network lookup) → Bearing (research agents) → memo generation as a sequential pipeline. Each step's output becomes context for the next. The chain definition lives in a simple JSON config — no orchestration code needed.
