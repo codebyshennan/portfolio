@@ -18,7 +18,11 @@ export default function ProjectsPage() {
     <section>
       <h1 className="font-bold text-3xl font-serif mb-2">Projects</h1>
       <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-8">
-        Hacks, experiments, and more.
+        AI systems and data infrastructure built at{" "}
+        <a href="https://iterative.vc" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors">
+          Iterative
+        </a>
+        {" "}and beyond.
       </p>
 
       <PostList posts={posts} basePath="/projects" />
