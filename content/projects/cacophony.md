@@ -5,7 +5,7 @@ date: 2024-11-01
 tags: games, ai, multiplayer, hackathon
 cover: /images/projects/cacophony.png
 github:
-website:
+website: https://cacophony-game.vercel.app/
 draft: false
 author: Shen Nan Wong
 keywords: multiplayer music game, AI music generation, Suno AI, hackathon, Ho Chi Minh City, Cursor hackathon
