@@ -15,7 +15,9 @@ keywords: AI voice agent, founder interviews, ElevenLabs, venture capital, auton
 
 ## Why I built this
 
-The investment team was spending hours on introductory calls with founders — calls that mostly followed the same script. The high-value work was in the follow-up conversations, not the initial screen. I built Vox to handle the first call autonomously: pull the founder's application data, ask contextual questions, and log a structured evaluation. This freed the team to focus on the founders who made it past the initial filter.
+We'd been running founder interviews through Persona Studios — a no-code voice agent platform built by one of our portfolio companies. It worked well enough for the validation program: structured agenda flow, Airtable sync, voice cloning of the GP. But the platform's ceiling was visible. Prompting control was limited, LLM selection was locked, telephony wasn't supported, and every customization required going through the platform's UI.
+
+The investment team needed something that could handle first calls at scale, adapt questions based on what the founder said mid-conversation, and produce structured evaluation scores that fed directly into the decision pipeline. I rebuilt it from scratch on ElevenLabs with full control over the prompting, rubric, and integrations.
 
 ## What it does
 
