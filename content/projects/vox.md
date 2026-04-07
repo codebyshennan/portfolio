@@ -40,17 +40,24 @@ This means the agent adapts its questions based on what it learns. If the founde
 
 ### Structured evaluation
 
-After the call, a webhook fires with the full transcript. GPT-4o processes the transcript against a structured rubric:
+After the call, a webhook fires with the full transcript. GPT-4o processes the transcript against Iterative's evaluation rubric — the same criteria the investment team uses manually.
 
-| Dimension | What it evaluates |
-|---|---|
-| Communication clarity | Can the founder explain their business clearly? |
-| Market understanding | Depth of knowledge about their market and customers |
-| Technical depth | Ability to discuss product architecture and technical decisions |
-| Team dynamics | How they talk about co-founders, hiring, and delegation |
-| Thesis fit | Alignment with the fund's investment criteria |
+**Green flags** (each scored 1–3, weighted by importance):
 
-Each dimension gets a 1-5 score with reasoning. Scores are validated against a Zod schema before writing to Turso — if the LLM hallucinates a score outside the valid range or invents a dimension, the validation layer catches it.
+| Flag | Weight | What it looks for |
+|---|---|---|
+| VC-Backable Ambition | ×3 | Intent to build to $50–100M revenue in 7–10 years, self-initiated |
+| Resilience & Coachability | ×3 | Specific, emotionally authentic instance of persistence or feedback acceptance |
+| Strong Internal Motivation | ×2 | Deep personal connection to the problem, not surface-level interest |
+| Ingenuity at Hacking Systems | ×2 | Concrete example of a rule-breaking but clever workaround |
+| Clarity of Hypothesis | ×2 | Precise, testable assumption with a realistic 2-month validation plan |
+| Unique Insight | ×1 | Counterintuitive understanding grounded in real user conversations |
+
+Total possible: 39 points. Every score requires a direct transcript quote as justification — the rubric instructs maximal cynicism, defaulting to the lowest plausible score without clear evidence.
+
+**Red flags** are binary checks: founder already past validation stage ($1k+ MRR), non-tech business, or ethical/attitude issues in the conversation.
+
+Scores are validated against a Zod schema before writing to Turso — if the LLM hallucinates a score outside the valid range or invents a dimension, the validation layer catches it.
 
 ### Voice cloning
 
