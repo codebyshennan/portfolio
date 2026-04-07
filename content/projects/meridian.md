@@ -60,17 +60,7 @@ All query executions are traced through Langfuse: request/response logging, late
 
 ### Server registration
 
-New tools register by pointing Meridian at their MCP endpoint:
-
-```json
-{
-  "name": "bearing",
-  "endpoint": "https://bearing.internal/mcp",
-  "tools": ["generate_memo", "research_founder", "research_market"]
-}
-```
-
-The router discovers available tools at startup and re-discovers on a configurable interval. Hot-reloading means deploying a new tool server makes it available to Slack users within seconds.
+New tools register by pointing Meridian at their MCP endpoint with a name, endpoint URL, and list of exposed tool names. The router discovers available tools at startup and re-discovers on a configurable interval — hot-reloading means a new tool server is available to Slack users within seconds of deployment.
 
 ## Technical decisions
 
