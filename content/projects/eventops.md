@@ -5,7 +5,7 @@ date: 2024-12-01
 tags: ai, maps, agents, hackathon
 cover: /images/projects/cordon.png
 github: https://github.com/codebyshennan/eventops
-website:
+website: https://eventops-planning.vercel.app/
 draft: false
 author: Shen Nan Wong
 keywords: multi-agent AI, event logistics, road closures, natural language planning, maps, 3D visualization
