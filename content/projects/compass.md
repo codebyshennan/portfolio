@@ -19,6 +19,8 @@ Years of investment discussions, founder advice, and market takes were buried ac
 
 Compass archives entire Slack workspaces — messages, threads, files — and runs an AI pipeline that classifies conversations into a searchable Founder Bible, surfaces knowledge gaps, and answers questions with inline citations drawn from the real archive. It also watches for new Slack messages and can reply automatically, grounded only in what the community has actually said.
 
+![Compass architecture](/images/projects/compass-arch.svg)
+
 ## Archival pipeline
 
 ### Incremental Slack sync
