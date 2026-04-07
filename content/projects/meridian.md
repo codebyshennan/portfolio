@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: MCP server, Model Context Protocol, Slack integration, multi-agent orchestration, LLM tool use, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Meridian in action — show a Slack thread with a multi-tool workflow executing -->
+![Meridian system dashboard](/images/projects/meridian.png)
 
 ## Why I built this
 
