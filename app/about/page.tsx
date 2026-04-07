@@ -172,14 +172,6 @@ export default function AboutPage() {
           ))}
         </ol>
       </div>
-      <div className="mt-12 mb-8">
-        <h2 className="font-bold text-xl font-serif mb-3">Outside Work</h2>
-        <p className="text-neutral-400 text-base">
-          I stay moving — running, MMA, Hyrox, yoga, tennis, pickleball, and house dance.
-          Currently learning Vietnamese through Street Vietnamese classes in HCMC.
-          Living nomadically across Southeast Asia and always down to meet over coffee.
-        </p>
-      </div>
     </section>
   );
 }
