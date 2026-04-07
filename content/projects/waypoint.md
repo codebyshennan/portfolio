@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: pipeline dashboard, SLA tracking, deal velocity, metrics, Airtable, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Waypoint — show the pipeline funnel, SLA breach flags, and deal velocity charts -->
+![Waypoint pipeline dashboard](/images/projects/waypoint.png)
 
 ## Why I built this
 
