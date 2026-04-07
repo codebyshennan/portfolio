@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: AI voice agent, founder interviews, ElevenLabs, venture capital, autonomous agents
 ---
 
-<!-- TODO: Add screenshot/video of Vox — show the admin panel with interview queue, a call in progress, and a structured evaluation report -->
+![Vox call queue](/images/projects/vox.png)
 
 ## Why I built this
 
