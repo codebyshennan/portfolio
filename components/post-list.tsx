@@ -20,7 +20,7 @@ export default function PostList({
   posts: Post[];
   basePath: string;
 }) {
-  const [view, setView] = useState<ViewMode>("list");
+  const [view, setView] = useState<ViewMode>("grid");
 
   return (
     <>
