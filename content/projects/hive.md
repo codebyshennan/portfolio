@@ -11,7 +11,6 @@ author: Shen Nan Wong
 keywords: Slack archiver, AI pipeline, knowledge base, search, venture capital, investment research
 ---
 
-<!-- TODO: Add screenshot/video of Hive — show the message browser, semantic search results, and a synthesized article -->
 
 ## Why I built this
 
