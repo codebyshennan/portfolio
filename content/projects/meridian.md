@@ -31,9 +31,47 @@ The system is built around three layers:
 2. **Intent routing** — Claude API with tool-use definitions parses the message into one or more MCP tool calls. The router resolves which server owns each tool and batches calls that can run in parallel
 3. **MCP execution** — each registered server exposes tools via the Model Context Protocol spec. Meridian maintains persistent connections to each server, handles retries, and multiplexes results back into a single Slack reply
 
+### Query categories
+
+The investment team's queries fall into four distinct types, each requiring different reasoning:
+
+| Category | Example | Complexity |
+|---|---|---|
+| Simple retrieval | "Why was this company rejected in S25?" | Direct field lookup |
+| Chronological tracing | "What was their revenue last time they applied vs. now?" | Cross-record temporal reasoning |
+| Comparative analysis | "Which other companies are doing similar things in fintech?" | Similarity matching across full dataset |
+| Aggregation | "Break down this batch by geography and industry" | Statistical computation |
+
+Simple retrieval reduces to a direct Airtable lookup. Comparative analysis requires dynamic query generation across all records. Aggregation needs a separate calculation layer — LLMs can't do arithmetic reliably, so queries with statistical requirements get routed to a sandboxed code execution step.
+
+### Context management
+
+MCP tool definitions bring large chunks of schema context into the prompt. A single Airtable integration with field descriptions already consumes 3–5k tokens; adding retrieved data for a complex query can hit 20–30k tokens. At that scale, context fills up before the agent finishes reasoning.
+
+Meridian resolves this with a `TransientDataStore` approach: after each tool call, useful outputs are cached in a short-lived "memory box" keyed to the Slack thread. Subsequent steps read from the cache rather than re-fetching, keeping the active context window lean. The cache TTL is matched to the thread activity window.
+
+```
+Slack message
+    │
+    ▼
+MessageRouter
+    │
+    ├── ContextManager (adds business context, checks cache)
+    │
+    └── WorkflowRunner (plans + executes)
+           │
+           ├── MCP clients (Airtable, StandardMetrics, Tracxn, Gmail)
+           │
+           └── TransientDataStore (cache tool outputs per thread)
+```
+
 ### Multi-step chains
 
-The interesting part is chaining. A message like "research this founder and draft a memo" triggers Atlas (network lookup) → Fathom (scoring) → Dossier (memo generation) as a sequential pipeline. Each step's output becomes context for the next. The chain definition lives in a simple JSON config — no orchestration code needed.
+A message like "research this founder and draft a memo" triggers Atlas (network lookup) → Bearing (research agents) → memo generation as a sequential pipeline. Each step's output becomes context for the next. The chain definition lives in a simple JSON config — no orchestration code needed.
+
+### Observability
+
+All query executions are traced through Langfuse: request/response logging, latency per tool call, accuracy scores against a gold query set. The eval harness runs a set of representative queries with known expected answers and scores the agent's output — tracking accuracy progression as the system improves.
 
 ### Server registration
 
@@ -41,24 +79,21 @@ New tools register by pointing Meridian at their MCP endpoint:
 
 ```json
 {
-  "name": "dossier",
-  "endpoint": "https://dossier.internal/mcp",
+  "name": "bearing",
+  "endpoint": "https://bearing.internal/mcp",
   "tools": ["generate_memo", "research_founder", "research_market"]
 }
 ```
 
 The router discovers available tools at startup and re-discovers on a configurable interval. Hot-reloading means deploying a new tool server makes it available to Slack users within seconds.
 
-### Thread context management
-
-Slack threads are the UX primitive. Every tool invocation preserves thread context — if you ask a follow-up question, the system has the full history of what was already retrieved or generated. Context is stored in a lightweight KV store (Vercel KV) with a TTL matching Slack's thread activity window.
-
 ## Technical decisions
 
 - **MCP over custom RPC** — MCP is an open standard with a growing ecosystem. Using it means any MCP-compatible server can plug into Meridian without adapter code. The protocol handles tool discovery, parameter schemas, and streaming natively.
 - **Claude tool-use for routing** — intent classification via tool-use definitions is more robust than keyword matching or fine-tuned classifiers. Adding a new tool to the routing layer is just adding a tool definition to the prompt — no retraining.
+- **TransientDataStore over stateless calls** — without caching, every multi-step query re-fetches the same data. The cache layer keeps the context window manageable and makes chained queries fast enough for interactive use.
 - **Slack Bolt over webhooks** — Bolt handles socket mode, retry logic, and rate limiting out of the box. The alternative was managing webhook verification, challenge responses, and retry deduplication manually.
 
 ## Stack
 
-TypeScript, Slack Bolt (socket mode), Claude API (tool-use), Model Context Protocol SDK, Vercel KV, Vercel (deployment)
+TypeScript, Slack Bolt (socket mode), Claude API (tool-use), Model Context Protocol SDK, Airtable API, StandardMetrics API, Langfuse (observability), Vercel KV, Vercel (deployment)
