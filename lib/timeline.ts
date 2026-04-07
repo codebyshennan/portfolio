@@ -29,13 +29,13 @@ const timeline: Timeline[] = [
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Investments & Engineering (Sole Engineer)",
+				position: "Head of Engineering — Automations, Data Engineering & Applied AI",
 				description: [
-					"Own the full data and tooling stack at a Singapore-headquartered early-stage VC fund \u2014 reduced deal screening time by automating sourcing, diligence, and portfolio operations end-to-end.",
-					"Shipped an AI-powered MCP Server that unified multi-source deal data into a single query interface, becoming the team's default research tool with tracked NPS.",
-					"Automated founder first-call scheduling and outreach using a Voice AI pipeline, freeing the investment team to focus on high-signal conversations.",
-					"Built a 9-product internal tooling suite that replaced manual workflows across deal flow, SLA monitoring, and portfolio analytics \u2014 used daily by the entire team.",
-					"Work closely with technical founders across the portfolio on engineering and infrastructure strategy.",
+					"Staff-level engineer leading the design & implementation of firm-wide data, software, IT & automation infrastructure powering portfolio operations for an early-stage VC fund.",
+					"Conduct technical due diligence on deep tech & software startups; advise portfolio CTOs on engineering strategy.",
+					"Built an MCP Backbone — a Slack bot routing natural-language queries across tool servers (Notion, Airtable, filesystem) with LLM routing via OpenRouter, code execution via E2B, and Slack approval gates.",
+					"Shipped a Founder Knowledge Base (two-tier AI pipeline: classifier + Gemini synthesis), a Voice Interview System (ElevenLabs screening calls → Turso), a Smart Network (pgvector hybrid search), and a Memo Generator (LangGraph multi-source research → Notion).",
+					"Built a 9-product internal tooling suite replacing manual workflows across deal flow, SLA monitoring, and portfolio analytics — used daily by the entire team.",
 				],
 				technologies: ["python", "nextjs", "supabase", "openai", "postgresql", "bigquery"],
 				href: null,
