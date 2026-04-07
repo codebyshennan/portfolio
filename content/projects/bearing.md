@@ -88,29 +88,9 @@ Gemini Flash-Lite handles cheap, fast classification tasks. Full Flash handles s
 
 ## Architecture
 
-```
-Airtable / Notion (deal data)
-        │
-        ▼
-  Research agents (parallel)
-  ├─ Founder: EnrichLayer → Neon cache → Tavily fallback
-  ├─ Competitive: LLM definition → Tracxn (SEA) + Tavily (global)
-  └─ Problem validation: Tavily
-        │
-        ▼
-  Evaluation framework (rubric scoring)
-        │
-        ▼
-  Decision Brief (Claude Sonnet 4.6 with thinking)
-        │
-        ▼
-  Memo generation (Claude Sonnet 4.6, 7 sections)
-        │
-        ▼
-  Notion (formatted memo)
-```
+![Bearing research pipeline](/images/projects/bearing-arch.svg)
 
-Market sizing runs as a separate LangGraph agent with TAM/SAM/SOM analysis (top-down + bottom-up + triangulation). The backend is a Hono server on Node.js. The Next.js frontend provides a queue UI where the team can trigger memo generation per deal, monitor pipeline progress, and review drafts before they land in Notion.
+Three research strands run concurrently before generation begins — then converge into a sequential evaluation and drafting pipeline. Market sizing runs as a separate LangGraph agent with TAM/SAM/SOM analysis (top-down + bottom-up + triangulation). The backend is a Hono server on Node.js. The Next.js frontend provides a queue UI where the team can trigger memo generation per deal, monitor pipeline progress, and review drafts before they land in Notion.
 
 ## Technical decisions
 
