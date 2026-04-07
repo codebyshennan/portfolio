@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: multiplayer music game, AI music generation, Suno AI, hackathon, Ho Chi Minh City, Cursor hackathon
 ---
 
-<!-- TODO: Add screenshot/video of Cacophony — show a game room with players, a round in progress with vibe/lyric card matching, and a generated song playing -->
+![Cacophony game lobby](/images/projects/cacophony.png)
 
 **2nd Place — Cursor Hackathon, Ho Chi Minh City**
 
