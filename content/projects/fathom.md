@@ -11,7 +11,7 @@ author: Shen Nan Wong
 keywords: founder scoring, LLM evaluation, deal flow triage, AI pipeline, venture capital
 ---
 
-<!-- TODO: Add screenshot/video of Fathom — show the scoring queue, a founder's evaluation card with dimension breakdowns, and the calibration view -->
+![Fathom scoring queue](/images/projects/fathom.png)
 
 ## Why I built this
 
