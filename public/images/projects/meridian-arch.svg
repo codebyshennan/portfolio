@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" rx="12" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="320" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Meridian — Architecture</text>
+
+  <!-- Section dividers -->
+  <line x1="165" y1="38" x2="165" y2="348" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="400" y1="38" x2="400" y2="348" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Section labels -->
+  <text x="82" y="46" text-anchor="middle" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="2">INPUT</text>
+  <text x="282" y="46" text-anchor="middle" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="2">ORCHESTRATION</text>
+  <text x="520" y="46" text-anchor="middle" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="2">INTEGRATIONS</text>
+
+  <!-- Slack box -->
+  <rect x="17" y="156" width="130" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="25" y="168" width="28" height="28" rx="6" fill="#4A154B"/>
+  <text x="39" y="186" text-anchor="middle" font-size="9" font-weight="700" fill="white">#</text>
+  <text x="64" y="180" font-size="12" font-weight="600" fill="#1F2937">Slack</text>
+  <text x="64" y="193" font-size="10" fill="#9CA3AF">natural language queries</text>
+
+  <!-- Arrow Slack → Claude Router -->
+  <line x1="147" y1="182" x2="200" y2="182" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Claude Router box -->
+  <rect x="200" y="156" width="145" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="208" y="168" width="28" height="28" rx="6" fill="#D97706"/>
+  <text x="222" y="186" text-anchor="middle" font-size="9" font-weight="700" fill="white">C</text>
+  <text x="247" y="180" font-size="12" font-weight="600" fill="#1F2937">Claude Router</text>
+  <text x="247" y="193" font-size="10" fill="#9CA3AF">tool selection · orchestration</text>
+
+  <!-- MCP Boxes (right section) -->
+
+  <!-- Airtable MCP -->
+  <rect x="415" y="68" width="210" height="44" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="423" y="80" width="28" height="28" rx="6" fill="#2D7FF9"/>
+  <text x="437" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="white">AT</text>
+  <text x="462" y="92" font-size="12" font-weight="600" fill="#1F2937">Airtable MCP</text>
+  <text x="462" y="105" font-size="10" fill="#9CA3AF">CRM · deal pipeline · contacts</text>
+
+  <!-- StandardMetrics MCP -->
+  <rect x="415" y="124" width="210" height="44" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="423" y="136" width="28" height="28" rx="6" fill="#374151"/>
+  <text x="437" y="154" text-anchor="middle" font-size="9" font-weight="700" fill="white">SM</text>
+  <text x="462" y="148" font-size="12" font-weight="600" fill="#1F2937">StandardMetrics MCP</text>
+  <text x="462" y="161" font-size="10" fill="#9CA3AF">portfolio metrics · financials</text>
+
+  <!-- Tracxn MCP -->
+  <rect x="415" y="180" width="210" height="44" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="423" y="192" width="28" height="28" rx="6" fill="#EF4444"/>
+  <text x="437" y="210" text-anchor="middle" font-size="9" font-weight="700" fill="white">TX</text>
+  <text x="462" y="204" font-size="12" font-weight="600" fill="#1F2937">Tracxn MCP</text>
+  <text x="462" y="217" font-size="10" fill="#9CA3AF">startup intelligence · SEA data</text>
+
+  <!-- Gmail MCP -->
+  <rect x="415" y="236" width="210" height="44" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="423" y="248" width="28" height="28" rx="6" fill="#EA4335"/>
+  <text x="437" y="266" text-anchor="middle" font-size="9" font-weight="700" fill="white">GM</text>
+  <text x="462" y="260" font-size="12" font-weight="600" fill="#1F2937">Gmail MCP</text>
+  <text x="462" y="273" font-size="10" fill="#9CA3AF">email search · draft · send</text>
+
+  <!-- Bezier arrows from Claude right (345) to each MCP left (415) -->
+  <!-- To Airtable (y=90) -->
+  <path d="M345,174 C390,174 390,90 415,90" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- To StandardMetrics (y=146) -->
+  <path d="M345,180 C390,180 390,146 415,146" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- To Tracxn (y=202) -->
+  <path d="M345,188 C390,188 390,202 415,202" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- To Gmail (y=258) -->
+  <path d="M345,194 C390,194 390,258 415,258" fill="none" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- TransientStore box (below Claude) -->
+  <rect x="200" y="296" width="145" height="44" rx="8" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <rect x="208" y="308" width="28" height="28" rx="6" fill="#3B82F6"/>
+  <text x="222" y="326" text-anchor="middle" font-size="9" font-weight="700" fill="white">KV</text>
+  <text x="247" y="318" font-size="12" font-weight="600" fill="#1D4ED8">TransientStore</text>
+  <text x="247" y="331" font-size="10" fill="#3B82F6">session context · tool results</text>
+
+  <!-- Langfuse box (below Slack section) -->
+  <rect x="17" y="296" width="155" height="44" rx="8" fill="#F0F9FF" stroke="#BAE6FD"/>
+  <rect x="25" y="308" width="28" height="28" rx="6" fill="#0EA5E9"/>
+  <text x="39" y="326" text-anchor="middle" font-size="9" font-weight="700" fill="white">LF</text>
+  <text x="64" y="318" font-size="12" font-weight="600" fill="#0369A1">Langfuse</text>
+  <text x="64" y="331" font-size="10" fill="#0EA5E9">tracing · evals · observability</text>
+
+  <!-- Dashed arrow from Claude bottom down to TransientStore -->
+  <line x1="272" y1="208" x2="272" y2="296" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a)"/>
+
+  <!-- Arrow from Langfuse to Claude (observability) -->
+  <path d="M172,318 C186,318 186,260 200,260" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a)"/>
+</svg>

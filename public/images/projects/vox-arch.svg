@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="270" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="270" rx="12" fill="#F9FAFB"/>
+
+  <!-- Title -->
+  <text x="320" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Vox — Call Pipeline</text>
+
+  <!-- Box 1: Founder -->
+  <rect x="15" y="58" width="122" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="23" y="70" width="28" height="28" rx="6" fill="#374151"/>
+  <text x="37" y="88" text-anchor="middle" font-size="9" font-weight="700" fill="white">F</text>
+  <text x="62" y="80" font-size="12" font-weight="600" fill="#1F2937">Founder</text>
+  <text x="62" y="94" font-size="10" fill="#9CA3AF">shareable link</text>
+
+  <!-- Box 2: ElevenLabs -->
+  <rect x="177" y="58" width="122" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="185" y="70" width="28" height="28" rx="6" fill="#1E40AF"/>
+  <text x="199" y="88" text-anchor="middle" font-size="9" font-weight="700" fill="white">EL</text>
+  <text x="224" y="80" font-size="12" font-weight="600" fill="#1F2937">ElevenLabs</text>
+  <text x="224" y="94" font-size="10" fill="#9CA3AF">voice agent · voice-cloned</text>
+
+  <!-- Box 3: GPT-4o -->
+  <rect x="339" y="58" width="122" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="347" y="70" width="28" height="28" rx="6" fill="#10A37F"/>
+  <text x="361" y="88" text-anchor="middle" font-size="9" font-weight="700" fill="white">GPT</text>
+  <text x="386" y="80" font-size="12" font-weight="600" fill="#1F2937">GPT-4o</text>
+  <text x="386" y="94" font-size="10" fill="#9CA3AF">rubric scoring · Zod validate</text>
+
+  <!-- Box 4: Turso -->
+  <rect x="501" y="58" width="122" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
+  <rect x="509" y="70" width="28" height="28" rx="6" fill="#4F3CDB"/>
+  <text x="523" y="88" text-anchor="middle" font-size="9" font-weight="700" fill="white">T</text>
+  <text x="548" y="80" font-size="12" font-weight="600" fill="#1F2937">Turso</text>
+  <text x="548" y="94" font-size="10" fill="#9CA3AF">eval storage</text>
+
+  <!-- Main horizontal arrows -->
+  <!-- Box1 → Box2 -->
+  <line x1="137" y1="84" x2="177" y2="84" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- Box2 → Box3 (with "webhook" label) -->
+  <line x1="299" y1="84" x2="339" y2="84" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="319" y="79" text-anchor="middle" font-size="9" fill="#6B7280">webhook</text>
+  <!-- Box3 → Box4 -->
+  <line x1="461" y1="84" x2="501" y2="84" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Sub-box: Airtable under ElevenLabs -->
+  <rect x="177" y="175" width="122" height="44" rx="8" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <rect x="185" y="187" width="28" height="28" rx="6" fill="#2D7FF9"/>
+  <text x="199" y="205" text-anchor="middle" font-size="9" font-weight="700" fill="white">AT</text>
+  <text x="224" y="199" font-size="12" font-weight="600" fill="#1E40AF">Airtable</text>
+  <text x="224" y="212" font-size="10" fill="#3B82F6">fetch_application</text>
+
+  <!-- Sub-box: Admin Panel under Turso -->
+  <rect x="501" y="175" width="122" height="44" rx="8" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <rect x="509" y="187" width="28" height="28" rx="6" fill="#16A34A"/>
+  <text x="523" y="205" text-anchor="middle" font-size="9" font-weight="700" fill="white">A</text>
+  <text x="548" y="199" font-size="12" font-weight="600" fill="#15803D">Admin Panel</text>
+  <text x="548" y="212" font-size="10" fill="#16A34A">scores · transcripts</text>
+
+  <!-- Vertical bidirectional: ElevenLabs ↕ Airtable -->
+  <!-- Down arrow: ElevenLabs → Airtable -->
+  <line x1="238" y1="110" x2="238" y2="169" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- Up arrow: Airtable → ElevenLabs -->
+  <line x1="228" y1="175" x2="228" y2="116" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- "tool calls" label -->
+  <text x="253" y="148" font-size="9" fill="#6B7280">tool calls</text>
+
+  <!-- Vertical: Turso → Admin Panel -->
+  <line x1="562" y1="110" x2="562" y2="175" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>
+</svg>
