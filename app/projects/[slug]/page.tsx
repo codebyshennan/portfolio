@@ -17,8 +17,8 @@ export async function generateMetadata({
   const post = getSinglePostBySlug(slug);
   if (!post) return;
 
-  const { title, description, cover, keywords } = post.metadata;
-  const ogImage = cover || `https://byshennan.com/api/og?title=${title}`;
+  const { title, description, keywords } = post.metadata;
+  const ogImage = `https://byshennan.com/api/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,

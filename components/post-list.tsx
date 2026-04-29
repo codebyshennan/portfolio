@@ -21,6 +21,7 @@ export default function PostList({
   basePath: string;
 }) {
   const [view, setView] = useState<ViewMode>("grid");
+  const usesProjectOgImages = basePath === "/projects";
 
   return (
     <>
@@ -68,10 +69,14 @@ export default function PostList({
               href={`${basePath}/${post.slug}`}
               className="group border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm transition-all duration-200 cursor-pointer"
             >
-              {post.cover ? (
+              {usesProjectOgImages || post.cover ? (
                 <div className="aspect-[16/9] overflow-hidden bg-neutral-100 dark:bg-neutral-900">
                   <img
-                    src={post.cover}
+                    src={
+                      usesProjectOgImages
+                        ? `/api/og?title=${encodeURIComponent(post.title)}`
+                        : post.cover!
+                    }
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {

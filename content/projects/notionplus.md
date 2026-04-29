@@ -1,5 +1,5 @@
 ---
-title: notionplus
+title: Notion+
 description: Marketplace for Notion-native apps, forms, widgets, and worker packs built for the Notion Agent era.
 date: 2026-04-29
 tags: notion, marketplace, agents, productivity
@@ -13,11 +13,11 @@ keywords: Notion, Notion agents, productivity tools, app marketplace, widgets, f
 
 ## What it is
 
-notionplus is a marketplace layer for Notion-native capabilities: better forms, embeddable widgets, worker packs, and agent skills that extend what a workspace can do without forcing users into another operating system.
+Notion+ is a marketplace layer for Notion-native capabilities: better forms, embeddable widgets, worker packs, and agent skills that extend what a workspace can do without forcing users into another operating system.
 
 ## Why it exists
 
-Notion has become a serious workspace runtime, but a lot of the surrounding product surface is still fragmented. Forms, widgets, automations, analytics, and agent skills tend to live as separate tools. notionplus brings those extensions into one place for people already running their work in Notion.
+Notion has become a serious workspace runtime, but a lot of the surrounding product surface is still fragmented. Forms, widgets, automations, analytics, and agent skills tend to live as separate tools. Notion+ brings those extensions into one place for people already running their work in Notion.
 
 ## Current direction
 

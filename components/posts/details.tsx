@@ -135,8 +135,8 @@ export default function PostDetail({ post, slug }) {
           <ViewCounter slug={slug} trackView={true} />
 
           {/* Action bar */}
-          <div className="flex items-center justify-between mt-6 py-3 border-y border-neutral-200 dark:border-neutral-700">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between gap-4 mt-6 py-3 border-y border-neutral-200 dark:border-neutral-700">
+            <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
               {post.metadata.github && (
                 <a
                   href={post.metadata.github}
@@ -155,12 +155,15 @@ export default function PostDetail({ post, slug }) {
                   href={post.metadata.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition"
+                  className="inline-flex min-w-0 items-center gap-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition"
                   title="Visit website"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.264.26-2.466.732-3.558" />
                   </svg>
+                  <span className="text-xs sm:text-sm break-all">
+                    {post.metadata.website}
+                  </span>
                 </a>
               )}
             </div>

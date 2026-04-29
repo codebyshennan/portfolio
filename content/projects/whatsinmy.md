@@ -1,5 +1,5 @@
 ---
-title: whatsinmy
+title: Affiliate Aggregator
 description: One dashboard for affiliate links, commissions, brand deals, and creator revenue across every program and channel.
 date: 2026-04-29
 tags: creators, affiliate, analytics, dashboard
@@ -13,11 +13,11 @@ keywords: affiliate dashboard, creator tools, revenue tracking, affiliate links,
 
 ## What it is
 
-whatsinmy is a creator-side dashboard for tracking affiliate links, commissions, brand deals, storefronts, and content performance across many programs and channels.
+Affiliate Aggregator is a creator-side dashboard for tracking affiliate links, commissions, brand deals, storefronts, and content performance across many programs and channels.
 
 ## Why it exists
 
-Creators often promote products across blogs, newsletters, YouTube, TikTok, podcasts, Notion pages, and private communities, but the revenue data sits in separate affiliate dashboards and spreadsheets. whatsinmy collapses that into one ledger that shows what is actually working.
+Creators often promote products across blogs, newsletters, YouTube, TikTok, podcasts, Notion pages, and private communities, but the revenue data sits in separate affiliate dashboards and spreadsheets. Affiliate Aggregator collapses that into one ledger that shows what is actually working.
 
 ## Current direction
 
