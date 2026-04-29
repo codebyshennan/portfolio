@@ -178,7 +178,39 @@ function visual(theme: ProjectTheme) {
     padding: 42,
   };
 
-  if (theme.visual === "network" || theme.visual === "nodes") {
+  if (theme.visual === "nodes") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", gap: 26 }}>
+        {["request", "plan", "approve", "execute"].map((step, i) => (
+          <div
+            key={step}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 22,
+              marginLeft: i % 2 ? 70 : 0,
+            }}
+          >
+            <div
+              style={{
+                width: 86,
+                height: 86,
+                borderRadius: 24,
+                backgroundColor: i === 2 ? theme.accent : `${theme.accent}44`,
+                border: `3px solid ${theme.accent}`,
+              }}
+            />
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div style={{ width: 280, height: 22, borderRadius: 999, backgroundColor: theme.accent }} />
+              <div style={{ width: 190, height: 18, borderRadius: 999, backgroundColor: `${theme.accent}77` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "network") {
     return (
       <div style={panel}>
         {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -214,7 +246,7 @@ function visual(theme: ProjectTheme) {
     );
   }
 
-  if (theme.visual === "wave" || theme.visual === "music") {
+  if (theme.visual === "wave") {
     return (
       <div style={{ ...panel, alignItems: "center", gap: 18 }}>
         {[180, 290, 410, 250, 520, 350, 220, 470, 310, 390, 240, 160].map((height, i) => (
@@ -227,6 +259,38 @@ function visual(theme: ProjectTheme) {
               backgroundColor: i % 3 === 0 ? theme.accent : `${theme.accent}88`,
             }}
           />
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "music") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", gap: 28 }}>
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 22,
+              padding: 24,
+              width: 500,
+              height: 130,
+              borderRadius: 26,
+              backgroundColor: i === 1 ? `${theme.accent}2f` : "#ffffff13",
+              border: `2px solid ${theme.accent}55`,
+              transform: `rotate(${[-3, 4, -2][i]}deg)`,
+            }}
+          >
+            <div style={{ display: "flex", fontSize: 64, color: theme.accent }}>
+              {["♪", "♫", "♬"][i]}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ width: [290, 250, 310][i], height: 22, borderRadius: 999, backgroundColor: theme.accent }} />
+              <div style={{ width: [210, 330, 180][i], height: 18, borderRadius: 999, backgroundColor: `${theme.accent}88` }} />
+            </div>
+          </div>
         ))}
       </div>
     );
@@ -269,28 +333,218 @@ function visual(theme: ProjectTheme) {
     );
   }
 
-  if (theme.visual === "scores" || theme.visual === "chart" || theme.visual === "funnel" || theme.visual === "ledger") {
+  if (theme.visual === "scores") {
     return (
-      <div style={{ ...panel, flexDirection: "column", gap: 30 }}>
-        {[78, 54, 86, 42, 68, 92].map((width, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 22 }}>
+      <div style={{ ...panel, flexWrap: "wrap", gap: 28 }}>
+        {["Breakout", "Repeat", "Operator", "Novice"].map((tier, i) => (
+          <div
+            key={tier}
+            style={{
+              width: 240,
+              height: 220,
+              borderRadius: 30,
+              backgroundColor: i === 0 ? `${theme.accent}33` : "#ffffff12",
+              border: `2px solid ${theme.accent}55`,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              padding: 24,
+            }}
+          >
+            <div style={{ display: "flex", color: theme.text, fontSize: 30 }}>{tier}</div>
+            <div style={{ display: "flex", height: 18, borderRadius: 999, backgroundColor: `${theme.accent}44` }}>
+              <div style={{ width: `${[92, 70, 54, 28][i]}%`, borderRadius: 999, backgroundColor: theme.accent }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "chart") {
+    return (
+      <div style={panel}>
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: 90 + i * 115,
+              bottom: 80,
+              width: 74,
+              height: [210, 310, 260, 420][i],
+              borderRadius: "22px 22px 0 0",
+              backgroundColor: i === 3 ? theme.accent : `${theme.accent}77`,
+            }}
+          />
+        ))}
+        {[0, 1, 2].map((i) => (
+          <div
+            key={`line-${i}`}
+            style={{
+              position: "absolute",
+              left: [130, 250, 360][i],
+              top: [330, 245, 220][i],
+              width: [145, 140, 160][i],
+              height: 8,
+              borderRadius: 999,
+              backgroundColor: theme.text,
+              transform: `rotate(${[-32, 18, -42][i]}deg)`,
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "funnel") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", alignItems: "center", gap: 26 }}>
+        {[500, 420, 320, 220, 130].map((width, i) => (
+          <div
+            key={i}
+            style={{
+              width,
+              height: 70,
+              borderRadius: 20,
+              backgroundColor: i === 0 ? theme.accent : `${theme.accent}${["cc", "aa", "88", "66", "44"][i]}`,
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "ledger") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", gap: 20 }}>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              height: 82,
+              padding: "0 24px",
+              borderRadius: 22,
+              backgroundColor: i % 2 ? "#ffffff10" : `${theme.accent}24`,
+              border: `2px solid ${theme.accent}44`,
+            }}
+          >
+            <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: theme.accent }} />
+              <div style={{ width: [210, 170, 240, 150, 200][i], height: 20, borderRadius: 999, backgroundColor: `${theme.accent}99` }} />
+            </div>
+            <div style={{ display: "flex", color: theme.text, fontSize: 34 }}>${[128, 64, 240, 36, 410][i]}</div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "monitor") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", gap: 24 }}>
+        {["DNS", "SSL", "Email", "API", "Cron"].map((item, i) => (
+          <div
+            key={item}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: 500,
+              height: 82,
+              padding: "0 26px",
+              borderRadius: 24,
+              backgroundColor: "#ffffff10",
+              border: `2px solid ${theme.accent}44`,
+            }}
+          >
+            <div style={{ display: "flex", color: theme.text, fontSize: 32 }}>{item}</div>
             <div
               style={{
-                width: 74,
-                height: 74,
-                borderRadius: 18,
-                backgroundColor: `${theme.accent}${i % 2 ? "55" : "aa"}`,
-              }}
-            />
-            <div
-              style={{
-                width: `${width}%`,
-                height: 30,
+                width: 36,
+                height: 36,
                 borderRadius: 999,
-                backgroundColor: i % 2 ? `${theme.accent}88` : theme.accent,
+                backgroundColor: i === 3 ? "#f97316" : theme.accent,
               }}
             />
           </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "brief") {
+    return (
+      <div style={panel}>
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: [90, 185, 280][i],
+              top: [96, 72, 124][i],
+              width: 245,
+              height: 390,
+              borderRadius: 22,
+              backgroundColor: i === 1 ? `${theme.accent}28` : "#ffffff15",
+              border: `2px solid ${theme.accent}55`,
+              transform: `rotate(${[-8, 3, 10][i]}deg)`,
+              display: "flex",
+              flexDirection: "column",
+              gap: 20,
+              padding: 26,
+            }}
+          >
+            {[170, 130, 160, 95].map((width, j) => (
+              <div key={j} style={{ width, height: 18, borderRadius: 999, backgroundColor: j === 0 ? theme.accent : `${theme.accent}88` }} />
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "stories") {
+    return (
+      <div style={{ ...panel, flexDirection: "column", justifyContent: "center", gap: 28 }}>
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 22,
+              marginLeft: [0, 55, 20, 90][i],
+            }}
+          >
+            <div style={{ width: 76, height: 76, borderRadius: 999, border: `3px solid ${theme.accent}`, backgroundColor: `${theme.accent}22` }} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div style={{ width: [310, 240, 280, 210][i], height: 20, borderRadius: 999, backgroundColor: theme.accent }} />
+              <div style={{ width: [210, 300, 190, 260][i], height: 16, borderRadius: 999, backgroundColor: `${theme.accent}77` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (theme.visual === "blocks") {
+    return (
+      <div style={{ ...panel, flexWrap: "wrap", gap: 20 }}>
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+          <div
+            key={i}
+            style={{
+              width: [150, 280, 210, 170, 240, 130, 260, 190][i],
+              height: [110, 110, 160, 160, 120, 120, 150, 150][i],
+              borderRadius: 12,
+              border: `2px solid ${theme.accent}55`,
+              backgroundColor: i === 1 || i === 6 ? `${theme.accent}24` : "#ffffff13",
+            }}
+          />
         ))}
       </div>
     );
