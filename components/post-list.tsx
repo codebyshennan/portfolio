@@ -74,7 +74,7 @@ export default function PostList({
                   <img
                     src={
                       usesProjectOgImages
-                        ? `/api/og?title=${encodeURIComponent(post.title)}`
+                        ? `/api/og?type=project&slug=${post.slug}&title=${encodeURIComponent(post.title)}`
                         : post.cover!
                     }
                     alt={post.title}
