@@ -52,8 +52,9 @@ const timeline: Timeline[] = [
 			{
 				position: "Founder & Technical Consultant",
 				description: [
-					"Teaching AI, data engineering, and automation courses across universities and corporate programs in Asia.",
-					"Course design and delivery spanning prompt engineering, AI agents, data pipelines, and applied ML.",
+					"Embed with early-stage teams and venture portfolios as a fractional CTO/CPO, shaping what to build and then building it.",
+					"Teach AI, data engineering, and automation courses across universities and corporate programs in Asia.",
+					"Course design and delivery spanning prompt engineering, AI agents, data pipelines, applied ML, and practical automation.",
 				],
 				technologies: [],
 				clients: [
@@ -103,6 +104,42 @@ const timeline: Timeline[] = [
 						logo: "https://www.google.com/s2/favicons?domain=sarah.capua.co&sz=64",
 					},
 				],
+				href: null,
+				hook: null,
+			},
+		],
+	},
+	{
+		date: "2026 - Present",
+		company: "innxvate",
+		logo: "https://www.google.com/s2/favicons?domain=innxvate.org&sz=64",
+		link: "https://innxvate.org/",
+		roles: [
+			{
+				position: "Co-founder — Digital Transformation",
+				description: [
+					"Strategy-to-execution consulting for organizations closing the gap between transformation plans and production systems.",
+					"Work spans operating-model design, process diagnostics, automation roadmaps, and embedded execution.",
+				],
+				technologies: [],
+				href: null,
+				hook: null,
+			},
+		],
+	},
+	{
+		date: "2023 - Present",
+		company: "nxrratives",
+		logo: "https://www.google.com/s2/favicons?domain=nxrratives.com&sz=64",
+		link: "https://nxrratives.com/",
+		roles: [
+			{
+				position: "Co-founder — Career Design",
+				description: [
+					"Career coaching and workshop programs that help students and early-career professionals turn reflection into a concrete next-step plan.",
+					"Co-create facilitated formats, digital scaffolding, and cohort materials for universities, teams, and communities.",
+				],
+				technologies: [],
 				href: null,
 				hook: null,
 			},

@@ -20,7 +20,7 @@ export const about = () => {
       , where I build the data infrastructure, internal tooling, and AI systems
       that power our investment operations.
       <br /><br />
-      Also running{" "}
+      Also running a small portfolio of operating businesses:{" "}
       <a
         href="https://fracxional.com"
         target="_blank"
@@ -29,7 +29,25 @@ export const about = () => {
       >
         Fracxional
       </a>
-      . Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
+      {" "}for fractional CTO/CPO work,{" "}
+      <a
+        href="https://innxvate.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+      >
+        innxvate
+      </a>
+      {" "}for digital transformation, and{" "}
+      <a
+        href="https://nxrratives.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+      >
+        nxrratives
+      </a>
+      {" "}for career coaching. Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
     </>
   );
 };
@@ -38,7 +56,8 @@ export const bio = () => {
     <>
       I'm drawn to the intersection of deep technical product work and
       venture — building things that compound, and backing founders who do the
-      same. Previously{" "}
+      same. I'm also launching small products around Notion, creator tooling,
+      and honest career/life transitions. Previously{" "}
       <a
         href="https://www.sayzolo.com/"
         target="_blank"

@@ -6,7 +6,7 @@ import timeline from "lib/timeline";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure & AI systems for venture. Founder of Fracxional.",
+    "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure & AI systems for venture. Founder of Fracxional, innxvate, and nxrratives.",
   alternates: {
     canonical: "https://byshennan.com/about",
   },
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <p className="text-neutral-400 text-base -mt-1 mb-3">
         Hey, I'm Shen Nan — a builder-investor based in Southeast Asia.
         I'm the sole engineer at <strong className="text-neutral-300">Iterative</strong>, an early-stage fund investing across SEA and South Asia, where I build the data infrastructure, internal tooling, and AI systems that power our investment operations.
-        In parallel, I run <strong className="text-neutral-300">Fracxional</strong>, where I teach AI and data engineering courses and consult on automation strategy.
+        In parallel, I run <strong className="text-neutral-300">Fracxional</strong> for fractional CTO/CPO work, <strong className="text-neutral-300">innxvate</strong> for digital transformation, and <strong className="text-neutral-300">nxrratives</strong> for career coaching.
       </p>
       <p className="text-neutral-400 text-base mb-3">
         I'm drawn to the intersection of deep technical product work and venture — building things that compound, and backing founders who do the same.
