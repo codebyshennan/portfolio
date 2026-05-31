@@ -104,20 +104,38 @@ export default function AboutPage() {
                             Clients & partners
                           </div>
                           <div className="flex flex-wrap items-center gap-3 mx-1">
-                            {role.clients.map((client, idx) => (
-                              <a
-                                key={`${client.name}-${idx}`}
-                                href={client.link}
-                                className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
-                              >
-                                <img
-                                  src={client.logo}
-                                  alt={client.name}
-                                  className="w-4 h-4"
-                                />
-                                <span>{client.name}</span>
-                              </a>
-                            ))}
+                            {role.clients.map((client, idx) =>
+                              client.link ? (
+                                <a
+                                  key={`${client.name}-${idx}`}
+                                  href={client.link}
+                                  className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
+                                >
+                                  {client.logo && (
+                                    <img
+                                      src={client.logo}
+                                      alt={client.name}
+                                      className="w-4 h-4"
+                                    />
+                                  )}
+                                  <span>{client.name}</span>
+                                </a>
+                              ) : (
+                                <span
+                                  key={`${client.name}-${idx}`}
+                                  className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
+                                >
+                                  {client.logo && (
+                                    <img
+                                      src={client.logo}
+                                      alt={client.name}
+                                      className="w-4 h-4"
+                                    />
+                                  )}
+                                  <span>{client.name}</span>
+                                </span>
+                              ),
+                            )}
                           </div>
                         </div>
                       )}
