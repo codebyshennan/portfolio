@@ -79,9 +79,7 @@ const timeline: Timeline[] = [
 						logo: "https://www.google.com/s2/favicons?domain=bcg.com&sz=64",
 					},
 					{
-						name: "JERA GM",
-						link: "https://www.jera.co.jp/en/",
-						logo: "https://www.google.com/s2/favicons?domain=jera.co.jp&sz=64",
+						name: "Energy Trading (Confidential)",
 					},
 					{
 						name: "SkillsUnion",
