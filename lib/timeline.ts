@@ -8,8 +8,8 @@ interface Timeline {
 
 interface ClientOrg {
 	name: string;
-	link: string;
-	logo: string;
+	link?: string;
+	logo?: string;
 }
 
 interface Role {
