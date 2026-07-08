@@ -5,7 +5,7 @@
     </marker>
   </defs>
   <rect width="500" height="530" rx="12" fill="#F9FAFB"/>
-  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Compass — Slack Archive &amp; AI Pipeline</text>
+  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Compass: Slack Archive &amp; AI Pipeline</text>
 
   <!-- Slack -->
   <rect x="150" y="46" width="200" height="52" rx="8" fill="white" stroke="#E5E7EB"/>
@@ -83,7 +83,7 @@
   <rect x="308" y="430" width="28" height="18" rx="4" fill="#D97706"/>
   <text x="322" y="443" text-anchor="middle" font-size="9" font-weight="700" fill="white">AR</text>
   <text x="347" y="443" font-size="11" font-weight="600" fill="#92400E">Auto-Reply</text>
-  <text x="347" y="454" font-size="9" fill="#D97706">haiku classify → gpt-4.1</text>
+  <text x="347" y="454" font-size="9" fill="#D97706">haiku classify to gpt-4.1</text>
 
   <!-- Arrow → Community Bot -->
   <line x1="392" y1="458" x2="392" y2="472" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#a)"/>

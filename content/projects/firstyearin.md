@@ -1,6 +1,6 @@
 ---
 title: First Year In...
-description: A story platform for honest first-year transitions — first job, first city, first child, first founder year, and other hard beginnings.
+description: A story platform for honest first-year transitions, first job, first city, first child, first founder year, and other hard beginnings.
 date: 2026-04-29
 tags: community, storytelling, career, life
 cover:

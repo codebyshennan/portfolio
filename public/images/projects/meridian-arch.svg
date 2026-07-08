@@ -5,7 +5,7 @@
     </marker>
   </defs>
   <rect width="500" height="500" rx="12" fill="#F9FAFB"/>
-  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Meridian — Architecture</text>
+  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Meridian: Architecture</text>
 
   <!-- Slack -->
   <rect x="150" y="46" width="200" height="52" rx="8" fill="white" stroke="#E5E7EB"/>

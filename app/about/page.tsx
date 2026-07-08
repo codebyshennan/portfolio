@@ -19,12 +19,12 @@ export default function AboutPage() {
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
-        Hey, I'm Shen Nan — a builder-investor based in Southeast Asia.
+        Hey, I'm Shen Nan. I'm a builder-investor based in Southeast Asia.
         I'm the sole engineer at <strong className="text-neutral-300">Iterative</strong>, an early-stage fund investing across SEA and South Asia, where I build the data infrastructure, internal tooling, and AI systems that power our investment operations.
         In parallel, I run <strong className="text-neutral-300">Fracxional</strong> for fractional CTO/CPO work, <strong className="text-neutral-300">innxvate</strong> for digital transformation, and <strong className="text-neutral-300">nxrratives</strong> for career coaching.
       </p>
       <p className="text-neutral-400 text-base mb-3">
-        I'm drawn to the intersection of deep technical product work and venture — building things that compound, and backing founders who do the same.
+        I'm drawn to deep technical product work and venture: building things that compound, then backing founders who do the same.
       </p>
       <p className="text-neutral-500 text-sm mb-4">
         Currently in{" "}

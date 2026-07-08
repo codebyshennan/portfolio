@@ -220,7 +220,7 @@ export default function PostDetail({ post, slug }) {
             );
           },
           blockquote({ node, children }) {
-            // Use hast node for reliable detection — avoids whitespace text node ordering issues
+            // Use hast node for reliable detection. Whitespace text node ordering is brittle.
             const hastChildren = (node?.children ?? []) as Array<{ type: string; tagName?: string; children?: Array<{ type: string; value?: string }> }>;
             const firstPara = hastChildren.find(c => c.type === "element" && c.tagName === "p");
             const firstText = (firstPara?.children?.find(c => c.type === "text")?.value ?? "").trim();
@@ -243,12 +243,12 @@ export default function PostDetail({ post, slug }) {
           },
           strong({ children }) {
             const TOOL_DESCRIPTIONS: Record<string, string> = {
-              Meridian: "Channel-native LLM orchestrator — plans workflows, gets approval, executes via MCP",
-              Atlas: "Hybrid expert search — blends SQL filtering with semantic vector retrieval",
-              Bearing: "Investment memo generator — parallel research agents → IC-ready docs",
-              Compass: "Community knowledge base — archives threads, classifies by topic, publishes articles",
-              Fathom: "Founder fluency classifier — assigns Breakout / Repeat / Operator / Novice tiers",
-              Pilot: "Voice interview agent — conducts founder calls, logs structured feedback to Airtable",
+              Meridian: "Channel-native LLM orchestrator: plans workflows, gets approval, executes via MCP",
+              Atlas: "Hybrid expert search: blends SQL filtering with semantic vector retrieval",
+              Bearing: "Investment memo generator: parallel research agents to IC-ready docs",
+              Compass: "Community knowledge base: archives threads, classifies by topic, publishes articles",
+              Fathom: "Founder fluency classifier: assigns Breakout / Repeat / Operator / Novice tiers",
+              Pilot: "Voice interview agent: conducts founder calls, logs structured feedback to Airtable",
             };
             const text = getTextContent(children as React.ReactNode);
             if (text in TOOL_DESCRIPTIONS) {
@@ -390,7 +390,7 @@ export default function PostDetail({ post, slug }) {
               {" "}(early-stage VC fund, SEA & South Asia), building data infrastructure and AI systems for investment operations.
               Founder of{" "}
               <a href="https://fracxional.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Fracxional</a>
-              {" "}— AI and data engineering education for enterprises and universities across Asia.
+              {" "}for AI and data engineering education for enterprises and universities across Asia.
               Based in Ho Chi Minh City, Southeast Asia.
             </p>
           </div>

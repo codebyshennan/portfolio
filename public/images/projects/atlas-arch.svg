@@ -5,7 +5,7 @@
     </marker>
   </defs>
   <rect width="500" height="520" rx="12" fill="#F9FAFB"/>
-  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Atlas — Architecture</text>
+  <text x="250" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1F2937">Atlas: Architecture</text>
 
   <!-- DATA LAYER label -->
   <text x="250" y="46" text-anchor="middle" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="2">DATA LAYER</text>

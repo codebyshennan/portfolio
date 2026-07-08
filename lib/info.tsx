@@ -54,8 +54,8 @@ export const about = () => {
 export const bio = () => {
   return (
     <>
-      I'm drawn to the intersection of deep technical product work and
-      venture — building things that compound, and backing founders who do the
+      I'm drawn to deep technical product work and venture: building things
+      that compound, then backing founders who do the
       same. I'm also launching small products around Notion, creator tooling,
       and honest career/life transitions. Previously{" "}
       <a

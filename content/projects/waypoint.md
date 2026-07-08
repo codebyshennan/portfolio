@@ -1,6 +1,6 @@
 ---
 title: Waypoint
-description: Pipeline metrics dashboard that tracks deal stage conversion, velocity, and SLA breaches — giving the investment team a single screen for pipeline health.
+description: Pipeline metrics dashboard that tracks deal stage conversion, velocity, and SLA breaches, giving the investment team a single screen for pipeline health.
 date: 2025-02-15
 tags: dashboard, data, metrics, airtable
 cover: /images/projects/waypoint.png
@@ -19,7 +19,7 @@ The team reviewed the pipeline weekly but had no single view of how deals were m
 
 ## What it does
 
-Waypoint tracks where every application stands in the investment pipeline. It shows stage-by-stage conversion rates, deal velocity metrics, and SLA flags — so the team knows how fast deals are moving and where bottlenecks form.
+Waypoint tracks where every application stands in the investment pipeline. It shows stage-by-stage conversion rates, deal velocity metrics, and SLA flags, so the team knows how fast deals are moving and where bottlenecks form.
 
 ## Data model
 
@@ -50,10 +50,10 @@ Waypoint pulls from the `Applications` table in Airtable via the REST API. The s
 
 From raw stage data, Waypoint computes:
 
-- **Conversion rates** — % of deals advancing between each stage pair, with batch-over-batch trend
-- **Velocity** — median time-in-stage per stage, flagging outliers beyond 1.5× the median
-- **SLA compliance** — % of deals currently within SLA per stage, with breach count
-- **Partner load** — deals per partner at each stage, for workload balancing
+- Conversion rates: % of deals advancing between each stage pair, with batch-over-batch trend
+- Velocity: median time-in-stage per stage, flagging outliers beyond 1.5× the median
+- SLA compliance: % of deals currently within SLA per stage, with breach count
+- Partner load: deals per partner at each stage, for workload balancing
 
 ## Dashboard design
 
@@ -61,20 +61,20 @@ From raw stage data, Waypoint computes:
 
 The first version had 12 widgets. By the third pipeline review meeting, only three were being referenced:
 
-- **Cut**: total deals ever (only goes up — nobody acts on it), source channel breakdown (useful quarterly, not weekly), geographic distribution (interesting but not actionable in a pipeline review), partner NPS scores (wrong meeting for this)
-- **Kept**: stage conversion funnel, deal age distribution with SLA flags, partner load heatmap
+- Cut: total deals ever (only goes up, nobody acts on it), source channel breakdown (useful quarterly, not weekly), geographic distribution (interesting but not actionable in a pipeline review), partner NPS scores (wrong meeting for this)
+- Kept: stage conversion funnel, deal age distribution with SLA flags, partner load heatmap
 
 The principle: if a widget doesn't change how someone acts after the meeting, it's noise.
 
 ### SLA as primary alert
 
-Rather than color-coding every metric on a gradient (green → yellow → red), Waypoint uses binary SLA flags. A deal either needs attention or it doesn't. Defining "too long" per stage turned out to be more valuable than the dashboard widget itself — it forced the team to articulate what "healthy velocity" actually means.
+Rather than color-coding every metric on a gradient (green/yellow/red), Waypoint uses binary SLA flags. A deal either needs attention or it doesn't. Defining "too long" per stage turned out to be more valuable than the dashboard widget itself because it forced the team to articulate what "healthy velocity" actually means.
 
 ## Technical decisions
 
-- **Vercel KV caching over real-time sync** — Airtable's API has aggressive rate limits (5 req/sec). Caching with a 5-minute TTL gives near-real-time data without hitting limits during a meeting where 8 people load the dashboard simultaneously.
-- **Server components over client-side fetching** — all data fetching happens in Next.js server components. The client receives pre-rendered HTML with the latest metrics. No loading spinners, no waterfall fetches.
-- **No charting library** — the funnel and heatmap are CSS Grid + inline styles. Recharts or Chart.js would have been faster to build but harder to match the exact visual density the team wanted. Custom rendering gave full control over pixel-level layout.
+- Vercel KV caching over real-time sync: Airtable's API has aggressive rate limits (5 req/sec). Caching with a 5-minute TTL gives near-real-time data without hitting limits during a meeting where 8 people load the dashboard simultaneously.
+- Server components over client-side fetching: all data fetching happens in Next.js server components. The client receives pre-rendered HTML with the latest metrics. No loading spinners, no waterfall fetches.
+- No charting library: the funnel and heatmap are CSS Grid + inline styles. Recharts or Chart.js would have been faster to build but harder to match the exact visual density the team wanted. Custom rendering gave full control over pixel-level layout.
 
 ## Stack
 

@@ -29,13 +29,13 @@ const timeline: Timeline[] = [
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Head of Engineering — Automations, Data Engineering & Applied AI",
+				position: "Head of Engineering, Automations, Data Engineering & Applied AI",
 				description: [
 					"Staff-level engineer leading the design & implementation of firm-wide data, software, IT & automation infrastructure powering portfolio operations for an early-stage VC fund.",
 					"Conduct technical due diligence on deep tech & software startups; advise portfolio CTOs on engineering strategy.",
-					"Built an MCP Backbone — a Slack bot routing natural-language queries across tool servers (Notion, Airtable, filesystem) with LLM routing via OpenRouter, code execution via E2B, and Slack approval gates.",
-					"Shipped a Founder Knowledge Base (two-tier AI pipeline: classifier + Gemini synthesis), a Voice Interview System (ElevenLabs screening calls → Turso), a Smart Network (pgvector hybrid search), and a Memo Generator (LangGraph multi-source research → Notion).",
-					"Built a 9-product internal tooling suite replacing manual workflows across deal flow, SLA monitoring, and portfolio analytics — used daily by the entire team.",
+					"Built an MCP Backbone, a Slack bot routing natural-language queries across tool servers (Notion, Airtable, filesystem) with LLM routing via OpenRouter, code execution via E2B, and Slack approval gates.",
+					"Shipped a Founder Knowledge Base (two-tier AI pipeline: classifier + Gemini synthesis), a Voice Interview System (ElevenLabs screening calls to Turso), a Smart Network (pgvector hybrid search), and a Memo Generator (LangGraph multi-source research to Notion).",
+					"Built a 9-product internal tooling suite replacing manual workflows across deal flow, SLA monitoring, and portfolio analytics, used daily by the entire team.",
 				],
 				technologies: ["python", "nextjs", "supabase", "openai", "postgresql", "bigquery"],
 				href: null,
@@ -114,7 +114,7 @@ const timeline: Timeline[] = [
 		link: "https://innxvate.org/",
 		roles: [
 			{
-				position: "Co-founder — Digital Transformation",
+				position: "Co-founder, Digital Transformation",
 				description: [
 					"Strategy-to-execution consulting for organizations closing the gap between transformation plans and production systems.",
 					"Work spans operating-model design, process diagnostics, automation roadmaps, and embedded execution.",
@@ -132,7 +132,7 @@ const timeline: Timeline[] = [
 		link: "https://nxrratives.com/",
 		roles: [
 			{
-				position: "Co-founder — Career Design",
+				position: "Co-founder, Career Design",
 				description: [
 					"Career coaching and workshop programs that help students and early-career professionals turn reflection into a concrete next-step plan.",
 					"Co-create facilitated formats, digital scaffolding, and cohort materials for universities, teams, and communities.",

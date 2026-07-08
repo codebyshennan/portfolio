@@ -1,6 +1,6 @@
 ---
 title: Meridian
-description: Slack-native MCP server that routes natural-language requests to multiple AI tool servers in-thread — turning any message into a multi-tool workflow.
+description: Slack-native MCP server that routes natural-language requests to multiple AI tool servers in-thread, turning any message into a multi-tool workflow.
 date: 2025-04-01
 tags: ai, mcp, slack, agents
 cover: /images/projects/meridian.png
@@ -15,13 +15,13 @@ keywords: MCP server, Model Context Protocol, Slack integration, multi-agent orc
 
 ## Why I built this
 
-The investment team's data was split across Airtable, StandardMetrics, Tracxn, Gmail, and Slack — with no unified view. Answering questions like "has this company applied before?" or "which companies in this batch are comparable to Acme?" meant manually cross-referencing multiple platforms. Reconciling the data cost roughly 1–3 person-days per quarter for a 40-company cohort.
+The investment team's data was split across Airtable, StandardMetrics, Tracxn, Gmail, and Slack, with no unified view. Answering questions like "has this company applied before?" or "which companies in this batch are comparable to Acme?" meant manually cross-referencing multiple platforms. Reconciling the data cost roughly 1-3 person-days per quarter for a 40-company cohort.
 
-I built Meridian to make all of that queryable from Slack. Rather than building custom integrations per tool, I structured it around MCP (Model Context Protocol) — a standardized interface where any data source can be registered as a server, and the agent figures out which servers to call and in what order based on the natural language query.
+I built Meridian to make all of that queryable from Slack. Rather than building custom integrations per tool, I structured it around MCP (Model Context Protocol), a standardized interface where any data source can be registered as a server, and the agent figures out which servers to call and in what order based on the natural language query.
 
 ## What it does
 
-Meridian is a TypeScript service that sits between Slack and multiple MCP (Model Context Protocol) servers. When someone sends a message, it parses intent, routes the request to the right server(s), executes multi-step tool chains, and streams results back into the originating thread. Adding a new capability is a single MCP server registration — no changes to the core router.
+Meridian is a TypeScript service that sits between Slack and multiple MCP (Model Context Protocol) servers. When someone sends a message, it parses intent, routes the request to the right server(s), executes multi-step tool chains, and streams results back into the originating thread. Adding a new capability only requires a single MCP server registration. The core router does not change.
 
 ![Meridian architecture](/images/projects/meridian-arch.svg)
 
@@ -29,9 +29,9 @@ Meridian is a TypeScript service that sits between Slack and multiple MCP (Model
 
 The system is built around three layers:
 
-1. **Slack ingress** — Slack Bolt receives messages, extracts thread context (parent message, prior replies), and passes the full conversation to the intent parser
-2. **Intent routing** — Claude API with tool-use definitions parses the message into one or more MCP tool calls. The router resolves which server owns each tool and batches calls that can run in parallel
-3. **MCP execution** — each registered server exposes tools via the Model Context Protocol spec. Meridian maintains persistent connections to each server, handles retries, and multiplexes results back into a single Slack reply
+1. Slack ingress: Slack Bolt receives messages, extracts thread context (parent message, prior replies), and passes the full conversation to the intent parser
+2. Intent routing: Claude API with tool-use definitions parses the message into one or more MCP tool calls. The router resolves which server owns each tool and batches calls that can run in parallel
+3. MCP execution: each registered server exposes tools via the Model Context Protocol spec. Meridian maintains persistent connections to each server, handles retries, and multiplexes results back into a single Slack reply
 
 ### Query categories
 
@@ -44,32 +44,32 @@ The investment team's queries fall into four distinct types, each requiring diff
 | Comparative analysis | "Which other companies are doing similar things in fintech?" | Similarity matching across full dataset |
 | Aggregation | "Break down this batch by geography and industry" | Statistical computation |
 
-Simple retrieval reduces to a direct Airtable lookup. Comparative analysis requires dynamic query generation across all records. Aggregation needs a separate calculation layer — LLMs can't do arithmetic reliably, so queries with statistical requirements get routed to a sandboxed code execution step.
+Simple retrieval reduces to a direct Airtable lookup. Comparative analysis requires dynamic query generation across all records. Aggregation needs a separate calculation layer because LLMs can't do arithmetic reliably, so queries with statistical requirements get routed to a sandboxed code execution step.
 
 ### Context management
 
-MCP tool definitions bring large chunks of schema context into the prompt. A single Airtable integration with field descriptions already consumes 3–5k tokens; adding retrieved data for a complex query can hit 20–30k tokens. At that scale, context fills up before the agent finishes reasoning.
+MCP tool definitions bring large chunks of schema context into the prompt. A single Airtable integration with field descriptions already consumes 3-5k tokens; adding retrieved data for a complex query can hit 20-30k tokens. At that scale, context fills up before the agent finishes reasoning.
 
 Meridian resolves this with a `TransientDataStore` approach: after each tool call, useful outputs are cached in a short-lived "memory box" keyed to the Slack thread. Subsequent steps read from the cache rather than re-fetching, keeping the active context window lean. The cache TTL is matched to the thread activity window.
 
 ### Multi-step chains
 
-A message like "research this founder and draft a memo" triggers Atlas (network lookup) → Bearing (research agents) → memo generation as a sequential pipeline. Each step's output becomes context for the next. The chain definition lives in a simple JSON config — no orchestration code needed.
+A message like "research this founder and draft a memo" triggers Atlas (network lookup), then Bearing (research agents), then memo generation as a sequential pipeline. Each step's output becomes context for the next. The chain definition lives in a simple JSON config, no orchestration code needed.
 
 ### Observability
 
-All query executions are traced through Langfuse: request/response logging, latency per tool call, accuracy scores against a gold query set. The eval harness runs a set of representative queries with known expected answers and scores the agent's output — tracking accuracy progression as the system improves.
+All query executions are traced through Langfuse: request/response logging, latency per tool call, accuracy scores against a gold query set. The eval harness runs a set of representative queries with known expected answers and scores the agent's output, tracking accuracy progression as the system improves.
 
 ### Server registration
 
-New tools register by pointing Meridian at their MCP endpoint with a name, endpoint URL, and list of exposed tool names. The router discovers available tools at startup and re-discovers on a configurable interval — hot-reloading means a new tool server is available to Slack users within seconds of deployment.
+New tools register by pointing Meridian at their MCP endpoint with a name, endpoint URL, and list of exposed tool names. The router discovers available tools at startup and re-discovers on a configurable interval. Hot-reloading means a new tool server is available to Slack users within seconds of deployment.
 
 ## Technical decisions
 
-- **MCP over custom RPC** — MCP is an open standard with a growing ecosystem. Using it means any MCP-compatible server can plug into Meridian without adapter code. The protocol handles tool discovery, parameter schemas, and streaming natively.
-- **Claude tool-use for routing** — intent classification via tool-use definitions is more robust than keyword matching or fine-tuned classifiers. Adding a new tool to the routing layer is just adding a tool definition to the prompt — no retraining.
-- **TransientDataStore over stateless calls** — without caching, every multi-step query re-fetches the same data. The cache layer keeps the context window manageable and makes chained queries fast enough for interactive use.
-- **Slack Bolt over webhooks** — Bolt handles socket mode, retry logic, and rate limiting out of the box. The alternative was managing webhook verification, challenge responses, and retry deduplication manually.
+- MCP over custom RPC: MCP is an open standard with a growing ecosystem. Using it means any MCP-compatible server can plug into Meridian without adapter code. The protocol handles tool discovery, parameter schemas, and streaming natively.
+- Claude tool-use for routing: intent classification via tool-use definitions is more robust than keyword matching or fine-tuned classifiers. Adding a new tool to the routing layer is just adding a tool definition to the prompt, no retraining.
+- TransientDataStore over stateless calls: without caching, every multi-step query re-fetches the same data. The cache layer keeps the context window manageable and makes chained queries fast enough for interactive use.
+- Slack Bolt over webhooks: Bolt handles socket mode, retry logic, and rate limiting out of the box. The alternative was managing webhook verification, challenge responses, and retry deduplication manually.
 
 ## Stack
 
