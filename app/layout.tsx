@@ -3,7 +3,7 @@ import clsx from "clsx";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "../components/theme-provider";
 import ThemeToggle from "../components/theme-toggle";
 import JsonLd from "../components/json-ld";
