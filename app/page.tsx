@@ -1,11 +1,4 @@
-import Link from "next/link";
 import Image from "next/image";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-  ViewsIcon,
-} from "components/icons";
 import SiteFavicon from "components/site-favicon";
 import XCollectiveLogo from "components/x-collective-logo";
 import { name, about, bio, avatar } from "lib/info";
@@ -21,50 +14,35 @@ export default async function HomePage({
 }) {
   const params = searchParams ? await searchParams : {};
   const showXCollective = shouldShowXCollective(params);
-  const starCount = 0;
-  const views = 0;
-  const tweetCount = 0;
 
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif">{name}</h1>
+      <div className="flex items-center gap-4">
+        <Image
+          alt={name}
+          className="h-16 w-16 rounded-full object-cover grayscale"
+          src={avatar}
+          placeholder="blur"
+          width={64}
+          height={64}
+          priority
+        />
+        <h1 className="font-bold text-3xl font-serif">{name}</h1>
+      </div>
       <p className="my-5 max-w-[600px] text-neutral-500 dark:text-neutral-400">
         {about(showXCollective)}
       </p>
-      <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
-        <Image
-          alt={name}
-          className="rounded-full grayscale"
-          src={avatar}
-          placeholder="blur"
-          width={100}
-          priority
-        />
-        <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2 text-neutral-500 dark:text-neutral-400">
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://twitter.com/wongsn"
-            className="flex items-center gap-2"
-          >
-            <TwitterIcon />
-            {`${tweetCount.toLocaleString()} tweets all time`}
-          </a>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/codebyshennan"
-            className="flex items-center gap-2"
-          >
-            <GitHubIcon />
-            {`${starCount.toLocaleString()} stars on this repo`}
-          </a>
-          <Link href="/blog" className="flex items-center">
-            <ViewsIcon />
-            {`${views.toLocaleString()} blog views all time`}
-          </Link>
-        </div>
-      </div>
+      <p className="mb-5 text-sm text-neutral-500 dark:text-neutral-400">
+        Currently in{" "}
+        <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
+        <br />
+        Previously{" "}
+        <span title="Hong Kong" className="cursor-default">&#127469;&#127472;</span>{" "}
+        <span title="Singapore" className="cursor-default">&#127480;&#127468;</span>{" "}
+        <span title="San Francisco" className="cursor-default">&#127482;&#127480;</span>{" "}
+        <span title="Beijing" className="cursor-default">&#127464;&#127475;</span>{" "}
+        <span title="Germany" className="cursor-default">&#127465;&#127466;</span>
+      </p>
       <p className="my-5 max-w-[600px] text-neutral-500 dark:text-neutral-400">
         {bio()}
       </p>

@@ -41,17 +41,6 @@ export default async function AboutPage({
       <p className="text-neutral-400 text-base mb-3">
         I'm drawn to deep technical product work and venture: building things that compound, then backing founders who do the same.
       </p>
-      <p className="text-neutral-500 text-sm mb-4">
-        Currently in{" "}
-        <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
-        <br />
-        Previously{" "}
-        <span title="Hong Kong" className="cursor-default">&#127469;&#127472;</span>{" "}
-        <span title="Singapore" className="cursor-default">&#127480;&#127468;</span>{" "}
-        <span title="San Francisco" className="cursor-default">&#127482;&#127480;</span>{" "}
-        <span title="Beijing" className="cursor-default">&#127464;&#127475;</span>{" "}
-        <span title="Germany" className="cursor-default">&#127465;&#127466;</span>
-      </p>
       <a
         href="https://www.papermark.com/view/cmholj83j0003l504yjnln5q0"
         target="_blank"

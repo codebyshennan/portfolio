@@ -53,9 +53,8 @@ export const about = (showXCollective = false) => {
           {" "}for digital transformation.
         </>
       ) : null}
-      {" "}Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
-    </>
-  );
+      </>
+    );
 };
 export const bio = () => {
   return (
