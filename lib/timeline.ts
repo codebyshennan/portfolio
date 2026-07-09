@@ -10,6 +10,7 @@ interface ClientOrg {
 	name: string;
 	link?: string;
 	logo?: string;
+	smallCaps?: boolean;
 }
 
 interface Role {
@@ -19,6 +20,7 @@ interface Role {
 	href: string | null;
 	hook: string | null;
 	clients?: ClientOrg[];
+	ventures?: ClientOrg[];
 }
 
 const timeline: Timeline[] = [
@@ -45,18 +47,36 @@ const timeline: Timeline[] = [
 	},
 	{
 		date: "2023 - Present",
-		company: "Fracxional",
-		logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
-		link: "https://fracxional.com/",
+		company: "x-collective",
+		logo: "/brand/icon.svg",
+		link: "",
 		roles: [
 			{
-				position: "Founder & Technical Consultant",
+				position: "Founder, Operating Studio",
 				description: [
-					"Embed with early-stage teams and venture portfolios as a fractional CTO/CPO, shaping what to build and then building it.",
-					"Teach AI, data engineering, and automation courses across universities and corporate programs in Asia.",
-					"Course design and delivery spanning prompt engineering, AI agents, data pipelines, applied ML, and practical automation.",
+					"Run a small portfolio of operating companies across fractional CTO/CPO work, digital transformation, and career design.",
+					"Build and operate the shared systems, delivery patterns, and go-to-market surfaces across the portfolio.",
+					"Teach AI, data engineering, and automation courses across universities and corporate programs in Asia through the portfolio.",
 				],
 				technologies: [],
+				ventures: [
+					{
+						name: "fracxional",
+						link: "https://fracxional.com/",
+						logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
+						smallCaps: true,
+					},
+					{
+						name: "nxrratives",
+						link: "https://nxrratives.com/",
+						logo: "https://www.google.com/s2/favicons?domain=nxrratives.com&sz=64",
+					},
+					{
+						name: "innxvate",
+						link: "https://innxvate.org/",
+						logo: "https://www.google.com/s2/favicons?domain=innxvate.org&sz=64",
+					},
+				],
 				clients: [
 					{
 						name: "NTU PaCE",
@@ -102,42 +122,6 @@ const timeline: Timeline[] = [
 						logo: "https://www.google.com/s2/favicons?domain=sarah.capua.co&sz=64",
 					},
 				],
-				href: null,
-				hook: null,
-			},
-		],
-	},
-	{
-		date: "2026 - Present",
-		company: "innxvate",
-		logo: "https://www.google.com/s2/favicons?domain=innxvate.org&sz=64",
-		link: "https://innxvate.org/",
-		roles: [
-			{
-				position: "Co-founder, Digital Transformation",
-				description: [
-					"Strategy-to-execution consulting for organizations closing the gap between transformation plans and production systems.",
-					"Work spans operating-model design, process diagnostics, automation roadmaps, and embedded execution.",
-				],
-				technologies: [],
-				href: null,
-				hook: null,
-			},
-		],
-	},
-	{
-		date: "2023 - Present",
-		company: "nxrratives",
-		logo: "https://www.google.com/s2/favicons?domain=nxrratives.com&sz=64",
-		link: "https://nxrratives.com/",
-		roles: [
-			{
-				position: "Co-founder, Career Design",
-				description: [
-					"Career coaching and workshop programs that help students and early-career professionals turn reflection into a concrete next-step plan.",
-					"Co-create facilitated formats, digital scaffolding, and cohort materials for universities, teams, and communities.",
-				],
-				technologies: [],
 				href: null,
 				hook: null,
 			},

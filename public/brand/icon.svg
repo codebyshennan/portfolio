@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="x-collective mark">
+  <defs>
+    <linearGradient id="xc-bg" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.56" stop-color="#182034"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="xc-a" x1="54" y1="60" x2="202" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="xc-b" x1="202" y1="60" x2="54" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#4f7a3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#xc-bg)"/>
+  <path d="M65 65 191 191" fill="none" stroke="url(#xc-a)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M191 65 65 191" fill="none" stroke="url(#xc-b)" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="65" cy="65" r="13" fill="#f8fafc"/>
+  <circle cx="191" cy="65" r="13" fill="#f8fafc"/>
+  <circle cx="65" cy="191" r="13" fill="#f8fafc"/>
+  <circle cx="191" cy="191" r="13" fill="#f8fafc"/>
+  <circle cx="128" cy="128" r="22" fill="#0f172a" stroke="#f8fafc" stroke-width="8"/>
+</svg>

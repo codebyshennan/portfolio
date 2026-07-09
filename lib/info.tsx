@@ -3,7 +3,7 @@ import me from "../app/me.jpg";
 
 export const name = "Shen Nan, Wong";
 export const avatar = me;
-export const about = () => {
+export const about = (showXCollective = false) => {
   return (
     <>
       Builder-investor based in Southeast Asia.
@@ -19,35 +19,43 @@ export const about = () => {
       </a>
       , where I build the data infrastructure, internal tooling, and AI systems
       that power our investment operations.
-      <br /><br />
-      Also running a small portfolio of operating businesses:{" "}
-      <a
-        href="https://fracxional.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
-      >
-        Fracxional
-      </a>
-      {" "}for fractional CTO/CPO work,{" "}
-      <a
-        href="https://innxvate.org"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
-      >
-        innxvate
-      </a>
-      {" "}for digital transformation, and{" "}
-      <a
-        href="https://nxrratives.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
-      >
-        nxrratives
-      </a>
-      {" "}for career coaching. Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
+      {showXCollective ? (
+        <>
+          <br /><br />
+          Also running x-collective, a small portfolio of operating businesses:
+          {" "}
+          <a
+            href="https://fracxional.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+          >
+            <span style={{ fontVariantCaps: "all-small-caps" }}>
+              fracxional
+            </span>
+          </a>
+          {" "}for fractional CTO/CPO work,{" "}
+          <a
+            href="https://nxrratives.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+          >
+            nxrratives
+          </a>
+          {" "}for career coaching, and{" "}
+          <a
+            href="https://innxvate.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+          >
+            innxvate
+          </a>
+          {" "}for digital transformation.
+        </>
+      ) : null}
+      {" "}Currently in <span title="Ho Chi Minh City" className="cursor-default">&#127483;&#127475;</span>
     </>
   );
 };

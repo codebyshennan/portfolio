@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
+import { SearchParams, shouldShowXCollective } from "lib/query-flags";
 import technologies from "lib/technologies";
 import timeline from "lib/timeline";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure & AI systems for venture. Founder of Fracxional, innxvate, and nxrratives.",
+    "About Shen Nan, Wong - Builder-investor based in SEA. Sole engineer at Iterative, building data infrastructure, internal tooling, and AI systems for venture.",
   alternates: {
     canonical: "https://byshennan.com/about",
   },
@@ -14,14 +15,28 @@ export const metadata: Metadata = {
 
 export const revalidate = 86400; // Revalidate once per day
 
-export default function AboutPage() {
+export default async function AboutPage({
+  searchParams,
+}: {
+  searchParams?: Promise<SearchParams>;
+}) {
+  const params = searchParams ? await searchParams : {};
+  const showXCollective = shouldShowXCollective(params);
+  const visibleTimeline = timeline.filter(
+    (item) => showXCollective || item.company !== "x-collective",
+  );
+
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif mb-5">About Me</h1>
       <p className="text-neutral-400 text-base -mt-1 mb-3">
         Hey, I'm Shen Nan. I'm a builder-investor based in Southeast Asia.
         I'm the sole engineer at <strong className="text-neutral-300">Iterative</strong>, an early-stage fund investing across SEA and South Asia, where I build the data infrastructure, internal tooling, and AI systems that power our investment operations.
-        In parallel, I run <strong className="text-neutral-300">Fracxional</strong> for fractional CTO/CPO work, <strong className="text-neutral-300">innxvate</strong> for digital transformation, and <strong className="text-neutral-300">nxrratives</strong> for career coaching.
+        {showXCollective ? (
+          <>
+            {" "}In parallel, I run <strong className="text-neutral-300">x-collective</strong> across fractional CTO/CPO work, digital transformation, and career coaching.
+          </>
+        ) : null}
       </p>
       <p className="text-neutral-400 text-base mb-3">
         I'm drawn to deep technical product work and venture: building things that compound, then backing founders who do the same.
@@ -61,7 +76,7 @@ export default function AboutPage() {
       </a>
       <div className="my-5 text-neutral-800 dark:text-neutral-200">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
-          {timeline.map((item, index) => (
+          {visibleTimeline.map((item, index) => (
             <li key={index} className="ml-4 mb-10">
               <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
               <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -69,7 +84,16 @@ export default function AboutPage() {
               </time>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 {item.logo && (
-                  <img src={item.logo} className="w-4 h-4 mr-2 inline-block" />
+                  <img
+                    src={item.logo}
+                    alt=""
+                    aria-hidden="true"
+                    className={`w-4 h-4 mr-2 inline-block ${
+                      item.company === "x-collective"
+                        ? ""
+                        : "grayscale opacity-70"
+                    }`}
+                  />
                 )}
                 {item.link ? (
                   <a href={item.link}>{item.company}</a>
@@ -103,39 +127,117 @@ export default function AboutPage() {
                           <div className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500 mb-2">
                             Clients & partners
                           </div>
+                          {item.company === "x-collective" ? (
+                            <div className="flex flex-wrap items-center gap-3 mx-1">
+                              {role.clients
+                                .filter((client) => client.logo)
+                                .map((client, idx) =>
+                                  client.link ? (
+                                    <a
+                                      key={`${client.name}-${idx}`}
+                                      href={client.link}
+                                      aria-label={client.name}
+                                      className="group/tooltip relative inline-flex h-6 w-6 items-center justify-center transition-opacity hover:opacity-80 focus-visible:outline-none"
+                                    >
+                                      <img
+                                        src={client.logo}
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="w-4 h-4 grayscale opacity-70"
+                                      />
+                                      <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap bg-neutral-900 px-2 py-1 text-xs leading-none text-white opacity-0 shadow-sm transition-opacity group-hover/tooltip:opacity-100 group-focus-visible/tooltip:opacity-100 dark:bg-neutral-100 dark:text-neutral-900">
+                                        {client.name}
+                                      </span>
+                                    </a>
+                                  ) : (
+                                    <span
+                                      key={`${client.name}-${idx}`}
+                                      aria-label={client.name}
+                                      tabIndex={0}
+                                      className="group/tooltip relative inline-flex h-6 w-6 items-center justify-center focus-visible:outline-none"
+                                    >
+                                      <img
+                                        src={client.logo}
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="w-4 h-4 grayscale opacity-70"
+                                      />
+                                      <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap bg-neutral-900 px-2 py-1 text-xs leading-none text-white opacity-0 shadow-sm transition-opacity group-hover/tooltip:opacity-100 group-focus-visible/tooltip:opacity-100 dark:bg-neutral-100 dark:text-neutral-900">
+                                        {client.name}
+                                      </span>
+                                    </span>
+                                  ),
+                                )}
+                            </div>
+                          ) : (
+                            <div className="flex flex-wrap items-center gap-3 mx-1">
+                              {role.clients.map((client, idx) =>
+                                client.link ? (
+                                  <a
+                                    key={`${client.name}-${idx}`}
+                                    href={client.link}
+                                    className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
+                                  >
+                                    {client.logo && (
+                                      <img
+                                        src={client.logo}
+                                        alt={client.name}
+                                        className="w-4 h-4 grayscale opacity-70"
+                                      />
+                                    )}
+                                    <span>{client.name}</span>
+                                  </a>
+                                ) : (
+                                  <span
+                                    key={`${client.name}-${idx}`}
+                                    className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
+                                  >
+                                    {client.logo && (
+                                      <img
+                                        src={client.logo}
+                                        alt={client.name}
+                                        className="w-4 h-4 grayscale opacity-70"
+                                      />
+                                    )}
+                                    <span>{client.name}</span>
+                                  </span>
+                                ),
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {role.ventures && role.ventures.length > 0 && (
+                        <div className="mt-4">
+                          <div className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500 mb-2">
+                            Active companies
+                          </div>
                           <div className="flex flex-wrap items-center gap-3 mx-1">
-                            {role.clients.map((client, idx) =>
-                              client.link ? (
-                                <a
-                                  key={`${client.name}-${idx}`}
-                                  href={client.link}
-                                  className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
-                                >
-                                  {client.logo && (
-                                    <img
-                                      src={client.logo}
-                                      alt={client.name}
-                                      className="w-4 h-4"
-                                    />
-                                  )}
-                                  <span>{client.name}</span>
-                                </a>
-                              ) : (
+                            {role.ventures.map((venture, idx) => (
+                              <a
+                                key={`${venture.name}-${idx}`}
+                                href={venture.link}
+                                className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:opacity-80"
+                              >
+                                {venture.logo && (
+                                  <img
+                                    src={venture.logo}
+                                    alt={venture.name}
+                                    className="w-4 h-4"
+                                  />
+                                )}
                                 <span
-                                  key={`${client.name}-${idx}`}
-                                  className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
+                                  style={
+                                    venture.smallCaps
+                                      ? { fontVariantCaps: "all-small-caps" }
+                                      : undefined
+                                  }
                                 >
-                                  {client.logo && (
-                                    <img
-                                      src={client.logo}
-                                      alt={client.name}
-                                      className="w-4 h-4"
-                                    />
-                                  )}
-                                  <span>{client.name}</span>
+                                  {venture.name}
                                 </span>
-                              ),
-                            )}
+                              </a>
+                            ))}
                           </div>
                         </div>
                       )}
