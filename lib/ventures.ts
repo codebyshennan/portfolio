@@ -17,6 +17,15 @@ export const xCollectiveBrands: VentureLink[] = [
       "Embedded technical and product leadership for early-stage startups and venture-backed teams.",
   },
   {
+    name: "wxrkflows",
+    href: "https://w6w.site",
+    domain: "w6w.site",
+    label: "Automation systems",
+    iconSrc: "https://w6w.site/icon.svg",
+    description:
+      "Productized automation audits, build sprints, workshops, templates, and operator training for SEA teams.",
+  },
+  {
     name: "nxrratives",
     href: "https://nxrratives.com",
     domain: "nxrratives.com",

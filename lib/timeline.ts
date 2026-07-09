@@ -53,7 +53,7 @@ const timeline: Timeline[] = [
 			{
 				position: "Founder, Operating Studio",
 				description: [
-					"Run a small portfolio of operating companies across fractional CTO/CPO work, digital transformation, and career design.",
+					"Run a small services umbrella across fractional CTO/CPO work, productized automation, digital transformation, and career design.",
 					"Build and operate the shared systems, delivery patterns, and go-to-market surfaces across the portfolio.",
 					"Teach AI, data engineering, and automation courses across universities and corporate programs in Asia through the portfolio.",
 				],
@@ -63,6 +63,11 @@ const timeline: Timeline[] = [
 						name: "fracxional",
 						link: "https://fracxional.com/",
 						logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
+					},
+					{
+						name: "wxrkflows",
+						link: "https://w6w.site/",
+						logo: "https://w6w.site/icon.svg",
 					},
 					{
 						name: "nxrratives",

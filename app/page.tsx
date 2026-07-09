@@ -52,14 +52,14 @@ export default async function HomePage({
             <div className="mb-5 flex flex-col gap-4 border-y border-neutral-200 py-5 dark:border-neutral-800 md:flex-row md:items-center md:justify-between">
               <XCollectiveLogo />
               <p className="max-w-[330px] text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
-                A small operating studio for systems, transformation, and
-                career-design work.
+                A services umbrella for technical leadership, automation,
+                transformation, and career-design work.
               </p>
             </div>
             <h2 id="x-collective-heading" className="sr-only">
               x-collective brands
             </h2>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {xCollectiveBrands.map((item) => (
                 <a
                   key={item.name}

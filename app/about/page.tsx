@@ -34,7 +34,7 @@ export default async function AboutPage({
         I'm the sole engineer at <strong className="text-neutral-300">Iterative</strong>, an early-stage fund investing across SEA and South Asia, where I build the data infrastructure, internal tooling, and AI systems that power our investment operations.
         {showXCollective ? (
           <>
-            {" "}In parallel, I run <strong className="text-neutral-300">x-collective</strong> across fractional CTO/CPO work, digital transformation, and career coaching.
+            {" "}In parallel, I run <strong className="text-neutral-300">x-collective</strong> across fractional CTO/CPO work, automation systems, digital transformation, and career coaching.
           </>
         ) : null}
       </p>

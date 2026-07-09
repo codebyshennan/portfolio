@@ -388,9 +388,11 @@ export default function PostDetail({ post, slug }) {
               Sole engineer at{" "}
               <a href="https://iterative.vc" target="_blank" rel="noopener noreferrer" className="hover:underline">Iterative</a>
               {" "}(early-stage VC fund, SEA & South Asia), building data infrastructure and AI systems for investment operations.
-              Founder of{" "}
-              <a href="https://fracxional.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Fracxional</a>
-              {" "}for AI and data engineering education for enterprises and universities across Asia.
+              Runs{" "}
+              <a href="https://fracxional.com" target="_blank" rel="noopener noreferrer" className="hover:underline">fracxional</a>
+              {" "}for fractional CTO/CPO work and{" "}
+              <a href="https://w6w.site" target="_blank" rel="noopener noreferrer" className="hover:underline">wxrkflows</a>
+              {" "}for automation systems and operator training.
               Based in Ho Chi Minh City, Southeast Asia.
             </p>
           </div>

@@ -22,7 +22,7 @@ export const about = (showXCollective = false) => {
       {showXCollective ? (
         <>
           <br /><br />
-          Also running x-collective, a small portfolio of operating businesses:
+          Also running x-collective, a services umbrella for productized brands:
           {" "}
           <a
             href="https://fracxional.com"
@@ -33,6 +33,15 @@ export const about = (showXCollective = false) => {
             <span>fracxional</span>
           </a>
           {" "}for fractional CTO/CPO work,{" "}
+          <a
+            href="https://w6w.site"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
+          >
+            wxrkflows
+          </a>
+          {" "}for automation systems,{" "}
           <a
             href="https://nxrratives.com"
             target="_blank"

@@ -5,11 +5,11 @@ date: 2025-03-18
 tags: essay, investing, building, southeast-asia
 draft: false
 author: Shen Nan Wong
-keywords: builder-investor, data engineering, Southeast Asia, Iterative, Fracxional, AI education, venture capital
+keywords: builder-investor, data engineering, Southeast Asia, Iterative, fracxional, wxrkflows, AI education, venture capital
 cover:
 ---
 
-I'm Shen Nan. I work on data and automation at [Iterative](https://iterative.vc), a Singapore-headquartered early-stage fund investing across Southeast Asia and South Asia. I also run [Fracxional](https://fracxional.com), where I teach AI and data courses at institutions across Asia.
+I'm Shen Nan. I work on data and automation at [Iterative](https://iterative.vc), a Singapore-headquartered early-stage fund investing across Southeast Asia and South Asia. I also run x-collective, including [fracxional](https://fracxional.com) for fractional CTO/CPO work and [wxrkflows](https://w6w.site) for automation systems and operator training.
 
 My path here wasn't linear. I spent five years as a military officer in the Singapore Armed Forces, left in 2021 to go all-in on tech, and haven't looked back. Since then I've been a senior engineer at Circles.Life, worked in DevSecOps at Partior, co-founded an AI food supply chain startup called ZOLO through Antler, taught full-stack development at Rocket Academy, and ended up as the sole engineer at a venture fund. The work now is internal tooling and data infrastructure for investment operations.
 
@@ -19,7 +19,7 @@ I'm currently based in Ho Chi Minh City, living nomadically across Southeast Asi
 
 At Iterative, I wear a lot of hats. I build internal tools, automate deal flow operations, maintain our data stack, run technical due diligence on portfolio companies, and host office hours for 70+ founders. The work sits between engineering and investing: understanding systems deeply enough to evaluate them, then building fast enough to keep a lean fund operating like a much larger one.
 
-On the Fracxional side, I design and deliver AI and data engineering courses. That ranges from generative AI workshops for enterprise teams to hands-on modules for university programmes at NTU, SIT, SMU, and others. Teaching forces clarity. If you can't explain a concept to a room of non-engineers, you probably don't understand it well enough yourself.
+On the x-collective side, I design and deliver AI, data engineering, and automation work. That ranges from generative AI workshops for enterprise teams to hands-on modules for university programmes at NTU, SIT, SMU, and others. Teaching forces clarity. If you can't explain a concept to a room of non-engineers, you probably don't understand it well enough yourself.
 
 ## The builder-investor thesis
 

@@ -24,7 +24,7 @@ export function GET() {
 
   const content = `# Shen Nan Wong
 
-> Builder-investor based in Southeast Asia. Sole engineer at Iterative (iterative.vc), an early-stage VC fund investing across SEA and South Asia. Founder of Fracxional, AI and data engineering education for enterprises and universities across Asia.
+> Builder-investor based in Southeast Asia. Sole engineer at Iterative (iterative.vc), an early-stage VC fund investing across SEA and South Asia. Runs x-collective across fracxional, wxrkflows, innxvate, and nxrratives.
 
 ## Pages
 
@@ -46,7 +46,10 @@ ${projectLines}
 - LinkedIn: https://www.linkedin.com/in/wongshennan/
 - GitHub: https://github.com/codebyshennan
 - Substack: https://byshennan.substack.com/
-- Fracxional: https://fracxional.com
+- fracxional: https://fracxional.com
+- wxrkflows: https://w6w.site
+- innxvate: https://innxvate.org
+- nxrratives: https://nxrratives.com
 - Iterative: https://iterative.vc
 `;
 
