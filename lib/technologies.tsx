@@ -319,7 +319,7 @@ const technologies = {
         <circle cx="18" cy="15" r="1.5" />
       </svg>
     ),
-    link: null,
+    link: "https://www.youtube.com/watch?v=JYo18VqK8yw",
     color: "gray-300",
   },
   notion: {
