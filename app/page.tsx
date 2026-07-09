@@ -118,15 +118,7 @@ export default async function HomePage({
                       name={item.name}
                       grayscale={false}
                     />
-                    <span
-                      style={
-                        item.smallCaps
-                          ? { fontVariantCaps: "all-small-caps" }
-                          : undefined
-                      }
-                    >
-                      {item.name}
-                    </span>
+                    <span>{item.name}</span>
                   </div>
                   <p className="mt-1 text-xs uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
                     {item.label}

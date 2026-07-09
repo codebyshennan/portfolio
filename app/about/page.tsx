@@ -227,15 +227,7 @@ export default async function AboutPage({
                                     className="w-4 h-4"
                                   />
                                 )}
-                                <span
-                                  style={
-                                    venture.smallCaps
-                                      ? { fontVariantCaps: "all-small-caps" }
-                                      : undefined
-                                  }
-                                >
-                                  {venture.name}
-                                </span>
+                                <span>{venture.name}</span>
                               </a>
                             ))}
                           </div>

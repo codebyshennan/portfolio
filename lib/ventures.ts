@@ -4,7 +4,6 @@ export type VentureLink = {
   domain: string;
   label: string;
   description?: string;
-  smallCaps?: boolean;
 };
 
 export const xCollectiveBrands: VentureLink[] = [
@@ -15,7 +14,6 @@ export const xCollectiveBrands: VentureLink[] = [
     label: "Fractional CTO / CPO",
     description:
       "Embedded technical and product leadership for early-stage startups and venture-backed teams.",
-    smallCaps: true,
   },
   {
     name: "nxrratives",

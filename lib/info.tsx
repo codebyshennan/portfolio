@@ -30,9 +30,7 @@ export const about = (showXCollective = false) => {
             rel="noopener noreferrer"
             className="font-normal text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
           >
-            <span style={{ fontVariantCaps: "all-small-caps" }}>
-              fracxional
-            </span>
+            <span>fracxional</span>
           </a>
           {" "}for fractional CTO/CPO work,{" "}
           <a

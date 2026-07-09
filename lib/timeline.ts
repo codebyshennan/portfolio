@@ -10,7 +10,6 @@ interface ClientOrg {
 	name: string;
 	link?: string;
 	logo?: string;
-	smallCaps?: boolean;
 }
 
 interface Role {
@@ -64,7 +63,6 @@ const timeline: Timeline[] = [
 						name: "fracxional",
 						link: "https://fracxional.com/",
 						logo: "https://www.google.com/s2/favicons?domain=fracxional.com&sz=64",
-						smallCaps: true,
 					},
 					{
 						name: "nxrratives",
