@@ -3,7 +3,6 @@
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import ThemeToggle from "./theme-toggle";
 
 const HomeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -106,9 +105,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-          </div>
-          <div className="flex items-center md:mt-4">
-            <ThemeToggle />
           </div>
         </nav>
       </div>

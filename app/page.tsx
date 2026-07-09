@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogViews, getTweetCount, getStarCount } from "lib/metrics";
 import {
-  ArrowIcon,
   GitHubIcon,
   LinkedInIcon,
   TwitterIcon,
@@ -144,7 +143,11 @@ export default async function HomePage({
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-neutral-200 dark:border-neutral-800 px-3 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
               >
-                <SiteFavicon domain={item.domain} name={item.name} />
+                <SiteFavicon
+                  domain={item.domain}
+                  name={item.name}
+                  src={item.iconSrc}
+                />
                 <span>{item.name}</span>
                 <span className="text-neutral-400 dark:text-neutral-600">/</span>
                 <span className="text-neutral-400 dark:text-neutral-500">
@@ -163,7 +166,7 @@ export default async function HomePage({
             target="_blank"
             href="https://www.linkedin.com/in/wongshennan/"
           >
-            <ArrowIcon />
+            <SiteFavicon domain="linkedin.com" name="LinkedIn" />
             <p className="h-7">connect on linkedin</p>
           </a>
         </li>
@@ -174,7 +177,7 @@ export default async function HomePage({
             target="_blank"
             href="https://twitter.com/wongsn"
           >
-            <ArrowIcon />
+            <SiteFavicon domain="twitter.com" name="Twitter" />
             <p className="h-7">follow me on twitter</p>
           </a>
         </li>
@@ -185,7 +188,7 @@ export default async function HomePage({
             target="_blank"
             href="https://byshennan.substack.com/"
           >
-            <ArrowIcon />
+            <SiteFavicon domain="substack.com" name="Substack" />
             <p className="h-7">get email updates</p>
           </a>
         </li>

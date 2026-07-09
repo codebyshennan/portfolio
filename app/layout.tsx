@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Sidebar from "../components/sidebar";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "../components/theme-provider";
+import ThemeToggle from "../components/theme-toggle";
 import JsonLd from "../components/json-ld";
 
 const kaisei = localFont({
@@ -101,6 +102,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto text-black bg-white dark:text-white dark:bg-[#111010]">
         <ThemeProvider>
+          <div className="fixed right-4 top-4 z-[60] md:right-8 md:top-8">
+            <ThemeToggle />
+          </div>
           <Sidebar />
           <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
             {children}

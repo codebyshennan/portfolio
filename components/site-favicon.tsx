@@ -1,6 +1,7 @@
 type SiteFaviconProps = {
   domain: string;
   name: string;
+  src?: string;
   className?: string;
   grayscale?: boolean;
 };
@@ -8,12 +9,13 @@ type SiteFaviconProps = {
 export default function SiteFavicon({
   domain,
   name,
+  src,
   className = "",
   grayscale = true,
 }: SiteFaviconProps) {
   return (
     <img
-      src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+      src={src ?? `https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
       alt=""
       aria-hidden="true"
       loading="lazy"
