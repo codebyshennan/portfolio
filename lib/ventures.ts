@@ -21,6 +21,7 @@ export const xCollectiveBrands: VentureLink[] = [
     href: "https://nxrratives.com",
     domain: "nxrratives.com",
     label: "Career coaching",
+    iconSrc: "https://nxrratives.com/icon.svg",
     description:
       "Facilitated career-design workshops that turn reflection, anxiety, and options into a usable next-step plan.",
   },

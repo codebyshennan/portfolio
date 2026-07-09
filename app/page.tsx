@@ -115,6 +115,7 @@ export default async function HomePage({
                     <SiteFavicon
                       domain={item.domain}
                       name={item.name}
+                      src={item.iconSrc}
                       grayscale={false}
                     />
                     <span>{item.name}</span>
@@ -134,62 +135,66 @@ export default async function HomePage({
           <h2 className="font-serif font-bold text-xl text-neutral-900 dark:text-neutral-100 mb-4">
             Launching
           </h2>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {launching.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-neutral-200 dark:border-neutral-800 px-3 py-1.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
+                className="group block rounded-lg border border-neutral-200 p-3 text-sm transition-colors hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700"
               >
-                <SiteFavicon
-                  domain={item.domain}
-                  name={item.name}
-                  src={item.iconSrc}
-                />
-                <span>{item.name}</span>
-                <span className="text-neutral-400 dark:text-neutral-600">/</span>
-                <span className="text-neutral-400 dark:text-neutral-500">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900">
+                  <SiteFavicon
+                    domain={item.domain}
+                    name={item.name}
+                    src={item.iconSrc}
+                    className="h-5 w-5"
+                  />
+                </div>
+                <div className="mt-3 font-medium text-neutral-800 group-hover:text-neutral-950 dark:text-neutral-200 dark:group-hover:text-white">
+                  {item.name}
+                </div>
+                <div className="mt-1 text-xs leading-snug text-neutral-400 dark:text-neutral-500">
                   {item.label}
-                </span>
+                </div>
               </a>
             ))}
           </div>
         </div>
       </div>
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+      <ul className="mt-8 flex flex-col gap-2 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="inline-flex w-fit items-center gap-2 hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/wongshennan/"
           >
             <SiteFavicon domain="linkedin.com" name="LinkedIn" />
-            <p className="h-7">connect on linkedin</p>
+            <span>connect on linkedin</span>
           </a>
         </li>
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="inline-flex w-fit items-center gap-2 hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href="https://twitter.com/wongsn"
           >
             <SiteFavicon domain="twitter.com" name="Twitter" />
-            <p className="h-7">follow me on twitter</p>
+            <span>follow me on twitter</span>
           </a>
         </li>
         <li>
           <a
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            className="inline-flex w-fit items-center gap-2 hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
             href="https://byshennan.substack.com/"
           >
             <SiteFavicon domain="substack.com" name="Substack" />
-            <p className="h-7">get email updates</p>
+            <span>get email updates</span>
           </a>
         </li>
       </ul>

@@ -30,7 +30,7 @@ const timeline: Timeline[] = [
 		link: "https://iterative.vc/",
 		roles: [
 			{
-				position: "Head of Engineering, Automations, Data Engineering & Applied AI",
+				position: "Lead Engineer, Automations, Data Engineering & Applied AI",
 				description: [
 					"Staff-level engineer leading the design & implementation of firm-wide data, software, IT & automation infrastructure powering portfolio operations for an early-stage VC fund.",
 					"Conduct technical due diligence on deep tech & software startups; advise portfolio CTOs on engineering strategy.",
@@ -67,7 +67,7 @@ const timeline: Timeline[] = [
 					{
 						name: "nxrratives",
 						link: "https://nxrratives.com/",
-						logo: "https://www.google.com/s2/favicons?domain=nxrratives.com&sz=64",
+						logo: "https://nxrratives.com/icon.svg",
 					},
 					{
 						name: "innxvate",
