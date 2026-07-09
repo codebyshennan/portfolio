@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getBlogViews, getTweetCount, getStarCount } from "lib/metrics";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -22,29 +21,9 @@ export default async function HomePage({
 }) {
   const params = searchParams ? await searchParams : {};
   const showXCollective = shouldShowXCollective(params);
-
-  let starCount, views, tweetCount;
-
-  try {
-    const [starCountResult, viewsResult, tweetCountResult] =
-      await Promise.allSettled([
-        getStarCount(),
-        getBlogViews(),
-        getTweetCount(),
-      ]);
-
-    starCount =
-      starCountResult.status === "fulfilled" ? starCountResult.value : 0;
-
-    views = viewsResult.status === "fulfilled" ? viewsResult.value : 0;
-
-    tweetCount =
-      tweetCountResult.status === "fulfilled" ? tweetCountResult.value : 0;
-
-    console.log({ starCount, views, tweetCount });
-  } catch (error) {
-    console.error(error);
-  }
+  const starCount = 0;
+  const views = 0;
+  const tweetCount = 0;
 
   return (
     <section>
