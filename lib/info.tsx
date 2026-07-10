@@ -6,8 +6,6 @@ export const avatar = me;
 export const about = (showXCollective = false) => {
   return (
     <>
-      Builder-investor based in Southeast Asia.
-      <br /><br />
       Sole engineer at{" "}
       <a
         href="https://iterative.vc"
