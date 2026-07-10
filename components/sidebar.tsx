@@ -72,6 +72,7 @@ export default function Navbar() {
                 <Link
                   key={path}
                   href={path}
+                  prefetch={false}
                   className={clsx(
                     "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle md:w-full",
                     {

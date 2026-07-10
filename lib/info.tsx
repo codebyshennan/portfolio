@@ -81,6 +81,7 @@ export const bio = () => {
       , an AI food supply chain startup (Antler-backed). Always interested in
       <Link
         href="/projects"
+        prefetch={false}
         className="font-normal leading-none text-gray-400 dark:text-gray-500 hover:text-neutral-700 dark:hover:text-neutral-200"
       >
         {" "}side projects{" "}

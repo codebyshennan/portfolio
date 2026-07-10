@@ -13,6 +13,7 @@ const kaisei = localFont({
   weight: "700",
   variable: "--font-kaisei",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -34,16 +35,16 @@ export const metadata: Metadata = {
     "automation",
   ],
   alternates: {
-    canonical: "https://byshennan.com",
+    canonical: "https://www.byshennan.com",
   },
   openGraph: {
     title: "Shen Nan, Wong",
     description: "Builder-investor based in SEA. Data infrastructure, AI systems, and venture.",
-    url: "https://byshennan.com",
+    url: "https://www.byshennan.com",
     siteName: "Shen Nan, Wong",
     images: [
       {
-        url: "https://byshennan.com/og.png",
+        url: "https://www.byshennan.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -76,7 +77,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Shen Nan Wong",
-  url: "https://byshennan.com",
+  url: "https://www.byshennan.com",
   jobTitle: "Software Engineer, AI/Data",
   worksFor: { "@type": "Organization", name: "Iterative", url: "https://iterative.vc" },
   sameAs: [
