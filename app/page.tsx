@@ -27,7 +27,12 @@ export default async function HomePage({
           height={64}
           priority
         />
-        <h1 className="font-bold text-3xl font-serif">{name}</h1>
+        <div>
+          <h1 className="font-bold text-3xl font-serif">{name}</h1>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            Builder-investor based in Southeast Asia.
+          </p>
+        </div>
       </div>
       <p className="my-5 max-w-[600px] text-neutral-500 dark:text-neutral-400">
         {about(showXCollective)}
