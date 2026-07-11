@@ -3,7 +3,7 @@ title: Cordon
 description: Multi-agent planning system for large-scale event logistics that translates natural language into executable road closures, resource deployment, and multi-agency coordination.
 date: 2024-12-01
 tags: ai, maps, agents, hackathon
-cover: /images/projects/cordon.png
+cover: /images/projects/eventops.png
 github: https://github.com/codebyshennan/eventops
 website: https://eventops-planning.vercel.app/
 draft: false

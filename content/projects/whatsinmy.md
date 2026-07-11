@@ -3,7 +3,7 @@ title: Affiliate Aggregator
 description: One dashboard for affiliate links, commissions, brand deals, and creator revenue across every program and channel.
 date: 2026-04-29
 tags: creators, affiliate, analytics, dashboard
-cover:
+cover: /icons/launching/whatsinmy-zzeb66vgfo.svg
 github:
 website: https://whatsinmy.xyz
 draft: false

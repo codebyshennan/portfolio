@@ -3,7 +3,7 @@ title: Compass
 description: Slack workspace archiver and AI knowledge platform that preserves institutional knowledge from Iterative's founder community, classifies conversations into a searchable Founder Bible, and answers questions with inline citations.
 date: 2025-02-01
 tags: ai, slack, knowledge-base, search
-cover: /images/projects/compass.png
+cover: /images/projects/compass-arch.svg
 github: https://github.com/codebyshennan/slack-backup
 website:
 draft: false

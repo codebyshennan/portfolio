@@ -3,7 +3,7 @@ title: Notion+
 description: Marketplace for Notion-native apps, forms, widgets, and worker packs built for the Notion Agent era.
 date: 2026-04-29
 tags: notion, marketplace, agents, productivity
-cover:
+cover: /icons/launching/notionplus-0how5vgff.svg
 github:
 website: https://notionplus.xyz
 draft: false

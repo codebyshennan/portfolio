@@ -77,6 +77,10 @@ export default async function AboutPage({
                     src={item.logo}
                     alt=""
                     aria-hidden="true"
+                    width={16}
+                    height={16}
+                    loading="lazy"
+                    decoding="async"
                     className={`w-4 h-4 mr-2 inline-block ${
                       item.company === "x-collective"
                         ? ""
@@ -132,6 +136,10 @@ export default async function AboutPage({
                                         src={client.logo}
                                         alt=""
                                         aria-hidden="true"
+                                        width={16}
+                                        height={16}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-4 h-4 grayscale opacity-70"
                                       />
                                       <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap bg-neutral-900 px-2 py-1 text-xs leading-none text-white opacity-0 shadow-sm transition-opacity group-hover/tooltip:opacity-100 group-focus-visible/tooltip:opacity-100 dark:bg-neutral-100 dark:text-neutral-900">
@@ -149,6 +157,10 @@ export default async function AboutPage({
                                         src={client.logo}
                                         alt=""
                                         aria-hidden="true"
+                                        width={16}
+                                        height={16}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-4 h-4 grayscale opacity-70"
                                       />
                                       <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 whitespace-nowrap bg-neutral-900 px-2 py-1 text-xs leading-none text-white opacity-0 shadow-sm transition-opacity group-hover/tooltip:opacity-100 group-focus-visible/tooltip:opacity-100 dark:bg-neutral-100 dark:text-neutral-900">
@@ -171,6 +183,10 @@ export default async function AboutPage({
                                       <img
                                         src={client.logo}
                                         alt={client.name}
+                                        width={16}
+                                        height={16}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-4 h-4 grayscale opacity-70"
                                       />
                                     )}
@@ -185,6 +201,10 @@ export default async function AboutPage({
                                       <img
                                         src={client.logo}
                                         alt={client.name}
+                                        width={16}
+                                        height={16}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-4 h-4 grayscale opacity-70"
                                       />
                                     )}
@@ -213,6 +233,10 @@ export default async function AboutPage({
                                   <img
                                     src={venture.logo}
                                     alt={venture.name}
+                                    width={16}
+                                    height={16}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-4 h-4"
                                   />
                                 )}

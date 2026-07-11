@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ViewToggle, { type ViewMode } from "./view-toggle";
 
 interface Post {
@@ -21,8 +22,6 @@ export default function PostList({
   basePath: string;
 }) {
   const [view, setView] = useState<ViewMode>("grid");
-  const usesProjectOgImages = basePath === "/projects";
-
   return (
     <>
       <div className="flex justify-end mb-4">
@@ -63,25 +62,25 @@ export default function PostList({
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <Link
               key={post.slug}
               href={`${basePath}/${post.slug}`}
               className="group border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-sm transition-all duration-200 cursor-pointer"
             >
-              {usesProjectOgImages || post.cover ? (
-                <div className="aspect-[16/9] overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-                  <img
-                    src={
-                      usesProjectOgImages
-                        ? `/api/og?type=project&slug=${post.slug}&title=${encodeURIComponent(post.title)}`
-                        : post.cover!
-                    }
+              {post.cover ? (
+                <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                  <Image
+                    fill
+                    src={post.cover}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
+                    sizes="(max-width: 640px) calc(100vw - 3rem), 320px"
+                    preload={index === 0}
+                    className={`group-hover:scale-105 transition-transform duration-300 ${
+                      post.cover.endsWith(".svg")
+                        ? "object-contain p-10"
+                        : "object-cover"
+                    }`}
                   />
                 </div>
               ) : (

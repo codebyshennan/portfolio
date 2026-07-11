@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "./code-block";
@@ -9,6 +10,22 @@ import { FaqSection } from "./faq-section";
 import { useRouter, usePathname } from "next/navigation";
 import ViewCounter from "app/blog/view-counter";
 import { ScrollToTop } from "components/scrollTop";
+
+const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/images/projects/atlas.png": { width: 1280, height: 800 },
+  "/images/projects/atlas-arch.svg": { width: 500, height: 520 },
+  "/images/projects/bearing.png": { width: 1280, height: 800 },
+  "/images/projects/bearing-arch.svg": { width: 500, height: 540 },
+  "/images/projects/cacophony.png": { width: 1280, height: 800 },
+  "/images/projects/compass-arch.svg": { width: 500, height: 530 },
+  "/images/projects/fathom.png": { width: 1200, height: 987 },
+  "/images/projects/meridian.png": { width: 1280, height: 800 },
+  "/images/projects/meridian-arch.svg": { width: 500, height: 500 },
+  "/images/projects/topograph.png": { width: 1280, height: 800 },
+  "/images/projects/vox.png": { width: 1280, height: 800 },
+  "/images/projects/vox-arch.svg": { width: 500, height: 440 },
+  "/images/projects/waypoint.png": { width: 1280, height: 800 },
+};
 
 // Convert > [!TYPE] callout syntax into a detectable marker
 function preprocessMarkdown(markdown: string): string {
@@ -308,14 +325,28 @@ export default function PostDetail({ post, slug }) {
             );
           },
           img({ src, alt }) {
+            const dimensions = typeof src === "string" ? imageDimensions[src] : null;
+
             return (
               <span className="not-prose block my-8">
-                <img
-                  src={src}
-                  alt={alt || ""}
-                  className="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900"
-                  loading="lazy"
-                />
+                {typeof src === "string" && dimensions ? (
+                  <Image
+                    src={src}
+                    alt={alt || ""}
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    sizes="(max-width: 768px) calc(100vw - 3rem), 672px"
+                    className="w-full h-auto rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900"
+                  />
+                ) : (
+                  <img
+                    src={src}
+                    alt={alt || ""}
+                    className="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
                 {alt && (
                   <span className="block text-center text-xs text-neutral-400 dark:text-neutral-500 mt-2">
                     {alt}

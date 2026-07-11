@@ -3,7 +3,7 @@ title: First Year In...
 description: A story platform for honest first-year transitions, first job, first city, first child, first founder year, and other hard beginnings.
 date: 2026-04-29
 tags: community, storytelling, career, life
-cover:
+cover: /icons/launching/firstyearin-0nwk4fqi849cd.svg
 github:
 website: https://firstyearin.xyz
 draft: false
