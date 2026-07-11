@@ -50,20 +50,20 @@ export const launching: VentureLink[] = [
     href: "https://notionplus.xyz",
     domain: "notionplus.xyz",
     label: "Notion apps",
-    iconSrc: "https://notionplus.xyz/icon.svg?icon.0how5vgff.ys6.svg",
+    iconSrc: "/icons/launching/notionplus-0how5vgff.svg",
   },
   {
     name: "firstyearin",
     href: "https://firstyearin.xyz",
     domain: "firstyearin.xyz",
     label: "First-year stories",
-    iconSrc: "https://firstyearin.xyz/icon.svg?icon.0nwk4fqi849cd.svg",
+    iconSrc: "/icons/launching/firstyearin-0nwk4fqi849cd.svg",
   },
   {
     name: "whatsinmy",
     href: "https://whatsinmy.xyz",
     domain: "whatsinmy.xyz",
     label: "Affiliate dashboard",
-    iconSrc: "https://whatsinmy.xyz/icon.svg?icon.0.~zzeb66vgfo.svg",
+    iconSrc: "/icons/launching/whatsinmy-zzeb66vgfo.svg",
   },
 ];

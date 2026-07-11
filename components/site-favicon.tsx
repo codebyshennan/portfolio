@@ -7,10 +7,28 @@ type SiteFaviconProps = {
 };
 
 export default function SiteFavicon({
+  src,
   name,
   className = "",
   grayscale = true,
 }: SiteFaviconProps) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        width={20}
+        height={20}
+        loading="lazy"
+        decoding="async"
+        className={`h-4 w-4 shrink-0 transition-opacity group-hover:opacity-100 ${
+          grayscale ? "grayscale opacity-70" : "opacity-100"
+        } ${className}`}
+      />
+    );
+  }
+
   const initial = name.trim().charAt(0).toLowerCase();
 
   return (
