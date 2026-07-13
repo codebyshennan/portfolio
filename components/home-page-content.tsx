@@ -2,6 +2,7 @@ import Image from "next/image";
 import SiteFavicon from "components/site-favicon";
 import XCollectiveLogo from "components/x-collective-logo";
 import { name, about, bio, avatar } from "lib/info";
+import { hideVentures } from "lib/seo";
 import { launching, xCollectiveBrands } from "lib/ventures";
 
 type HomePageContentProps = {
@@ -90,6 +91,7 @@ export default function HomePageContent({
             </div>
           </section>
         ) : null}
+        {hideVentures ? null : (
         <div>
           <h2 className="font-serif font-bold text-xl text-neutral-900 dark:text-neutral-100 mb-4">
             Launching
@@ -121,6 +123,7 @@ export default function HomePageContent({
             ))}
           </div>
         </div>
+        )}
       </div>
       <ul className="mt-8 flex flex-col gap-2 font-sm text-neutral-500 dark:text-neutral-400">
         <li>

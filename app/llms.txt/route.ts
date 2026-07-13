@@ -1,10 +1,11 @@
 // app/llms.txt/route.ts
 import { getAllPublished } from "lib/content";
+import { hideVentures, withoutHiddenVentures } from "lib/seo";
 
 export const dynamic = "force-dynamic";
 
 export function GET() {
-  const posts = getAllPublished();
+  const posts = withoutHiddenVentures(getAllPublished());
   const blogs = posts.filter((p) => p.category === "Blog");
   const projects = posts.filter((p) => p.category === "Project");
 
@@ -22,9 +23,21 @@ export function GET() {
     )
     .join("\n");
 
+  const summary = hideVentures
+    ? "Builder-investor based in Southeast Asia. Sole engineer at Iterative (iterative.vc), an early-stage VC fund investing across SEA and South Asia."
+    : "Builder-investor based in Southeast Asia. Sole engineer at Iterative (iterative.vc), an early-stage VC fund investing across SEA and South Asia. Runs x-collective across fracxional, wxrkflows, innxvate, and nxrratives.";
+
+  const ventureContactLines = hideVentures
+    ? ""
+    : `
+- fracxional: https://fracxional.com
+- wxrkflows: https://w6w.site
+- innxvate: https://innxvate.org
+- nxrratives: https://nxrratives.com`;
+
   const content = `# Shen Nan Wong
 
-> Builder-investor based in Southeast Asia. Sole engineer at Iterative (iterative.vc), an early-stage VC fund investing across SEA and South Asia. Runs x-collective across fracxional, wxrkflows, innxvate, and nxrratives.
+> ${summary}
 
 ## Pages
 
@@ -45,11 +58,7 @@ ${projectLines}
 
 - LinkedIn: https://www.linkedin.com/in/wongshennan/
 - GitHub: https://github.com/codebyshennan
-- Substack: https://byshennan.substack.com/
-- fracxional: https://fracxional.com
-- wxrkflows: https://w6w.site
-- innxvate: https://innxvate.org
-- nxrratives: https://nxrratives.com
+- Substack: https://byshennan.substack.com/${ventureContactLines}
 - Iterative: https://iterative.vc
 `;
 

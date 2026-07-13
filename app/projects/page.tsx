@@ -1,4 +1,5 @@
 import { getAllPublished } from "lib/content";
+import { withoutHiddenVentures } from "lib/seo";
 import { Metadata } from "next";
 import PostList from "../../components/post-list";
 
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  const posts = getAllPublished().filter((p) => p.category === "Project");
+  const posts = withoutHiddenVentures(
+    getAllPublished().filter((p) => p.category === "Project")
+  );
 
   return (
     <section>

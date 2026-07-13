@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllPublished, getSinglePostBySlug } from "lib/content";
 import PostDetail from "components/posts/details";
 import JsonLd from "components/json-ld";
+import { hideVentures, ventureProjectSlugs } from "lib/seo";
 
 export function generateStaticParams() {
   return getAllPublished()
@@ -24,6 +25,12 @@ export async function generateMetadata({
     title,
     description,
     keywords: keywords.length > 0 ? keywords : undefined,
+    // Dropping these from the sitemap is not enough on its own — Google keeps
+    // crawling URLs it already knows. The noindex is what actually removes them.
+    robots:
+      hideVentures && ventureProjectSlugs.includes(slug)
+        ? { index: false, follow: false }
+        : undefined,
     alternates: {
       canonical: `https://byshennan.com/projects/${slug}`,
     },

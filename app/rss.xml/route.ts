@@ -1,7 +1,8 @@
 import { getAllPublished } from "lib/content";
+import { withoutHiddenVentures } from "lib/seo";
 
 export function GET() {
-  const posts = getAllPublished().sort(
+  const posts = withoutHiddenVentures(getAllPublished()).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 

@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "../components/theme-provider";
 import ThemeToggle from "../components/theme-toggle";
 import JsonLd from "../components/json-ld";
+import { hideVentures } from "../lib/seo";
 
 const kaisei = localFont({
   src: "../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
@@ -27,8 +28,7 @@ export const metadata: Metadata = {
     "AI systems",
     "Southeast Asia",
     "venture capital",
-    "fracxional",
-    "wxrkflows",
+    ...(hideVentures ? [] : ["fracxional", "wxrkflows"]),
     "Iterative",
     "builder-investor",
     "AI education",

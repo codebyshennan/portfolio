@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getAllPublished } from "lib/content";
+import { withoutHiddenVentures } from "lib/seo";
 import PostList from "../../components/post-list";
 
 export const metadata: Metadata = {
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPublished().filter((p) => p.category === "Blog");
+  const posts = withoutHiddenVentures(
+    getAllPublished().filter((p) => p.category === "Blog")
+  );
 
   return (
     <section>

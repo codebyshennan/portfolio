@@ -1,7 +1,8 @@
 import { getAllPublished } from "lib/content";
+import { withoutHiddenVentures } from "lib/seo";
 
 export default function sitemap() {
-  const posts = getAllPublished();
+  const posts = withoutHiddenVentures(getAllPublished());
 
   const blogs = posts
     .filter((post) => post.category === "Blog")
